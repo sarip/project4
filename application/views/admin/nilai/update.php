@@ -12,7 +12,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <!-- <a href="<?= base_url('admin/insert_siswa') ?>" title="Tambah Data Siswa" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Tambah Siswa</a> -->
+              <a href="<?= base_url('admin/print_nilai/').$this->uri->segment(3) ?>" title="Print Nilai" class="btn btn-warning pull-right" target="_blank"><i class="fa fa-print"></i> Print</a>
              
             </div>
             <!-- /.box-header -->

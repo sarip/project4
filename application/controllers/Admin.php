@@ -219,6 +219,12 @@ class Admin extends CI_Controller {
 		$data['dataNilai'] 	= $this->M_nilai->get(['md5(nilai.id_siswa)' => $id]);
 		$this->mylibrary->templateadmin('nilai/update', $data);
 	}
+
+	public function print_nilai($id){
+		$data['siswa'] = $this->M_nilai->get(['md5(siswa.id_siswa)' => $id])->row();
+		$data['dataNilai'] 	= $this->M_nilai->get(['md5(nilai.id_siswa)' => $id]);
+		$this->load->view('admin/nilai/print', $data);
+	}
 	// END :: NILAI
 
 }
