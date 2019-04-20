@@ -220,28 +220,29 @@
 <script src="<?= base_url() ?>assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 <script>
   function notifikasi(status, text) {
-          if (status == 'success') {
-            $.toast({
-                      heading: 'Success',
-                      text: text,
-                      showHideTransition: 'slide',
-                      icon: 'success',
-                      hideAfter: 5000,
-                      position: 'top-right'
+      if (status == 'success') {
+        $.toast({
+                  heading: 'Success',
+                  text: text,
+                  showHideTransition: 'slide',
+                  icon: 'success',
+                  hideAfter: 5000,
+                  position: 'top-right'
+        });
+         var audio = new Audio('<?= base_url(); ?>assets/sound/1.mp3');
+      }else{
+        $.toast({
+                  heading: 'error',
+                  text: text,
+                  showHideTransition: 'slide',
+                  icon: 'error',
+                  hideAfter: 5000,
+                  position: 'top-right'
             });
-             var audio = new Audio('<?= base_url(); ?>assets/sound/1.mp3');
-          }else{
-            $.toast({
-                      heading: 'error',
-                      text: text,
-                      showHideTransition: 'slide',
-                      icon: 'error',
-                      hideAfter: 5000
-                });
-            var audio = new Audio('<?= base_url() ?>assets/sound/1.mp3');
-          }
+        var audio = new Audio('<?= base_url() ?>assets/sound/1.mp3');
+      }
 
-            audio.play();
+        audio.play();
   }
    //iCheck for checkbox and radio inputs
     $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
@@ -267,6 +268,8 @@
       todayBtn : true,
       todayHighlight : true
     })
+
+    $('#example').DataTable();
 </script>
 </body>
 </html>

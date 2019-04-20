@@ -128,6 +128,11 @@ class M_siswa extends CI_Model {
 		return $this->db->update('siswa', $data, ['md5(id_siswa)' => $id]);
 	}
 
+	public function update_absen($data, $where)
+	{
+		return $this->db->update('siswa', $data, $where);
+	}
+
 	function delete($id){
 		$result = $this->get(['md5(id_siswa)' => $id])->row();
 		unlink('assets/siswa/'.$result->foto_siswa);

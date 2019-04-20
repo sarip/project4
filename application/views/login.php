@@ -29,8 +29,8 @@
 </head>
 <body class="hold-transition login-page bg-green">
 <div class="login-box">
-  <div class="login-logo">
-    <a style="color: white; text-shadow: 1px 2px 10px black;"><b>SMKN</b> kadipaten</a>
+  <div class="bg-primary" style="padding: 5px;">
+    <a style="color: white; text-shadow: 1px 2px 10px black;"><b><small><i class="fa fa-wifi fa-2x"></i> SMKN</small> K</b>ADIPATEN</a>
    
   </div>
   <!-- /.login-logo -->

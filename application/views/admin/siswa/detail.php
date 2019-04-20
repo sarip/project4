@@ -14,6 +14,10 @@
             <div class="box-header">
              
             </div>
+            <div class="box-body">
+            <div class="panel panel-primary">
+            <div class="panel-heading">Biodata Siswa</div>
+            <div class="panel-body">
             <!-- /.box-header -->
               <div class="row">
                 <div class="col-lg-6">
@@ -21,9 +25,9 @@
                     <div class="box-body table-responsive">
                       <table class="table table-striped table-hover" id="table">
                           <tr>
-                            <th>NIS </th>
-                            <th> : </th>
-                            <td><?= $siswa->nis; ?></td>
+                            <th width="30%">NIS </th>
+                            <th width="30%"> : </th>
+                            <td width="30%"><?= $siswa->nis; ?></td>
                           </tr>
                           <tr>
                             <th>Nama Siswa </th>
@@ -64,9 +68,9 @@
                     <div class="box-body table-responsive">
                       <table class="table table-striped table-hover" id="table">
                         <tr>
-                          <th>Nama Orang Tua </th>
-                          <th> : </th>
-                          <td><?= $siswa->nama_orang_tua; ?></td>
+                          <th width="30%">Nama Orang Tua </th>
+                          <th width="30%"> : </th>
+                          <td width="30%"><?= $siswa->nama_orang_tua; ?></td>
                         </tr>
                         <tr>
                           <th>Pekerjaan Orang Tua </th>
@@ -103,9 +107,9 @@
                      <div class="box-body table-responsive">
                       <table class="table table-striped table-hover" id="table">
                         <tr>
-                          <th>Tanggal Masuk </th>
-                          <th> : </th>
-                          <td><?= $this->mylibrary->date_indo($siswa->tanggal_masuk); ?></td>
+                          <th width="30%">Tanggal Masuk </th>
+                          <th width="30%"> : </th>
+                          <td width="30%"><?= $this->mylibrary->date_indo($siswa->tanggal_masuk); ?></td>
                         </tr>
                         <tr>
                           <th>Asal Sekolah </th>
@@ -136,9 +140,9 @@
                      <div class="box-body table-responsive">
                       <table class="table table-striped table-hover" id="table">
                        <tr>
-                        <th>Tanggal Meninggalkan Sekolah </th>
-                        <th> : </th>
-                        <td><?= $this->mylibrary->date_indo($siswa->tanggal_meninggalkan_sekolah); ?></td>
+                        <th width="30%">Tanggal Meninggalkan Sekolah </th>
+                        <th width="30%"> : </th>
+                        <td width="30%"><?= $this->mylibrary->date_indo($siswa->tanggal_meninggalkan_sekolah); ?></td>
                       </tr>
                       <tr>
                         <th>Alasan Meninggalkan Sekolah </th>
@@ -159,22 +163,27 @@
                   </div>
                 </div>
               </div><br>
+              <div class="col-lg-6">
               <div class="box-body table-responsive">
                 <table class="table table-striped table-hover" id="table">
                   <tr>
-                    <th width="50%">Keterangan Lain </th>
-                    <th> : </th>
-                    <td><?= $siswa->keterangan_lain; ?></td>
+                    <th width="30%">Keterangan Lain </th>
+                    <th width="30%"> : </th>
+                    <td width="30%"><?= $siswa->keterangan_lain; ?></td>
                   </tr>
                   <tr>
                     <th>Foto Siswa </th>
                     <th> : </th>
-                    <td><img src="<?= base_url('assets/siswa/').$siswa->foto_siswa; ?>" class="img img-thumbnail img-responsive" style="width: 50%; height: 40%;"></td>
+                    <td><img src="<?= base_url('assets/siswa/').$siswa->foto_siswa; ?>" class="img img-thumbnail img-responsive" style="width: 100px; height: 100px;"></td>
                   </tr>
               </table>
-              <a href="<?= base_url('admin/siswa') ?>" class="btn btn-primary btn-block"><i class="fa fa-reply"></i> Kembali</a>
+              <a href="<?= base_url('admin/siswa') ?>" class="btn btn-default"><i class="fa fa-reply"></i> Kembali</a>
              </div>
+           </div>
+            </div> 
+          </div>
           </div>
          </div>
+       </div>
     </div>
 </section>

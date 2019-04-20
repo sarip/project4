@@ -5,6 +5,7 @@ class M_nilai extends CI_Model {
 
 	public function get($where=NULL)
 	{
+		$this->db->order_by('pelajaran.id_pelajaran', 'ASC');
 		$this->db->select('*');
 		$this->db->from('nilai');
 		$this->db->join('siswa', 'nilai.id_siswa = siswa.id_siswa');
@@ -19,6 +20,11 @@ class M_nilai extends CI_Model {
 	public function insert($data)
 	{
 		return $this->db->insert('nilai', $data);
+	}
+
+	public function update($data, $where)
+	{
+		return $this->db->update('nilai', $data, $where);
 	}
 
 	

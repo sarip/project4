@@ -64,7 +64,7 @@ class Admin extends CI_Controller {
 		if ($this->M_pelajaran->delete($id)) {
 			$this->session->set_flashdata('message', 'Data pelajaran berhasil di hapus');
 		}else{
-
+			$this->session->set_flashdata('failed', 'Data pelajaran gagal di hapus, dikarena kan data pelajaran ini masih terpakai');
 		}
 		redirect('admin/pelajaran','refresh');
 	}
@@ -154,6 +154,70 @@ class Admin extends CI_Controller {
 		$data['judul']	= 'Halaman Data Nilai Siswa';
 		$data['dataSiswa'] = $this->M_siswa->get();
 		$this->mylibrary->templateadmin('nilai/index', $data);
+	}
+	public function update_nilai($id)
+	{
+		$data['siswa']		= $this->M_siswa->get(['md5(id_siswa)' => $id])->row();
+		if (isset($_POST['simpan'])) {
+			$i =1;
+			foreach ($this->M_nilai->get(['md5(nilai.id_siswa)' => $id]) as $n) {
+				$ap_1 = $this->input->post('ap_1_'.$i);
+				$ak_1 = $this->input->post('ak_1_'.$i);
+				$ap_2 = $this->input->post('ap_2_'.$i);
+				$ak_2 = $this->input->post('ak_2_'.$i);
+				$ap_3 = $this->input->post('ap_3_'.$i);
+				$ak_3 = $this->input->post('ak_3_'.$i);
+				$ap_4 = $this->input->post('ap_4_'.$i);
+				$ak_4 = $this->input->post('ak_4_'.$i);
+				$ap_5 = $this->input->post('ap_5_'.$i);
+				$ak_5 = $this->input->post('ak_5_'.$i);
+				$ap_6 = $this->input->post('ap_6_'.$i);
+				$ak_6 = $this->input->post('ak_6_'.$i);
+				$this->M_nilai->update([
+					'ap_1' => $ap_1,
+					'ak_1' => $ak_1,
+					'ap_2' => $ap_2,
+					'ak_2' => $ak_2,
+					'ap_3' => $ap_3,
+					'ak_3' => $ak_3,
+					'ap_4' => $ap_4,
+					'ak_4' => $ak_4,
+					'ap_5' => $ap_5,
+					'ak_5' => $ak_5,
+					'ap_6' => $ap_6,
+					'ak_6' => $ak_6
+				], ['id_nilai' => $this->input->post('id_nilai_'.$i)]);
+			$i++;
+			}
+			$rows = [
+				's_1' => $this->input->post('s_1'),
+				's_2' => $this->input->post('s_2'),
+				's_3' => $this->input->post('s_3'),
+				's_4' => $this->input->post('s_4'),
+				's_5' => $this->input->post('s_5'),
+				's_6' => $this->input->post('s_6'),
+				'i_1' => $this->input->post('i_1'),
+				'i_2' => $this->input->post('i_2'),
+				'i_3' => $this->input->post('i_3'),
+				'i_4' => $this->input->post('i_4'),
+				'i_5' => $this->input->post('i_5'),
+				'i_6' => $this->input->post('i_6'),
+				'a_1' => $this->input->post('a_1'),
+				'a_2' => $this->input->post('a_2'),
+				'a_3' => $this->input->post('a_3'),
+				'a_4' => $this->input->post('a_4'),
+				'a_5' => $this->input->post('a_5'),
+				'a_6' => $this->input->post('a_6')
+			];
+			if ($this->M_siswa->update_absen($rows, ['md5(id_siswa)' => $id])) {
+				$this->session->set_flashdata('message', 'Data nilai & absen berhasil di edit atas Nama  : '.$data['siswa']->nama_siswa);
+				redirect('admin/nilai','refresh');
+			}
+		}
+		$data['title']	= 'Nilai Siswa';
+		$data['judul']	= 'Halaman Edit Nilai Siswa';
+		$data['dataNilai'] 	= $this->M_nilai->get(['md5(nilai.id_siswa)' => $id]);
+		$this->mylibrary->templateadmin('nilai/update', $data);
 	}
 	// END :: NILAI
 

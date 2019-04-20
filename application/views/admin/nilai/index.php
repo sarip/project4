@@ -17,7 +17,7 @@
             </div>
             <!-- /.box-header -->
                 <div class="box-body table-responsive">
-                  <table class="table table-bordered table-hover" id="table">
+                  <table class="table table-bordered table-hover" id="example">
                     <thead>
                         <tr>
                           <th>No</th>
@@ -39,7 +39,7 @@
                     			<td><?= $key->tempat_lahir . ', ' . $this->mylibrary->date_indo($key->tanggal_lahir); ?></td>
                     			<td><?= $this->mylibrary->date_indo($key->tanggal_masuk); ?></td>
                     			<td>
-                    				<a href="<?= base_url('admin/update_nilai/'). $key->id_siswa ?>" class="btn btn-info"> <i class="fa fa-edit"></i> Nilai</a>
+                    				<a href="<?= base_url('admin/update_nilai/'). md5($key->id_siswa) ?>" class="btn btn-info"> <i class="fa fa-edit"></i> Nilai</a>
                     			</td>
                     		</tr>
                     		

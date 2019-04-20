@@ -17,7 +17,7 @@
             </div>
             <!-- /.box-header -->
                 <div class="box-body table-responsive">
-                  <table class="table table-bordered table-hover" id="table">
+                  <table class="table table-bordered table-hover" id="example">
                     <thead>
                         <tr>
                           <th>No</th>
