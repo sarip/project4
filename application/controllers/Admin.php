@@ -223,6 +223,7 @@ class Admin extends CI_Controller {
 		$data['dataNilai'] 	= $this->M_nilai->get(['md5(nilai.id_siswa)' => $id]);
 		$this->mylibrary->templateadmin('nilai/update', $data);
 	}
+<<<<<<< HEAD
 	// function insert_absen(){
 
 	// }	
@@ -243,6 +244,13 @@ class Admin extends CI_Controller {
 			$this->session->set_flashdata('message', 'Data mata pelajaran gagal di tambahkan ke dalam penilaian siswa');
 		}
 		redirect('admin/update_nilai/'.md5($id_siswa),'refresh');
+=======
+
+	public function print_nilai($id){
+		$data['siswa'] = $this->M_nilai->get(['md5(siswa.id_siswa)' => $id])->row();
+		$data['dataNilai'] 	= $this->M_nilai->get(['md5(nilai.id_siswa)' => $id]);
+		$this->load->view('admin/nilai/print', $data);
+>>>>>>> ebb73f321ec5fb1120d819aeac5169e6df2d1c23
 	}
 	// END :: NILAI
 
