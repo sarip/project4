@@ -244,6 +244,7 @@ class Admin extends CI_Controller {
 			$this->session->set_flashdata('message', 'Data mata pelajaran gagal di tambahkan ke dalam penilaian siswa');
 		}
 		redirect('admin/update_nilai/'.md5($id_siswa),'refresh');
+	}
 
 
 	public function print_nilai($id){
