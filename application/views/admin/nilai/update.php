@@ -13,6 +13,7 @@
           <div class="box">
             <div class="box-header">
               <!-- <a href="<?= base_url('admin/insert_siswa') ?>" title="Tambah Data Siswa" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Tambah Siswa</a> -->
+
              
             </div>
             <!-- /.box-header -->
@@ -59,18 +60,25 @@
                       <table class="table-striped table-hover" border="1px solid black;"cellspacing="0" style="border-collapse: collapse;">
                         <thead>
                           <tr>
-                            <th rowspan="3" width="2%" class="text-center">&nbsp;Mata Pelajaran</th>
-                            <th colspan="4">&nbsp; Tahun : </th>
-                            <th colspan="4">&nbsp; Tahun : </th>
-                            <th colspan="4">&nbsp; Tahun : </th>
+                            <th rowspan="3" width="5%" class="">&nbsp; Mata Pelajaran</big> <br><br>&nbsp;&nbsp;<a data-target="#insert_pelajaran" data-toggle="modal"  title="tambah mata pelajaran untuk penilaian"><i class="fa fa-plus-circle"></i> Add Pelajaran</a></th>
+                        <?= form_open('') ?>
+                            <th colspan="4" class="text-center">
+                              &nbsp; Tahun : <input type="text" name="th_1" style="background: rgba(0,0,0,0); border: 0px solid white;" placeholder="0000 - 0000" value="<?= $siswa->th_1 ?>">
+                            </th>
+                            <th colspan="4" class="text-center">
+                              &nbsp; Tahun : <input type="text" name="th_2" style="background: rgba(0,0,0,0); border: 0px solid white;" placeholder="0000 - 0000" value="<?= $siswa->th_2 ?>">
+                            </th>
+                            <th colspan="4" class="text-center">
+                              &nbsp; Tahun : <input type="text" name="th_3" style="background: rgba(0,0,0,0); border: 0px solid white;" placeholder="0000 - 0000" value="<?= $siswa->th_3 ?>">
+                            </th>
                           </tr>
                           <tr>
-                            <th colspan="2" width="10%"> Semester : 1</th>
-                            <th colspan="2" width="10%"> Semester : 2</th>
-                            <th colspan="2" width="10%"> Semester : 1</th>
-                            <th colspan="2" width="10%"> Semester : 2</th>
-                            <th colspan="2" width="10%"> Semester : 1</th>
-                            <th colspan="2" width="10%"> Semester : 2</th>
+                            <th colspan="2" width="10%" class="text-center"> Semester : 1</th>
+                            <th colspan="2" width="10%" class="text-center"> Semester : 2</th>
+                            <th colspan="2" width="10%" class="text-center"> Semester : 1</th>
+                            <th colspan="2" width="10%" class="text-center"> Semester : 2</th>
+                            <th colspan="2" width="10%" class="text-center"> Semester : 1</th>
+                            <th colspan="2" width="10%" class="text-center"> Semester : 2</th>
                           </tr>
                           <tr>
                             <th class="text-center" width="1%">AP</th>
@@ -87,7 +95,6 @@
                             <th class="text-center" width="1%">ARK</th>
                           </tr>
                         </thead> 
-                        <?= form_open('') ?>
                         <tbody>
                           <?php $i=1; $total_nilai_ap_1=0; $total_nilai_ap_2=0; $total_nilai_ap_3=0; $total_nilai_ap_4=0; $total_nilai_ap_5=0; $total_nilai_ap_6=0; $total_nilai_ak_1=0; $total_nilai_ak_2=0; $total_nilai_ak_3=0; $total_nilai_ak_4=0; $total_nilai_ak_5=0; $total_nilai_ak_6=0; foreach ($dataNilai->result() as $nilai): 
                             $total_nilai_ap_1+=$nilai->ap_1; $total_nilai_ap_2+=$nilai->ap_2; $total_nilai_ap_3+=$nilai->ap_3; $total_nilai_ap_4+=$nilai->ap_4; $total_nilai_ap_5+=$nilai->ap_5; $total_nilai_ap_6+=$nilai->ap_6;
@@ -98,7 +105,7 @@
                           <input type="hidden" name="id_nilai_<?= $i ?>" value="<?= $nilai->id_nilai ?>">
                             <tr>
                               
-                              <td>&nbsp;<?= $nilai->nama_pelajaran ?></td>
+                              <td>&nbsp; <a href="<?= base_url() ?>admin/delete_nilai/<?= md5($nilai->id_nilai) ?>/<?= md5($siswa->id_siswa) ?>" onclick="return confirm('Apakah anda yakin mau menghapus data nilai <?= $nilai->nama_pelajaran ?> ?')"><i class="fa fa-times-circle text-danger"></i></a>&nbsp;<?= $nilai->nama_pelajaran ?></td>
                               <td>
                                 <input type="number" name="ap_1_<?= $i ?>" style="width: 100%;padding: 5px; background: rgba(0,0,0,0.0); border: 0px solid white;" value="<?= $nilai->ap_1 ?>" required>
                               </td>
@@ -160,7 +167,9 @@
                         </tbody>
                         <tfoot>
                           <tr>
-                           <td colspan="13" style="background: rgba(0,0,0,0.1)">&nbsp;</td>
+                           <td colspan="13">
+                            &nbsp;
+                           </td>
                          </tr>
                          <tr>
                            <td colspan="13" class="text-left"><b>&nbsp;Keterangan &nbsp;&nbsp;: </b> <b>S</b> = Sakit , <b>I</b> = Izin , <b>A</b> = Alpa </td>
@@ -201,24 +210,59 @@
 
                           <tr>
                             <td colspan="13" style="padding: 10px;">
+                            <label for="catatan">Catatan :</label><br>
+                            <textarea name="catatan" cols="61" rows="5" class="fomr-control"><?= $siswa->catatan ?></textarea>
                             <div class="pull-right">
                              <button class="btn btn-success" name="simpan" type="submit"><i class="fa fa-save"></i> Simpan</button>&nbsp;
                              <a href="<?= base_url() ?>admin/nilai" class="btn btn-default"><i class="fa fa-reply"></i> Cancel</a>
+                            <?= form_close() ?>
+                             
                            </div>
                             </td>
                           </tr>
                         </tfoot>
-                        <?= form_close() ?>
                       </table></div>
                     </div>
                   </div>
 
 
+                <i class="text-danger">*Jika sudah melakukan perubahan pada data di atas di wajib kan untuk mengclick tombol simpan</i>
                 </div>
              </div>
          </div>
     </div>
 </section>
+
+
+<div class="modal modal-default fade" id="insert_pelajaran" role="dialog"> 
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-center">Tambah mata pelajaran untuk Penilaian</div>
+      <?= form_open('admin/insert_nilai/'.$siswa->id_siswa) ?>
+      <div class="modal-body">
+        <div class="form-group">
+          <select name="id_pelajaran" class="form-control" required>
+            <option value="">-- Mata Pelajaran --</option>
+            <?php foreach ($this->db->get('pelajaran')->result() as $key): ?>
+              <?php if ($this->db->get_where('nilai', ['id_pelajaran' => $key->id_pelajaran, 'id_siswa' => $siswa->id_siswa])->num_rows() == 0): ?>
+                <option value="<?= $key->id_pelajaran ?>"><?= $key->nama_pelajaran ?></option>
+              <?php endif ?>
+            <?php endforeach ?>
+          </select>
+          <br>
+          <small class="text-warning"><i class="fa fa-warning"></i> jika tidak ada mata pelajar berarti sudah terpilih semua</small>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-success" type="submit"><i class="fa fa-plus"></i></button>
+        <button class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Cancel</button>
+      </div>
+      <?= form_close() ?>
+    </div>
+  </div>
+</div>
+
+
 <?php if ($this->session->flashdata('message')): ?>
   <script type="text/javascript">
   notifikasi('success', '<?= $this->session->flashdata('message'); ?>');

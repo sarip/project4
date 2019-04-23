@@ -27,6 +27,11 @@ class M_nilai extends CI_Model {
 		return $this->db->update('nilai', $data, $where);
 	}
 
+	public function delete($where)
+	{
+		return $this->db->delete('nilai', $where);
+	}
+
 	
 
 }
