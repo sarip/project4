@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2019 at 05:04 AM
+-- Generation Time: Apr 24, 2019 at 10:06 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -47,6 +47,35 @@ INSERT INTO `account` (`id_account`, `username`, `password`, `fullname`, `foto`)
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `guru`
+--
+
+CREATE TABLE `guru` (
+  `id_guru` int(11) NOT NULL,
+  `nip` varchar(100) NOT NULL,
+  `nama_guru` varchar(50) NOT NULL,
+  `alamat` text NOT NULL,
+  `tempat_lahir` varchar(50) NOT NULL,
+  `tanggal_lahir` date NOT NULL,
+  `agama` varchar(20) NOT NULL,
+  `jenis_kelamin` varchar(20) NOT NULL,
+  `foto` varchar(225) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `guru`
+--
+
+INSERT INTO `guru` (`id_guru`, `nip`, `nama_guru`, `alamat`, `tempat_lahir`, `tanggal_lahir`, `agama`, `jenis_kelamin`, `foto`) VALUES
+(1, '22101', 'Abdul Ghani', 'Kp.cibeureum', 'Tasikmalaya', '2001-10-25', 'islam', 'laki-laki', '382026-blackangel.jpg'),
+(4, '1234', '2314', '2314', '234', '2019-04-02', 'islam', 'laki-laki', '4286504-wallpapers-windows-71.jpg'),
+(5, '123443534', '2314', '2314', '234', '2019-04-02', 'islam', 'laki-laki', 'abstract-background-cracked-display--aleksandr-volkov1.jpg'),
+(6, '123443534234232', '2314', '2314', '234', '2019-04-02', 'islam', 'laki-laki', '4286504-wallpapers-windows-72.jpg'),
+(7, '1234435342342322134324231', '2314', '2314', '234', '2019-04-02', 'islam', 'laki-laki', '4286504-wallpapers-windows-73.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `jurusan`
 --
 
@@ -85,6 +114,20 @@ INSERT INTO `kelas` (`id_kelas`, `nama_kelas`) VALUES
 (1, 'X'),
 (2, 'XI'),
 (3, 'XII');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `megajar`
+--
+
+CREATE TABLE `megajar` (
+  `id_megajar` int(11) NOT NULL,
+  `id_guru` int(11) NOT NULL,
+  `id_kelas` int(11) NOT NULL,
+  `id_jurusan` int(11) NOT NULL,
+  `id_pelajaran` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -228,6 +271,12 @@ ALTER TABLE `account`
   ADD PRIMARY KEY (`id_account`);
 
 --
+-- Indexes for table `guru`
+--
+ALTER TABLE `guru`
+  ADD PRIMARY KEY (`id_guru`);
+
+--
 -- Indexes for table `jurusan`
 --
 ALTER TABLE `jurusan`
@@ -238,6 +287,12 @@ ALTER TABLE `jurusan`
 --
 ALTER TABLE `kelas`
   ADD PRIMARY KEY (`id_kelas`);
+
+--
+-- Indexes for table `megajar`
+--
+ALTER TABLE `megajar`
+  ADD PRIMARY KEY (`id_megajar`);
 
 --
 -- Indexes for table `nilai`
@@ -268,6 +323,12 @@ ALTER TABLE `account`
   MODIFY `id_account` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `guru`
+--
+ALTER TABLE `guru`
+  MODIFY `id_guru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `jurusan`
 --
 ALTER TABLE `jurusan`
@@ -278,6 +339,12 @@ ALTER TABLE `jurusan`
 --
 ALTER TABLE `kelas`
   MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `megajar`
+--
+ALTER TABLE `megajar`
+  MODIFY `id_megajar` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `nilai`
