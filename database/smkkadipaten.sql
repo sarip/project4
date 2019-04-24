@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 19, 2019 at 05:29 PM
+-- Generation Time: Apr 24, 2019 at 04:22 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -47,6 +47,48 @@ INSERT INTO `account` (`id_account`, `username`, `password`, `fullname`, `foto`)
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `jurusan`
+--
+
+CREATE TABLE `jurusan` (
+  `id_jurusan` int(11) NOT NULL,
+  `nama_jurusan` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `jurusan`
+--
+
+INSERT INTO `jurusan` (`id_jurusan`, `nama_jurusan`) VALUES
+(3, 'Geologi Pertambangan'),
+(4, 'Agribisnis Tanaman Pangan Dan Hortikultura'),
+(5, 'Otomatisasi Tata Kelola Perkantoran'),
+(6, 'Teknik Dan Bisnis Sepeda Motor'),
+(8, 'Teknik Kendaraan Ringan Dan Otomotif');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kelas`
+--
+
+CREATE TABLE `kelas` (
+  `id_kelas` int(11) NOT NULL,
+  `nama_kelas` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kelas`
+--
+
+INSERT INTO `kelas` (`id_kelas`, `nama_kelas`) VALUES
+(1, 'X'),
+(2, 'XI'),
+(3, 'XII');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `nilai`
 --
 
@@ -73,10 +115,18 @@ CREATE TABLE `nilai` (
 --
 
 INSERT INTO `nilai` (`id_nilai`, `id_siswa`, `id_pelajaran`, `ap_1`, `ap_2`, `ap_3`, `ap_4`, `ap_5`, `ap_6`, `ak_1`, `ak_2`, `ak_3`, `ak_4`, `ak_5`, `ak_6`) VALUES
-(5, 18, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(6, 18, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(7, 18, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(8, 18, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+(29, 21, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(30, 21, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(31, 21, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(32, 21, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(33, 21, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(34, 21, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(35, 22, 1, 80, 0, 0, 0, 0, 0, 85, 0, 0, 0, 0, 0),
+(36, 22, 3, 83, 0, 0, 0, 0, 0, 85, 0, 0, 0, 0, 0),
+(37, 22, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(38, 22, 5, 80, 0, 0, 0, 0, 0, 82, 0, 0, 0, 0, 0),
+(39, 22, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(40, 22, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -97,7 +147,9 @@ INSERT INTO `pelajaran` (`id_pelajaran`, `nama_pelajaran`) VALUES
 (1, 'Bahasa Indonesia'),
 (3, 'Matematika'),
 (4, 'Bahasa Sunda'),
-(5, 'Fisika');
+(5, 'Fisika'),
+(7, 'Pkn'),
+(8, 'Pai');
 
 -- --------------------------------------------------------
 
@@ -107,6 +159,8 @@ INSERT INTO `pelajaran` (`id_pelajaran`, `nama_pelajaran`) VALUES
 
 CREATE TABLE `siswa` (
   `id_siswa` int(11) NOT NULL,
+  `id_kelas` int(11) NOT NULL,
+  `id_jurusan` int(11) NOT NULL,
   `nis` int(11) NOT NULL,
   `nama_siswa` varchar(100) NOT NULL,
   `jenis_kelamin` enum('laki-laki','perempuan','','') NOT NULL,
@@ -131,17 +185,37 @@ CREATE TABLE `siswa` (
   `tamat_nomor_sttb` varchar(100) NOT NULL,
   `tamat_tanggal_sttb` date NOT NULL,
   `keterangan_lain` text,
-  `foto_siswa` varchar(225) NOT NULL
+  `foto_siswa` varchar(225) NOT NULL,
+  `s_1` int(11) NOT NULL,
+  `s_2` int(11) NOT NULL,
+  `s_3` int(11) NOT NULL,
+  `s_4` int(11) NOT NULL,
+  `s_5` int(11) NOT NULL,
+  `s_6` int(11) NOT NULL,
+  `i_1` int(11) NOT NULL,
+  `i_2` int(11) NOT NULL,
+  `i_3` int(11) NOT NULL,
+  `i_4` int(11) NOT NULL,
+  `i_5` int(11) NOT NULL,
+  `i_6` int(11) NOT NULL,
+  `a_1` int(11) NOT NULL,
+  `a_2` int(11) NOT NULL,
+  `a_3` int(11) NOT NULL,
+  `a_4` int(11) NOT NULL,
+  `a_5` int(11) NOT NULL,
+  `a_6` int(11) NOT NULL,
+  `th_1` varchar(20) NOT NULL,
+  `th_2` varchar(20) NOT NULL,
+  `th_3` varchar(20) NOT NULL,
+  `catatan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `siswa`
 --
 
-INSERT INTO `siswa` (`id_siswa`, `nis`, `nama_siswa`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `warga_negara`, `agama`, `alamat_siswa`, `nama_orang_tua`, `pekerjaan`, `alamat_orang_tua`, `nama_wali`, `alamat_wali`, `pekerjaan_wali`, `tanggal_masuk`, `asal_sekolah`, `alamat_sekolah`, `nomor_sttb`, `tanggal_sttb`, `tanggal_meninggalkan_sekolah`, `alasan_meninggalkan_sekolah`, `tamat_nomor_sttb`, `tamat_tanggal_sttb`, `keterangan_lain`, `foto_siswa`) VALUES
-(3, 123123, 'nama siswa', 'laki-laki', 'tempat lahir', '2019-04-01', 'warga negara', 'islam', 'alamat siswa', 'nama orang tua', 'pekerjaan', 'alamat orang tua', 'nama wali', 'alamat wali', 'pekerjaan wali', '2019-04-04', 'asal sekolah', 'alamat sekolah', '12346789', '2019-04-17', '2019-04-05', 'alasan meninggalkan sekolah', '12345678', '2019-04-04', 'keterangan lain', 'lamuncoding11.jpg'),
-(14, 1345678, '123123', 'laki-laki', 'tasikmalaya', '2019-04-04', 'Wni', 'budha', '12345678', 'nama orang tua', 'pekerjaan', 'alamat orang tua', 'nama wali', 'alamat wali', 'pekerjaan wali', '2019-04-01', 'asal sekolah', 'alamat Sekolah', 'nomor sttb', '2019-04-02', '2019-04-04', 'alasan meninggalkan sekolah', 'nomor sttb', '2019-04-10', 'keterangan lain', 'lamuncoding.jpg'),
-(18, 2147483647, 'Asep Husen', 'laki-laki', 'Tasikmalaya', '2019-03-12', 'WNI', 'islam', 'Kp.jantake', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', '0000-00-00', '', '', '0000-00-00', '', 'durarara-background-6462.png');
+INSERT INTO `siswa` (`id_siswa`, `id_kelas`, `id_jurusan`, `nis`, `nama_siswa`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `warga_negara`, `agama`, `alamat_siswa`, `nama_orang_tua`, `pekerjaan`, `alamat_orang_tua`, `nama_wali`, `alamat_wali`, `pekerjaan_wali`, `tanggal_masuk`, `asal_sekolah`, `alamat_sekolah`, `nomor_sttb`, `tanggal_sttb`, `tanggal_meninggalkan_sekolah`, `alasan_meninggalkan_sekolah`, `tamat_nomor_sttb`, `tamat_tanggal_sttb`, `keterangan_lain`, `foto_siswa`, `s_1`, `s_2`, `s_3`, `s_4`, `s_5`, `s_6`, `i_1`, `i_2`, `i_3`, `i_4`, `i_5`, `i_6`, `a_1`, `a_2`, `a_3`, `a_4`, `a_5`, `a_6`, `th_1`, `th_2`, `th_3`, `catatan`) VALUES
+(22, 2, 6, 1718120, 'Sarip Hidayat', 'laki-laki', 'tasikmalaya', '2001-10-22', 'WNI', 'islam', 'jantake', '', '', '', '', '', '', '2019-04-04', '', '', '', '0000-00-00', '0000-00-00', 'Sarip Hidayat', '', '0000-00-00', '', 'front-end.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2018-2019', '', '', 'Nilai Sudah cukup baik dan lebih ditingkatkan lagi!!!');
 
 --
 -- Indexes for dumped tables
@@ -152,6 +226,18 @@ INSERT INTO `siswa` (`id_siswa`, `nis`, `nama_siswa`, `jenis_kelamin`, `tempat_l
 --
 ALTER TABLE `account`
   ADD PRIMARY KEY (`id_account`);
+
+--
+-- Indexes for table `jurusan`
+--
+ALTER TABLE `jurusan`
+  ADD PRIMARY KEY (`id_jurusan`);
+
+--
+-- Indexes for table `kelas`
+--
+ALTER TABLE `kelas`
+  ADD PRIMARY KEY (`id_kelas`);
 
 --
 -- Indexes for table `nilai`
@@ -182,22 +268,34 @@ ALTER TABLE `account`
   MODIFY `id_account` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `jurusan`
+--
+ALTER TABLE `jurusan`
+  MODIFY `id_jurusan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `kelas`
+--
+ALTER TABLE `kelas`
+  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `nilai`
 --
 ALTER TABLE `nilai`
-  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `pelajaran`
 --
 ALTER TABLE `pelajaran`
-  MODIFY `id_pelajaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_pelajaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

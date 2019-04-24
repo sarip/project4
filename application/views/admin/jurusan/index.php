@@ -1,7 +1,7 @@
  <section class="content-header">
       <h1><?= $title; ?> <small><?= $judul; ?></small></h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="glyphicon glyphicon-list-alt"></i> <?= $title; ?></a></li>
+        <li><a href="#"><i class="fa fa-list"></i> <?= $title; ?></a></li>
         <li class="active"><?= $judul; ?></li>
       </ol>
 </section>
@@ -12,7 +12,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <a href="<?= base_url('admin/insert_pelajaran') ?>" title="Tambah Data Pelajaran" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Tambah Pelajaran</a>
+              <a href="<?= base_url('admin/insert_jurusan') ?>" title="Tambah Data Jurusan" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Tambah Jurusan</a>
              
             </div>
             <!-- /.box-header -->
@@ -21,18 +21,18 @@
                     <thead>
                         <tr>
                           <th>No</th>
-                          <th>Nama Pelajaran</th>
+                          <th>Nama Jurusan</th>
                           <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                    	<?php $i=1; foreach ($dataPelajaran->result() as $key): ?>
+                    	<?php $i=1; foreach ($dataJurusan as $key): ?>
                     		<tr>
                     			<td><?= $i++; ?></td>
-                    			<td><?= $key->nama_pelajaran ?></td>
+                    			<td><?= $key->nama_jurusan ?></td>
                     			<td>
-                    				<a href="<?= base_url('admin/update_pelajaran/'). md5($key->id_pelajaran) ?>" class="btn btn-info"> <i class="fa fa-edit"></i> Edit</a>
-                            <a href="<?= base_url('admin/delete_pelajaran/'). md5($key->id_pelajaran) ?>" class="btn btn-danger" onclick="return confirm('Yakin mau menghapus data <?= ucfirst($key->nama_pelajaran) ?> ? ')"> <i class="fa fa-trash-o"></i> Delete</a>
+                    				<a href="<?= base_url('admin/update_jurusan/'). md5($key->id_jurusan) ?>" class="btn btn-info"> <i class="fa fa-edit"></i> Edit</a>
+                            <a href="<?= base_url('admin/delete_jurusan/'). md5($key->id_jurusan) ?>" class="btn btn-danger" onclick="return confirm('Yakin mau menghapus data <?= ucfirst($key->nama_jurusan) ?> ? ')"> <i class="fa fa-trash-o"></i> Delete</a>
                     			</td>
                     		</tr>
                     		

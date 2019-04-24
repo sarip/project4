@@ -17,7 +17,9 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li><a href="<?= base_url('admin') ?>" ><i class="fa fa-home"></i> Home</a></li>
-        <li><a href="<?= base_url('admin/pelajaran') ?>" ><i class="fa fa-list"></i> Data Pelajaran</a></li>
+        <li><a href="<?= base_url('admin/kelas') ?>" ><i class="glyphicon glyphicon-stats"></i> Data Kelas</a></li>
+        <li><a href="<?= base_url('admin/jurusan') ?>" ><i class="fa fa-list"></i> Data Jurusan</a></li>
+        <li><a href="<?= base_url('admin/pelajaran') ?>" ><i class="glyphicon glyphicon-list-alt"></i> Data Pelajaran</a></li>
         <li><a href="<?= base_url('admin/siswa') ?>" ><i class="fa fa-child"></i> Data Siswa</a></li>
         <li><a href="<?= base_url('admin/nilai') ?>" ><i class="fa fa-pencil"></i> Data Nilai</a></li>
         <li class="treeview">

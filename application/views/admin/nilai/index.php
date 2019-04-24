@@ -1,7 +1,7 @@
  <section class="content-header">
       <h1><?= $title; ?> <small><?= $judul; ?></small></h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-child"></i> <?= $title; ?></a></li>
+        <li><a href="#"><i class="fa fa-pencil"></i> <?= $title; ?></a></li>
         <li class="active"><?= $judul; ?></li>
       </ol>
 </section>
@@ -25,7 +25,8 @@
                           <th>Nama</th>
                           <th>Jenis Kelamin</th>
                           <th>Tempat, Tanggal Lahir</th>
-                          <th>Tanggal Masuk</th>
+                          <th>Kelas</th>
+                          <th>Jurusan</th>
                           <th>Action</th>
                         </tr>
                     </thead>
@@ -37,7 +38,8 @@
                     			<td><?= $key->nama_siswa; ?></td>
                           <td><?= $key->jenis_kelamin; ?></td>
                     			<td><?= $key->tempat_lahir . ', ' . $this->mylibrary->date_indo($key->tanggal_lahir); ?></td>
-                    			<td><?= $this->mylibrary->date_indo($key->tanggal_masuk); ?></td>
+                          <td><?= $key->nama_kelas; ?></td>
+                          <td><?= $key->nama_jurusan; ?></td>
                     			<td>
                     				<a href="<?= base_url('admin/update_nilai/'). md5($key->id_siswa) ?>" class="btn btn-info"> <i class="fa fa-edit"></i> Nilai</a>
                     			</td>

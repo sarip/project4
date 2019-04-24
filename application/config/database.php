@@ -70,6 +70,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | The $query_builder variables lets you determine whether or not to load
 | the query builder class.
 */
+
+// jika ingin online
+// username :  id9177124_lamuncoding
+// password : lamuncoding2018
+// database : id9177124_portfolio
 $active_group = 'default';
 $query_builder = TRUE;
 

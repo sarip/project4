@@ -9,7 +9,7 @@
 <div class="container">
 <div class="row">
 <center>
-<h4><tt><img src="<?= base_url('/assets/img/proc.png') ?>" class="img-responsive" style="width: 50px;height: 50px">Laporan Penilaian Hasil Belajar Siswa SMK NEGRI KADIPATEN <br /></tt>
+<h4><tt><img src="<?= base_url('/assets/img/proc.png') ?>" class="img-responsive" style="width: 50px;height: 50px"><br>Laporan Penilaian Hasil Belajar Siswa SMK NEGRI KADIPATEN <br /></tt>
 
 </h4>
 </center>
@@ -18,12 +18,20 @@
 <table style="height: 73px;" width="384">
 <tbody>
 <tr>
+<td style="width: 184px;">NIS</td>
+<td style="width: 184px;">: <b><?= $siswa->nis; ?></td>
+</tr>
+<tr>
 <td style="width: 184px;">Nama Peserta Didik</td>
 <td style="width: 184px;">: <b><?= $siswa->nama_siswa; ?></b></td>
 </tr>
 <tr>
-<td style="width: 184px;">NIS</td>
-<td style="width: 184px;">: <b><?= $siswa->nis; ?></td>
+<td style="width: 184px;">Kelas</td>
+<td style="width: 184px;">: <b><?= ucfirst($siswa->nama_kelas); ?></td>
+</tr>
+<tr>
+<td style="width: 184px;">Jurusan</td>
+<td style="width: 350px;">: <b><?= ucfirst($siswa->nama_jurusan); ?></td>
 </tr>
 <tr>
 <td style="width: 184px;">Jenis Kelamin</td>
@@ -35,13 +43,13 @@
 
 
 
-<table class="table-striped table-hover" border="1px solid black;"cellspacing="0" style="border-collapse: collapse;">
+<table class="table-striped table-hover" border="1px solid grey;"cellspacing="0" style="border-collapse: collapse;">
 <thead>
   <tr>
     <th rowspan="3" width="2%" class="text-center">&nbsp;Mata Pelajaran</th>
-    <th colspan="4">&nbsp; Tahun : </th>
-    <th colspan="4">&nbsp; Tahun : </th>
-    <th colspan="4">&nbsp; Tahun : </th>
+    <th colspan="4">&nbsp; Tahun : <?= $siswa->th_1 ?></th>
+    <th colspan="4">&nbsp; Tahun : <?= $siswa->th_2 ?></th>
+    <th colspan="4">&nbsp; Tahun : <?= $siswa->th_3 ?></th>
   </tr>
   <tr>
     <th colspan="2" width="10%"> Semester : 1</th>

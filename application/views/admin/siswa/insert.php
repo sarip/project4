@@ -32,7 +32,27 @@
               <?= form_error('nis', '<i class="text-danger">', '</i>') ?>
             </div><br>
 
-          
+            <div class="form-group <?= form_error('id_kelas') ? 'has-error' : '' ?>">
+              <label for="id_kelas"> Kelas</label>
+                <select name="id_kelas" class="form-control">
+                  <option value="">-- Pilih Kelas --</option>
+                  <?php foreach ($kelas  as $key): ?>
+                    <option value="<?= $key->id_kelas ?>" <?= set_select('id_kelas', $key->id_kelas) ?>><?= $key->nama_kelas; ?></option>
+                  <?php endforeach ?>
+                </select>
+               <?= form_error('id_kelas', '<i class="text-danger">', '</i>') ?>
+            </div><br>
+
+            <div class="form-group <?= form_error('id_jurusan') ? 'has-error' : '' ?>">
+              <label for="id_jurusan"> Jurusan</label>
+                <select name="id_jurusan" class="form-control">
+                  <option value="">-- Pilih Jurusan --</option>
+                  <?php foreach ($jurusan  as $key): ?>
+                    <option value="<?= $key->id_jurusan ?>" <?= set_select('id_jurusan', $key->id_jurusan) ?>><?= $key->nama_jurusan; ?></option>
+                  <?php endforeach ?>
+                </select>
+               <?= form_error('id_jurusan', '<i class="text-danger">', '</i>') ?>
+            </div><br>
 
              <div class="form-group <?= form_error('nama_siswa') ? 'has-error' : '' ?>">
               <label for="nama_siswa"> Nama Siswa</label>
@@ -67,7 +87,11 @@
           
             <div class="form-group <?= form_error('warga_negara') ? 'has-error' : '' ?>">
               <label for="warga_negara"> Warga Negara</label>
-              <input type="text" name="warga_negara" class="form-control" id="warga_negara" placeholder="Enter Warga Negara" value="<?= set_value('warga_negara') ?>">
+              <select name="warga_negara" class="form-control">
+                   <option value="">-- Pilih Warga Negara --</option>
+                  <option value="WNI" <?php echo  set_select('warga_negara', 'WNI'); ?>>WNI (Warga Negara Indonesia)</option>
+                  <option value="WNA" <?php echo  set_select('warga_negara', 'WNA'); ?>>WNA (Warga Negara Asing)</option>
+              </select>
                <?= form_error('warga_negara', '<i class="text-danger">', '</i>') ?>
             </div><br>
           

@@ -25,7 +25,8 @@
                           <th>Nama</th>
                           <th>Jenis Kelamin</th>
                           <th>Tempat, Tanggal Lahir</th>
-                          <th>Tanggal Masuk</th>
+                          <th>Kelas</th>
+                          <th>Jurusan</th>
                           <th>Action</th>
                         </tr>
                     </thead>
@@ -37,11 +38,12 @@
                     			<td><?= $key->nama_siswa; ?></td>
                           <td><?= $key->jenis_kelamin; ?></td>
                     			<td><?= $key->tempat_lahir . ', ' . $this->mylibrary->date_indo($key->tanggal_lahir); ?></td>
-                    			<td><?= $this->mylibrary->date_indo($key->tanggal_masuk); ?></td>
+                          <td><?= $key->nama_kelas; ?></td>
+                          <td><?= $key->nama_jurusan; ?></td>
                     			<td>
-                    				<a href="<?= base_url('admin/edit_siswa/'). md5($key->id_siswa) ?>" class="btn btn-warning"> <i class="fa fa-edit"></i> Edit</a>
-                    				<a href="<?= base_url('admin/delete_siswa/'). md5($key->id_siswa) ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin Akan Menghapus Siswa : <?= md5($key->nama_siswa) ?>');" > <i class="fa fa-trash"></i> Hapus</a>
-                    				<a href="<?= base_url('admin/detail_siswa/'). md5($key->id_siswa) ?>" class="btn btn-info"> <i class="fa fa-eye"></i> Detail</a>
+                    				<a href="<?= base_url('admin/edit_siswa/'). md5($key->id_siswa) ?>" class="btn btn-warning"> <i class="fa fa-edit"></i></a>
+                    				<a href="<?= base_url('admin/delete_siswa/'). md5($key->id_siswa) ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin Akan Menghapus Siswa : <?= md5($key->nama_siswa) ?>');" > <i class="fa fa-trash"></i></a>
+                    				<a href="<?= base_url('admin/detail_siswa/'). md5($key->id_siswa) ?>" class="btn btn-info"> <i class="fa fa-eye"></i></a>
                     			</td>
                     		</tr>
                     		

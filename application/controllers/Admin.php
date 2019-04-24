@@ -9,7 +9,7 @@ class Admin extends CI_Controller {
 			$this->session->set_flashdata('message', '<div class="alert alert-danger"><i class="fa fa-warning"></i> Ooppss... Silahkan Login Terlebih Dahulu! </div>');
 			redirect('auth');
 		}
-		$this->load->model(['M_siswa', 'M_pelajaran', 'M_nilai']);
+		$this->load->model(['M_siswa', 'M_pelajaran', 'M_nilai', 'M_kelas', 'M_jurusan']);
 	}
 
 
@@ -17,9 +17,124 @@ class Admin extends CI_Controller {
 
 	public function index()
 	{
-		$data['title'] = 'Halaman Home';
+		$data['title'] 			= 'Halaman Home';
+		$data['nilai'] 			= $this->M_nilai->get()->num_rows();
+		$data['pelajaran'] 		= $this->M_pelajaran->get()->num_rows();
+		$data['siswa'] 			= $this->M_siswa->get()->num_rows();
+		$data['kelas']			= $this->M_kelas->get()->num_rows();
+		$data['jurusan']		= $this->M_jurusan->get()->num_rows();
 		$this->mylibrary->templateadmin('dashboard', $data);
 	}
+
+
+
+
+
+
+	// START :: KELAS 
+	public function kelas()
+	{
+		$data['title']  = 'Kelas';
+		$data['judul']  = 'Halaman Data kelas';
+		$data['dataKelas'] = $this->M_kelas->get();	
+		$this->mylibrary->templateadmin('kelas/index', $data);
+	}
+	public function insert_kelas()
+	{
+		$this->form_validation->set_rules('nama_kelas', 'Nama Kelas', 'trim|required|is_unique[kelas.nama_kelas]', ['is_unique' => 'Nama Kelas ini sudah di gunakan']);
+		if ($this->form_validation->run() == TRUE) {
+			if ($this->M_kelas->insert()) {
+				$this->session->set_flashdata('message', 'Data Kelas berhasil di tambahkan');
+				redirect('admin/kelas','refresh');
+			}
+		}
+		$data['title'] = 'kelas';
+		$data['judul'] = 'Halaman Tambah kelas';
+		$this->mylibrary->templateadmin('kelas/insert', $data);
+	}
+	public function update_kelas($id)
+	{
+		if ($this->M_kelas->get(['nama_kelas' => $this->input->post('nama_kelas')])->num_rows() > 0) {
+			$this->form_validation->set_rules('nama_kelas', 'Nama Pelajaran', 'trim|required|is_unique[kelas.nama_kelas]', ['is_unique' => 'Nama Kelas ini sudah di gunakan']);
+		}else{
+			$this->form_validation->set_rules('nama_kelas', 'Nama Kelas', 'trim|required');
+		}
+		if ($this->form_validation->run() == TRUE) {
+			if ($this->M_kelas->update($id)) {
+				$this->session->set_flashdata('message', 'Data Kelas berhasil di edit');
+			}
+			redirect('admin/kelas','refresh');
+		}
+		$data['title'] 		= 'Kelas';
+		$data['judul'] 		= 'Halaman Edit Kelas';
+		$data['kelas'] 	= $this->M_kelas->get(['md5(id_kelas)' => $id])->row();
+		$this->mylibrary->templateadmin('kelas/update', $data);
+	}
+	public function delete_kelas($id)
+	{
+		if ($this->M_kelas->delete($id)) {
+			$this->session->set_flashdata('message', 'Data kelas berhasil di hapus');
+		}else{
+			$this->session->set_flashdata('failed', 'Data kelas gagal di hapus, dikarena kan data kelas ini masih terpakai');
+		}
+		redirect('admin/kelas','refresh');
+	}
+	// END :: KELAS 
+
+
+
+	// START :: JURUSAN 
+	public function jurusan()
+	{
+		$data['title']			= 'Jurusan';
+		$data['judul'] 			= 'Halaman Data Jurusan';
+		$data['dataJurusan']	= $this->M_jurusan->get()->result();
+		$this->mylibrary->templateadmin('jurusan/index', $data);
+	}
+	function insert_jurusan()
+	{
+		$this->form_validation->set_rules('nama_jurusan', 'Nama Jurusan', 'trim|required|is_unique[jurusan.nama_jurusan]');
+		if($this->form_validation->run() == TRUE){
+			if ($this->M_jurusan->insert()) {
+				$this->session->set_flashdata('message', 'Data Pelajaran berhasil di tambahkan');
+				redirect('admin/jurusan','refresh');
+			}
+		}
+		$data['title']	= 'Jurusan';
+		$data['judul']	= 'Halaman Tambah Jurusan';
+		$this->mylibrary->templateadmin('jurusan/insert', $data);
+	}
+	public function update_jurusan($id)
+	{
+		if ($this->M_jurusan->get(['nama_jurusan' => $this->input->post('nama_jurusan')])->num_rows() > 0) {
+			$this->form_validation->set_rules('nama_jurusan', 'Nama Jurusan', 'trim|required|is_unique[jurusan.nama_jurusan]', ['is_unique' => 'Nama Jurusan ini sudah di gunakan']);
+		}else{
+			$this->form_validation->set_rules('nama_jurusan', 'Nama Jurusan', 'trim|required');
+		}
+		if ($this->form_validation->run() == TRUE) {
+			if ($this->M_jurusan->update($id)) {
+				$this->session->set_flashdata('message', 'Data Jurusan berhasil di edit');
+			}
+			redirect('admin/jurusan','refresh');
+		}
+		$data['title'] 		= 'Jurusan';
+		$data['judul'] 		= 'Halaman Edit Jurusan';
+		$data['jurusan'] 	= $this->M_jurusan->get(['md5(id_jurusan)' => $id])->row();
+		$this->mylibrary->templateadmin('jurusan/update', $data);
+	}
+	public function delete_jurusan($id)
+	{
+		if ($this->M_jurusan->delete($id)) {
+			$this->session->set_flashdata('message', 'Data jurusan berhasil di hapus');
+		}else{
+			$this->session->set_flashdata('failed', 'Data jurusan gagal di hapus, dikarena kan data jurusan ini masih terpakai');
+		}
+		redirect('admin/jurusan','refresh');
+	}
+	// END :: JURUSAN
+
+
+
 	// START :: PELAJARAN
 	public function pelajaran()
 	{
@@ -94,8 +209,10 @@ class Admin extends CI_Controller {
 				redirect('admin/siswa');
 			}
 		}
-		$data['title'] = 'Tambah Siswa';
-		$data['judul']	= 'Halaman Tambah Siswa';
+		$data['title'] 		= 'Tambah Siswa';
+		$data['judul']		= 'Halaman Tambah Siswa';
+		$data['jurusan']	= $this->M_jurusan->get()->result();
+		$data['kelas']		= $this->M_kelas->get()->result();
 		$this->mylibrary->templateadmin('siswa/insert', $data);
 	}
 
@@ -124,6 +241,8 @@ class Admin extends CI_Controller {
 		if ($this->form_validation->run() == FALSE) {
 			$data['title']		= 'Edit Siswa';
 			$data['judul']		= 'Halaman Edit Siswa';
+			$data['jurusan']	= $this->M_jurusan->get()->result();
+			$data['kelas']		= $this->M_kelas->get()->result();
 			$data['siswa']		= $siswa;
 			$this->mylibrary->templateadmin('siswa/edit', $data);
 		} else {
@@ -134,6 +253,8 @@ class Admin extends CI_Controller {
 
 	}
 	private function _validation_siswa(){
+		$this->form_validation->set_rules('id_kelas', 'Kelas', 'trim|required');
+		$this->form_validation->set_rules('id_jurusan', 'Jurusan', 'trim|required');
 		$this->form_validation->set_rules('nama_siswa', 'Nama Siswa', 'trim|required');
 		$this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'trim|required');
 		$this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'trim|required');
@@ -141,7 +262,6 @@ class Admin extends CI_Controller {
 		$this->form_validation->set_rules('warga_negara', 'Warga Negara', 'trim|required');
 		$this->form_validation->set_rules('agama', 'Agama', 'trim|required');
 		$this->form_validation->set_rules('alamat_siswa', 'Alamat SIswa', 'trim|required');
-		$this->form_validation->set_rules('tanggal_masuk', 'Tanggal Masuk', 'trim|required');
 		
 	}
 	// END :: SISWA
@@ -248,7 +368,7 @@ class Admin extends CI_Controller {
 
 
 	public function print_nilai($id){
-		$data['siswa'] = $this->M_nilai->get(['md5(siswa.id_siswa)' => $id])->row();
+		$data['siswa'] = $this->M_siswa->get(['md5(siswa.id_siswa)' => $id])->row();
 		$data['dataNilai'] 	= $this->M_nilai->get(['md5(nilai.id_siswa)' => $id]);
 		$this->load->view('admin/nilai/print', $data);
 

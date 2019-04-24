@@ -5,7 +5,7 @@
     <small><?= $judul ?></small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="<?= base_url('admin/siswa'); ?>"><i class="glyphicon glyphicon-list-alt"></i> Siswa</a></li>
+    <li><a href="<?= base_url('admin/kelas'); ?>"><i class="glyphicon glyphicon-stats"></i> Kelas</a></li>
     <li class="active"><?= $judul; ?></li>
   </ol>
 </section>
@@ -21,15 +21,15 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        <form role="form" action="" method="post" enctype="multipart/form-data">
+        <form role="form" action="" method="post">
           <div class="box-body">
             <div class="row">
               <div class="col-lg-6">
                 
-            <div class="form-group <?= form_error('nama_pelajaran') ? 'has-error' : '' ?>">
-              <label for="nama_pelajaran"> Nama Pelajaran</label>
-              <input type="text" name="nama_pelajaran" class="form-control" id="nama_pelajaran" placeholder="Enter Nama Pelajaran"  value="<?= set_value('nama_pelajaran') ? set_value('nama_pelajaran') : $pelajaran->nama_pelajaran ?>">
-              <?= form_error('nama_pelajaran', '<small><i class="text-danger">', '</i></small>') ?>
+            <div class="form-group <?= form_error('nama_kelas') ? 'has-error' : '' ?>">
+              <label for="nama_kelas"> Nama Kelas</label>
+              <input type="text" name="nama_kelas" class="form-control" id="nama_kelas" placeholder="Enter Nama Kelas"  value="<?= set_value('nama_kelas') ?>" >
+              <?= form_error('nama_kelas', '<small><i class="text-danger">', '</i></small>') ?>
             </div><br>
             <!-- /.box-body -->
 

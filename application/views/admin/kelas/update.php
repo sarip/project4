@@ -5,7 +5,7 @@
     <small><?= $judul ?></small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="<?= base_url('admin/siswa'); ?>"><i class="glyphicon glyphicon-list-alt"></i> Siswa</a></li>
+    <li><a href="<?= base_url('admin/kelas'); ?>"><i class="glyphicon glyphicon-stats"></i> Kelas</a></li>
     <li class="active"><?= $judul; ?></li>
   </ol>
 </section>
@@ -26,15 +26,15 @@
             <div class="row">
               <div class="col-lg-6">
                 
-            <div class="form-group <?= form_error('nama_pelajaran') ? 'has-error' : '' ?>">
-              <label for="nama_pelajaran"> Nama Pelajaran</label>
-              <input type="text" name="nama_pelajaran" class="form-control" id="nama_pelajaran" placeholder="Enter Nama Pelajaran"  value="<?= set_value('nama_pelajaran') ? set_value('nama_pelajaran') : $pelajaran->nama_pelajaran ?>">
-              <?= form_error('nama_pelajaran', '<small><i class="text-danger">', '</i></small>') ?>
+            <div class="form-group <?= form_error('nama_kelas') ? 'has-error' : '' ?>">
+              <label for="nama_kelas"> Nama kelas</label>
+              <input type="text" name="nama_kelas" class="form-control" id="nama_kelas" placeholder="Enter Nama kelas"  value="<?= set_value('nama_kelas') ? set_value('nama_kelas') : $kelas->nama_kelas ?>">
+              <?= form_error('nama_kelas', '<small><i class="text-danger">', '</i></small>') ?>
             </div><br>
             <!-- /.box-body -->
 
           <div class="box-footer text-right">
-            <a href="<?= base_url('admin/pelajaran') ?>" class="btn btn-default"><i class="fa fa-reply"></i> Kembali</a>&nbsp;&nbsp;
+            <a href="<?= base_url('admin/kelas') ?>" class="btn btn-default"><i class="fa fa-reply"></i> Kembali</a>&nbsp;&nbsp;
             <button type="submit" class="btn btn-primary">Save <i class="fa fa-save"></i></button>
           </div>
         </form>

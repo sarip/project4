@@ -4,10 +4,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class M_siswa extends CI_Model {
 
 	public function get($where = NULL){
+		$this->db->select('*');
+		$this->db->from('siswa');
+		$this->db->join('kelas', 'siswa.id_kelas = kelas.id_kelas');
+		$this->db->join('jurusan', 'siswa.id_jurusan = jurusan.id_jurusan');
 		if ($where) {
 			$this->db->where($where);
 		}
-		return $this->db->get('siswa');
+		return $this->db->get();
 	}
 
 
@@ -26,6 +30,8 @@ class M_siswa extends CI_Model {
 			$foto = $this->upload->data();
 			$data = [
 				'nis'			 				=> $this->input->post('nis'),
+				'id_kelas'						=> $this->input->post('id_kelas'),
+				'id_jurusan'					=> $this->input->post('id_jurusan'),
 				'nama_siswa' 					=> $this->input->post('nama_siswa'),
 				'jenis_kelamin' 				=> $this->input->post('jenis_kelamin'),
 				'tempat_lahir' 					=> $this->input->post('tempat_lahir'),
@@ -68,6 +74,8 @@ class M_siswa extends CI_Model {
 		if ( ! $this->upload->do_upload('foto_siswa')){
 			$data = [
 				'nis'			 				=> $this->input->post('nis'),
+				'id_kelas'						=> $this->input->post('id_kelas'),
+				'id_jurusan'					=> $this->input->post('id_jurusan'),
 				'nama_siswa' 					=> $this->input->post('nama_siswa'),
 				'jenis_kelamin' 				=> $this->input->post('jenis_kelamin'),
 				'tempat_lahir' 					=> $this->input->post('tempat_lahir'),
@@ -99,6 +107,8 @@ class M_siswa extends CI_Model {
 			unlink('assets/siswa/'.$result->foto_siswa);
 			$data = [
 				'nis'			 				=> $this->input->post('nis'),
+				'id_kelas'						=> $this->input->post('id_kelas'),
+				'id_jurusan'					=> $this->input->post('id_jurusan'),
 				'nama_siswa' 					=> $this->input->post('nama_siswa'),
 				'jenis_kelamin' 				=> $this->input->post('jenis_kelamin'),
 				'tempat_lahir' 					=> $this->input->post('tempat_lahir'),

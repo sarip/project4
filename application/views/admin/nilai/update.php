@@ -1,7 +1,7 @@
  <section class="content-header">
       <h1><?= $title; ?> <small><?= $judul; ?></small></h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-child"></i> <?= $title; ?></a></li>
+        <li><a href="#"><i class="fa fa-pencil"></i> <?= $title; ?></a></li>
         <li class="active"><?= $judul; ?></li>
       </ol>
 </section>
@@ -36,9 +36,14 @@
                           <td><?= ucfirst($siswa->nama_siswa) ?></td>
                         </tr>
                          <tr>
-                          <th>Nis</th>
+                          <th>Kelas</th>
                           <td class="text-center">:</td>
-                          <td><?= ucfirst($siswa->nis) ?></td>
+                          <td><?= ucfirst($siswa->nama_kelas) ?></td>
+                        </tr>
+                        <tr>
+                          <th>Jurusan</th>
+                          <td class="text-center">:</td>
+                          <td><?= ucfirst($siswa->nama_jurusan) ?></td>
                         </tr>
                         <tr>
                           <th>Jenis Kelamin</th>

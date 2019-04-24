@@ -1,0 +1,36 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class M_kelas extends CI_Model {
+
+	function get($where=null)
+	{
+		if ($where) {
+			$this->db->where($where);
+		}
+		return $this->db->get('kelas');
+	}
+
+	function insert()
+	{
+		return $this->db->insert('kelas', ['nama_kelas' => $this->input->post('nama_kelas')]);
+	}
+
+	function update($id)
+	{
+		return $this->db->update('kelas', ['nama_kelas' => $this->input->post('nama_kelas')], ['md5(id_kelas)' => $id]);
+	}
+
+	function delete($id)
+	{
+		if ($this->M_siswa->get(['md5(siswa.id_kelas)' => $id])->num_rows() > 0) {
+			return false;
+		}else{
+			return $this->db->delete('kelas', ['md5(id_kelas)' => $id]);
+		}
+	}
+
+}
+
+/* End of file M_kelas.php */
+/* Location: ./application/models/M_kelas.php */

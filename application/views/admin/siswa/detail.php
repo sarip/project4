@@ -33,7 +33,17 @@
                             <th>Nama Siswa </th>
                             <th> : </th>
                             <td><?= $siswa->nama_siswa; ?></td>
-                          </tr>    
+                          </tr>
+                           <tr>
+                            <th>Kelas </th>
+                            <th> : </th>
+                            <td><?= $siswa->nama_kelas; ?></td>
+                          </tr>
+                           <tr>
+                            <th>Jurusan </th>
+                            <th> : </th>
+                            <td><?= $siswa->nama_jurusan; ?></td>
+                          </tr> 
                           <tr>
                             <th>Jenis Kelamin </th>
                             <th> : </th>
