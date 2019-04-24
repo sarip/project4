@@ -66,7 +66,7 @@
     <th class="text-center" width="1%">ARK</th>
   </tr>
 </thead>
-   <?= form_open('') ?>
+   
     <tbody>
       <?php $i=1; $total_nilai_ap_1=0; $total_nilai_ap_2=0; $total_nilai_ap_3=0; $total_nilai_ap_4=0; $total_nilai_ap_5=0; $total_nilai_ap_6=0; $total_nilai_ak_1=0; $total_nilai_ak_2=0; $total_nilai_ak_3=0; $total_nilai_ak_4=0; $total_nilai_ak_5=0; $total_nilai_ak_6=0; foreach ($dataNilai->result() as $nilai): 
         $total_nilai_ap_1+=$nilai->ap_1; $total_nilai_ap_2+=$nilai->ap_2; $total_nilai_ap_3+=$nilai->ap_3; $total_nilai_ap_4+=$nilai->ap_4; $total_nilai_ap_5+=$nilai->ap_5; $total_nilai_ap_6+=$nilai->ap_6;
@@ -147,13 +147,21 @@
        <td colspan="2" class="text-center"><?= $nilai->a_5 ?></td>
        <td colspan="2" class="text-center"><?= $nilai->a_6 ?></td>
       </tr>
+      <tr>
+       <td colspan="13" style="background: rgba(0,0,0,0.1)">&nbsp;</td>
+
+     </tr>
+       <tr>
+       <td class="text-center"><b>Catatan</b></td>
+        <th colspan="12"><textarea class="form-control" readonly><?= $siswa->catatan; ?></textarea></th>
+      </tr>
     </tfoot>
-    <?= form_close() ?>
-    <script>
-    	print();
-    </script>
 
 </table>
+
 </div>
 </body>
+    <script>
+      print();
+    </script>
 </html>
