@@ -9,7 +9,7 @@ class Admin extends CI_Controller {
 			$this->session->set_flashdata('message', '<div class="alert alert-danger"><i class="fa fa-warning"></i> Ooppss... Silahkan Login Terlebih Dahulu! </div>');
 			redirect('auth');
 		}
-		$this->load->model(['M_siswa', 'M_pelajaran', 'M_nilai', 'M_kelas', 'M_jurusan']);
+		$this->load->model(['M_siswa', 'M_guru', 'M_pelajaran', 'M_megajar', 'M_nilai', 'M_kelas', 'M_jurusan']);
 	}
 
 
@@ -184,6 +184,63 @@ class Admin extends CI_Controller {
 		redirect('admin/pelajaran','refresh');
 	}
 	// END :: PELAJARAN
+
+
+
+
+	// START :: GURU
+	public function guru()
+	{
+		$data['title']		= 'Guru';
+		$data['judul']	 	= 'Halaman Data Guru';
+		$data['dataGuru']	= $this->M_guru->get()->result();
+		$this->mylibrary->templateadmin('guru/index', $data);
+	}
+	public function insert_guru()
+	{
+		
+		$this->form_validation->set_rules('nip', 'Nip', 'trim|required|is_unique[guru.nip]', ['is_unique' => 'Nip ini sudah terpakai']);
+		$this->form_validation->set_rules('nama_guru', 'Nama Guru', 'trim|required');
+		$this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
+		$this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'trim|required');
+		$this->form_validation->set_rules('tanggal_lahir', 'tanggal_lahir', 'trim|required');
+		$this->form_validation->set_rules('agama', 'Agama', 'trim|required');
+		$this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'trim|required');
+		if ($this->form_validation->run() == TRUE) {
+			$result_result = $this->M_guru->insert();
+			if ($result_result) {
+				foreach ($this->M_jurusan->get()->result() as $jurusan) {
+					foreach ($this->M_kelas->get()->result() as $kelas) {
+						foreach ($this->M_pelajaran as $pelajaran) {
+							$check = $this->input->post('id_jurusan_'.$jurusan->id_jurusan.'_id_kelas_'.$kelas->id_kelas.'_id_pelajaran_'.$pelajaran->id_pelajaran);
+							
+							if ($check) {
+								$check = explode(',', $check);
+								$data_insert = [
+									'id_guru'		=> $result_result,
+									'id_kelas' 		=> $check[0],
+									'id_jurusan' 	=> $check[1],
+									'id_pelajaran'	=> $check[2]
+								];
+								$this->M_megajar->insert($data_insert);
+							}
+						}
+					}
+				}
+				$this->session->set_flashdata('message', 'Data guru berhasil di tambahkan');
+				redirect('admin/guru','refresh');
+			}
+		}
+		$data['title']			= 'Guru';
+		$data['judul']			= 'Halaman Tambah Guru';
+		$data['dataPelajaran']	= $this->M_pelajaran->get()->result();
+		$data['dataKelas']		= $this->M_kelas->get()->result();
+		$data['dataJurusan']	= $this->M_jurusan->get()->result();
+		$this->mylibrary->templateadmin('guru/insert', $data);
+	}
+	// END :: GURU
+
+
 
 
 	// START :: SISWA
