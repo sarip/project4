@@ -1,19 +1,25 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class M_megajar extends CI_Model {
+class M_mengajar extends CI_Model {
 
-	// function get($where=null)
-	// {
-	// 	if ($where) {
-	// 		$this->db->where($where);
-	// 	}
-	// 	return $this->db->get('megajar');
-	// }
+	function get($where=null)
+	{
+		$this->db->select('*');
+		$this->db->from('mengajar');
+		$this->db->join('kelas', 'mengajar.id_kelas = kelas.id_kelas');
+		$this->db->join('jurusan', 'mengajar.id_jurusan = jurusan.id_jurusan');
+		$this->db->join('pelajaran', 'mengajar.id_pelajaran = pelajaran.id_pelajaran');
+		if ($where) {
+			$this->db->where($where);
+		}
+		$this->db->order_by('mengajar.id_jurusan', 'asc');
+		return $this->db->get();
+	}
 
 	function insert($data)
 	{
-		return $this->db->insert('megajar', $data);
+		return $this->db->insert('mengajar', $data);
 	}
 
 	// function update($id)

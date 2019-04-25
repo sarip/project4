@@ -1,7 +1,7 @@
  <section class="content-header">
       <h1><?= $title; ?> <small><?= $judul; ?></small></h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-users"></i> <?= $title; ?></a></li>
+        <li><a href="#"><i class="glyphicon glyphicon-list-alt"></i> <?= $title; ?></a></li>
         <li class="active"><?= $judul; ?></li>
       </ol>
 </section>
@@ -12,7 +12,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <a href="<?= base_url('admin/insert_guru') ?>" title="Tambah Data Guru" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Tambah Guru</a>
+              <a href="<?= base_url('admin/insert_wali_kelas') ?>" title="Tambah Data Wali Kelas" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Tambah Wali Kelas</a>
              
             </div>
             <!-- /.box-header -->
@@ -21,29 +21,24 @@
                     <thead>
                         <tr>
                           <th>No</th>
-                          <th>Nip</th>
+                          <th>NIP</th>
                           <th>Nama Guru</th>
-                          <th>Jenis Kelamin</th>
-                          <th>Tempat, Tanggal Lahir</th>
-                          <th>Agama</th>
-                          <th>Alamat</th>
+                          <th>Kelas</th>
+                          <th>Jurusan</th>
                           <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                    	<?php $i=1; foreach ($dataGuru as $key): ?>
+                    	<?php $i=1; foreach ($waliKelas as $key): ?>
                     		<tr>
                     			<td><?= $i++; ?></td>
-                    			<td><?= $key->nip ?></td>
-                          <td><?= $key->nama_guru ?></td>
-                          <td><?= $key->jenis_kelamin ?></td>
-                          <td><?= $key->tempat_lahir.','. $this->mylibrary->date_indo($key->tanggal_lahir) ?></td>
-                          <td><?= $key->agama ?></td>
-                          <td><?= $key->alamat ?></td>
+                          <td><?= $key->nip ?></td>
+                    			<td><?= $key->nama_guru ?></td>
+                          <td><?= $key->nama_kelas  ?></td>
+                          <td><?= $key->nama_jurusan ?></td>
                     			<td>
-                    				<a href="<?= base_url('admin/update_guru/'). md5($key->id_guru) ?>" class="btn btn-warning"> <i class="fa fa-edit"></i> Edit</a>
-                            <a href="<?= base_url('admin/delete_guru/'). md5($key->id_guru) ?>" class="btn btn-danger" onclick="return confirm('Yakin mau menghapus data <?= ucfirst($key->nama_guru) ?> ? ')"> <i class="fa fa-trash-o"></i> Delete</a>
-                            <a href="<?= base_url('admin/detail_guru/'). md5($key->id_guru) ?>" class="btn btn-info"><i class="fa fa-eye"></i> Detail</a>
+                    				<a href="<?= base_url('admin/update_wali_kelas/'). md5($key->id_wali_kelas) ?>" class="btn btn-info"> <i class="fa fa-edit"></i> Edit</a>
+                            <a href="<?= base_url('admin/delete_wali_kelas/'). md5($key->id_wali_kelas) ?>" class="btn btn-danger" onclick="return confirm('Yakin mau menghapus data <?= ucfirst($key->nama_guru) ?> ? ')"> <i class="fa fa-trash-o"></i> Delete</a>
                     			</td>
                     		</tr>
                     		
