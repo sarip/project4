@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2019 at 10:06 AM
+-- Generation Time: Apr 25, 2019 at 09:35 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -67,11 +67,7 @@ CREATE TABLE `guru` (
 --
 
 INSERT INTO `guru` (`id_guru`, `nip`, `nama_guru`, `alamat`, `tempat_lahir`, `tanggal_lahir`, `agama`, `jenis_kelamin`, `foto`) VALUES
-(1, '22101', 'Abdul Ghani', 'Kp.cibeureum', 'Tasikmalaya', '2001-10-25', 'islam', 'laki-laki', '382026-blackangel.jpg'),
-(4, '1234', '2314', '2314', '234', '2019-04-02', 'islam', 'laki-laki', '4286504-wallpapers-windows-71.jpg'),
-(5, '123443534', '2314', '2314', '234', '2019-04-02', 'islam', 'laki-laki', 'abstract-background-cracked-display--aleksandr-volkov1.jpg'),
-(6, '123443534234232', '2314', '2314', '234', '2019-04-02', 'islam', 'laki-laki', '4286504-wallpapers-windows-72.jpg'),
-(7, '1234435342342322134324231', '2314', '2314', '234', '2019-04-02', 'islam', 'laki-laki', '4286504-wallpapers-windows-73.jpg');
+(14, '0022101', 'Addul Ghani', 'Kp.jantake', 'tasikmalaya', '2019-04-10', 'islam', 'laki-laki', 'front-end4.jpg');
 
 -- --------------------------------------------------------
 
@@ -118,16 +114,25 @@ INSERT INTO `kelas` (`id_kelas`, `nama_kelas`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `megajar`
+-- Table structure for table `mengajar`
 --
 
-CREATE TABLE `megajar` (
+CREATE TABLE `mengajar` (
   `id_megajar` int(11) NOT NULL,
   `id_guru` int(11) NOT NULL,
   `id_kelas` int(11) NOT NULL,
   `id_jurusan` int(11) NOT NULL,
   `id_pelajaran` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mengajar`
+--
+
+INSERT INTO `mengajar` (`id_megajar`, `id_guru`, `id_kelas`, `id_jurusan`, `id_pelajaran`) VALUES
+(32, 14, 1, 3, 1),
+(33, 14, 1, 3, 3),
+(34, 14, 1, 3, 4);
 
 -- --------------------------------------------------------
 
@@ -260,6 +265,26 @@ CREATE TABLE `siswa` (
 INSERT INTO `siswa` (`id_siswa`, `id_kelas`, `id_jurusan`, `nis`, `nama_siswa`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `warga_negara`, `agama`, `alamat_siswa`, `nama_orang_tua`, `pekerjaan`, `alamat_orang_tua`, `nama_wali`, `alamat_wali`, `pekerjaan_wali`, `tanggal_masuk`, `asal_sekolah`, `alamat_sekolah`, `nomor_sttb`, `tanggal_sttb`, `tanggal_meninggalkan_sekolah`, `alasan_meninggalkan_sekolah`, `tamat_nomor_sttb`, `tamat_tanggal_sttb`, `keterangan_lain`, `foto_siswa`, `s_1`, `s_2`, `s_3`, `s_4`, `s_5`, `s_6`, `i_1`, `i_2`, `i_3`, `i_4`, `i_5`, `i_6`, `a_1`, `a_2`, `a_3`, `a_4`, `a_5`, `a_6`, `th_1`, `th_2`, `th_3`, `catatan`) VALUES
 (22, 2, 6, 1718120, 'Sarip Hidayat', 'laki-laki', 'tasikmalaya', '2001-10-22', 'WNI', 'islam', 'jantake', '', '', '', '', '', '', '2019-04-04', '', '', '', '0000-00-00', '0000-00-00', 'Sarip Hidayat', '', '0000-00-00', '', 'front-end.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2018-2019', '', '', 'Nilai Sudah cukup baik dan lebih ditingkatkan lagi!!!');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wali_kelas`
+--
+
+CREATE TABLE `wali_kelas` (
+  `id_wali_kelas` int(11) NOT NULL,
+  `id_guru` int(11) NOT NULL,
+  `id_kelas` int(11) NOT NULL,
+  `id_jurusan` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `wali_kelas`
+--
+
+INSERT INTO `wali_kelas` (`id_wali_kelas`, `id_guru`, `id_kelas`, `id_jurusan`) VALUES
+(2, 14, 1, 3);
+
 --
 -- Indexes for dumped tables
 --
@@ -289,9 +314,9 @@ ALTER TABLE `kelas`
   ADD PRIMARY KEY (`id_kelas`);
 
 --
--- Indexes for table `megajar`
+-- Indexes for table `mengajar`
 --
-ALTER TABLE `megajar`
+ALTER TABLE `mengajar`
   ADD PRIMARY KEY (`id_megajar`);
 
 --
@@ -313,6 +338,12 @@ ALTER TABLE `siswa`
   ADD PRIMARY KEY (`id_siswa`);
 
 --
+-- Indexes for table `wali_kelas`
+--
+ALTER TABLE `wali_kelas`
+  ADD PRIMARY KEY (`id_wali_kelas`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -326,7 +357,7 @@ ALTER TABLE `account`
 -- AUTO_INCREMENT for table `guru`
 --
 ALTER TABLE `guru`
-  MODIFY `id_guru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_guru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `jurusan`
@@ -341,10 +372,10 @@ ALTER TABLE `kelas`
   MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `megajar`
+-- AUTO_INCREMENT for table `mengajar`
 --
-ALTER TABLE `megajar`
-  MODIFY `id_megajar` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `mengajar`
+  MODIFY `id_megajar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `nilai`
@@ -363,6 +394,12 @@ ALTER TABLE `pelajaran`
 --
 ALTER TABLE `siswa`
   MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT for table `wali_kelas`
+--
+ALTER TABLE `wali_kelas`
+  MODIFY `id_wali_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
