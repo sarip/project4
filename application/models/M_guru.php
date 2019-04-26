@@ -19,9 +19,8 @@ class M_guru extends CI_Model {
 		
 		$this->load->library('upload', $config);
 		
-		if ( ! $this->upload->do_upload('foto')){
+		if ( ! $this->upload->do_upload('foto_guru')){
 			$error = array('error' => $this->upload->display_errors());
-			echo $error;
 			return false;
 		}
 		else{
@@ -51,7 +50,7 @@ class M_guru extends CI_Model {
 
 		$result = $this->get(['md5(id_guru)' => $id])->row();
 		
-		if ( ! $this->upload->do_upload('foto')){
+		if ( ! $this->upload->do_upload('foto_guru')){
 			$data = [
 				'nip' 				=> htmlspecialchars($this->input->post('nip')),
 				'nama_guru' 		=> htmlspecialchars($this->input->post('nama_guru')),
