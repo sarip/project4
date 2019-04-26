@@ -9,7 +9,7 @@ class Admin extends CI_Controller {
 			$this->session->set_flashdata('message', '<div class="alert alert-danger"><i class="fa fa-warning"></i> Ooppss... Silahkan Login Terlebih Dahulu! </div>');
 			redirect('auth');
 		}
-		$this->load->model(['M_siswa', 'M_guru', 'M_wali_kelas', 'M_pelajaran', 'M_mengajar', 'M_nilai', 'M_kelas', 'M_jurusan']);
+		$this->load->model(['M_biodata', 'M_siswa', 'M_guru', 'M_wali_kelas', 'M_pelajaran', 'M_mengajar', 'M_nilai', 'M_kelas', 'M_jurusan']);
 	}
 
 
@@ -24,9 +24,36 @@ class Admin extends CI_Controller {
 		$data['kelas']			= $this->M_kelas->get()->num_rows();
 		$data['jurusan']		= $this->M_jurusan->get()->num_rows();
 		$data['guru']			= $this->M_guru->get()->num_rows();
-		$data['walikelas']			= $this->M_wali_kelas->get()->num_rows();
+		$data['walikelas']		= $this->M_wali_kelas->get()->num_rows();
 		$this->mylibrary->templateadmin('dashboard', $data);
 	}
+
+
+
+
+	// START :: BIOADATA
+	public function biodata()
+	{
+		$this->form_validation->set_rules('nama_sekolah', 'Nama Sekolah', 'trim|required');
+		$this->form_validation->set_rules('visi', 'Visi', 'trim|required');
+		$this->form_validation->set_rules('misi', 'Misi', 'trim|required');
+		$this->form_validation->set_rules('email_sekolah', 'Email Sekolah', 'trim|required|valid_email');
+		$this->form_validation->set_rules('no_telepon_sekolah', 'No Telp Sekolah', 'trim|required');
+		$this->form_validation->set_rules('alamat_sekolah', 'Alamat Sekolah', 'trim|required');
+		if ($this->form_validation->run() == TRUE) {
+			if ($this->M_biodata->setting()) {
+				$this->session->set_flashdata('message', 'Data biodata berhasil di perbarui');
+			}else{
+				$this->session->set_flashdata('failed', 'Data biodata gagal di perbarui');
+			}
+			redirect('admin/biodata');
+		}
+		$data['title']		= 'Biodata Sekolah';
+		$data['judul']		= 'Halaman Data Biodata Sekolah';
+		$data['biodata']	= $this->M_biodata->get()->row();
+		$this->mylibrary->templateadmin('biodata/index', $data);
+	}
+	// END :: BIODATA 
 
 
 
@@ -223,8 +250,10 @@ class Admin extends CI_Controller {
 					}
 				}
 				$this->session->set_flashdata('message', 'Data guru berhasil di tambahkan');
-				redirect('admin/guru','refresh');
+			}else{
+				$this->session->set_flashdata('failed', 'Data guru gagal di tambahkan');
 			}
+			redirect('admin/guru','refresh');
 		}
 		$data['title']			= 'Guru';
 		$data['judul']			= 'Halaman Tambah Guru';
@@ -273,8 +302,10 @@ class Admin extends CI_Controller {
 					}
 				}
 				$this->session->set_flashdata('message', 'Data guru berhasil di edit');
-				redirect('admin/guru','refresh');
+			}else{
+				$this->session->set_flashdata('failed', 'Data guru gagal di edit');
 			}
+			redirect('admin/guru','refresh');
 		}
 		$data['title']			= 'Guru';
 		$data['judul']			= 'Halaman Edit Guru';
@@ -381,16 +412,18 @@ class Admin extends CI_Controller {
 		$this->_validation_siswa();
 		if ($this->form_validation->run() == TRUE) {
 			$id_siswa = $this->M_siswa->insert(); 
-			foreach ($this->M_pelajaran->get()->result() as $pelajaran) {
-				$this->M_nilai->insert([
-					'id_siswa' 		=> $id_siswa,
-					'id_pelajaran' 	=> $pelajaran->id_pelajaran
-				]);
-			}
 			if ($id_siswa) {
+				foreach ($this->M_pelajaran->get()->result() as $pelajaran) {
+					$this->M_nilai->insert([
+						'id_siswa' 		=> $id_siswa,
+						'id_pelajaran' 	=> $pelajaran->id_pelajaran
+					]);
+				}
 				$this->session->set_flashdata('message', 'Data siswa berhasi di tambahkan');
-				redirect('admin/siswa');
+			}else{
+				$this->session->set_flashdata('failed', 'Data siswa gagal di tambahkan');
 			}
+			redirect('admin/siswa');
 		}
 		$data['title'] 		= 'Tambah Siswa';
 		$data['judul']		= 'Halaman Tambah Siswa';
@@ -429,8 +462,11 @@ class Admin extends CI_Controller {
 			$data['siswa']		= $siswa;
 			$this->mylibrary->templateadmin('siswa/edit', $data);
 		} else {
-			$this->M_siswa->update($id);
-			$this->session->set_flashdata('message', 'Data Siswa Berhasil DI Update');
+			if ($this->M_siswa->update($id)) {
+				$this->session->set_flashdata('message', 'Data siswa berhasil di update');
+			}else{
+				$this->session->set_flashdata('failed', 'Data siswa gagal di update');
+			}
 			redirect('admin/siswa');
 		}
 

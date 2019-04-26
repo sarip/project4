@@ -13,12 +13,12 @@ class M_jurusan extends CI_Model {
 
 	function insert()
 	{
-		return $this->db->insert('jurusan', ['nama_jurusan' => $this->input->post('nama_jurusan')]);
+		return $this->db->insert('jurusan', ['nama_jurusan' => htmlspecialchars($this->input->post('nama_jurusan'))]);
 	}
 
 	function update($id)
 	{
-		return $this->db->update('jurusan', ['nama_jurusan' => $this->input->post('nama_jurusan')], ['md5(id_jurusan)' => $id]);
+		return $this->db->update('jurusan', ['nama_jurusan' => htmlspecialchars($this->input->post('nama_jurusan'))], ['md5(id_jurusan)' => $id]);
 	}
 
 	function delete($id)

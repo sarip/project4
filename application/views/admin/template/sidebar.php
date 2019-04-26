@@ -17,6 +17,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li><a href="<?= base_url('admin') ?>" ><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="<?= base_url('admin/biodata/') ?>" ><i class="fa fa-eye"></i> Biodata</a></li>
         <li><a href="<?= base_url('admin/kelas') ?>" ><i class="glyphicon glyphicon-stats"></i>  Kelas</a></li>
         <li><a href="<?= base_url('admin/jurusan') ?>" ><i class="fa fa-list"></i>  Jurusan</a></li>
         <li><a href="<?= base_url('admin/pelajaran') ?>" ><i class="glyphicon glyphicon-list-alt"></i>  Pelajaran</a></li>

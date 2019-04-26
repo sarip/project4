@@ -18,9 +18,9 @@ class M_wali_kelas extends CI_Model {
 	public function insert()
 	{
 		return $this->db->insert('wali_kelas', [
-			'id_guru' => $this->input->post('id_guru'),
-			'id_kelas' => $this->input->post('id_kelas'),
-			'id_jurusan' => $this->input->post('id_jurusan')
+			'id_guru' 		=> htmlspecialchars($this->input->post('id_guru')),
+			'id_kelas' 		=> htmlspecialchars($this->input->post('id_kelas')),
+			'id_jurusan' 	=> htmlspecialchars($this->input->post('id_jurusan'))
 		]);
 	}
 
@@ -28,9 +28,9 @@ class M_wali_kelas extends CI_Model {
 	{
 		
 		return $this->db->update('wali_kelas', [
-			'id_guru' => $this->input->post('id_guru'),
-			'id_kelas' => $this->input->post('id_kelas'),
-			'id_jurusan' => $this->input->post('id_jurusan')
+			'id_guru' 		=> htmlspecialchars($this->input->post('id_guru')),
+			'id_kelas' 		=> htmlspecialchars($this->input->post('id_kelas')),
+			'id_jurusan' 	=> $this->input->post('id_jurusan')
 		], ['md5(id_wali_kelas)' => $id]);
 	}
 

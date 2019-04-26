@@ -270,6 +270,7 @@
     })
 
     $('#example').DataTable();
+    $('.textarea').wysihtml5()
 </script>
 </body>
 </html>
