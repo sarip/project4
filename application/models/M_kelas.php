@@ -13,12 +13,12 @@ class M_kelas extends CI_Model {
 
 	function insert()
 	{
-		return $this->db->insert('kelas', ['nama_kelas' => $this->input->post('nama_kelas')]);
+		return $this->db->insert('kelas', ['nama_kelas' => htmlspecialchars($this->input->post('nama_kelas'))]);
 	}
 
 	function update($id)
 	{
-		return $this->db->update('kelas', ['nama_kelas' => $this->input->post('nama_kelas')], ['md5(id_kelas)' => $id]);
+		return $this->db->update('kelas', ['nama_kelas' => htmlspecialchars($this->input->post('nama_kelas'))], ['md5(id_kelas)' => $id]);
 	}
 
 	function delete($id)
