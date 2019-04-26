@@ -91,7 +91,7 @@
             <div class="form-group <?= form_error('foto') ? 'has-error' : '' ?>">
               <label for="foto"> Foto</label><br>
               <img src="<?= base_url('assets/guru/').$guru->foto ?>" class="img img-responsive img-thumbnail" style="width: 200px; height: 210px;">
-              <input type="file" name="foto" class="form-control" id="foto" >
+              <input type="file" name="foto_guru" class="form-control" id="foto" >
               <small class="text-info">*abaikan saja foto jika tidak ingin merubahnya</small>
             </div><br>
 

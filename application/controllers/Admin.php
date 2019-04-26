@@ -9,7 +9,7 @@ class Admin extends CI_Controller {
 			$this->session->set_flashdata('message', '<div class="alert alert-danger"><i class="fa fa-warning"></i> Ooppss... Silahkan Login Terlebih Dahulu! </div>');
 			redirect('auth');
 		}
-		$this->load->model(['M_biodata', 'M_siswa', 'M_guru', 'M_wali_kelas', 'M_pelajaran', 'M_mengajar', 'M_nilai', 'M_kelas', 'M_jurusan']);
+		$this->load->model(['M_portfolio', 'M_biodata', 'M_siswa', 'M_guru', 'M_wali_kelas', 'M_pelajaran', 'M_mengajar', 'M_nilai', 'M_kelas', 'M_jurusan']);
 	}
 
 
@@ -54,6 +54,59 @@ class Admin extends CI_Controller {
 		$this->mylibrary->templateadmin('biodata/index', $data);
 	}
 	// END :: BIODATA 
+
+
+
+
+	// START : PORTFOLIO
+	public function portfolio()
+	{
+		$data['title']		= 'Portfolio';
+		$data['judul']		= 'Data Portfolio';
+		$data['portfolio']	= $this->M_portfolio->get()->result();
+		$this->mylibrary->templateadmin('portfolio/index', $data);
+	}
+	public function insert_portfolio()
+	{
+		$this->form_validation->set_rules('title', 'Title', 'trim|required');
+		if ($this->form_validation->run() == TRUE) {
+			if ($this->M_portfolio->insert()) {
+				$this->session->set_flashdata('message', 'Data portfolio berhasil di tambahkan');
+			}else{
+				$this->session->set_flashdata('failed', 'Data portfolio berhasil di tambahkan');
+			}
+			redirect('admin/portfolio');
+		}
+		$data['title']		= 'Portfolio';
+		$data['judul']	 	= 'Halaman Tambah Portfolio';
+		$this->mylibrary->templateadmin('portfolio/insert', $data);
+	}
+	public function update_portfolio($id)
+	{
+		$this->form_validation->set_rules('title', 'Title', 'trim|required');
+		if ($this->form_validation->run() == TRUE) {
+			if ($this->M_portfolio->update($id)) {
+				$this->session->set_flashdata('message', 'Data portfolio berhasil di edit');
+			}else{
+				$this->session->set_flashdata('failed', 'Data portfolio berhasil di edit');
+			}
+			redirect('admin/portfolio');
+		}
+		$data['title']		= 'Portfolio';
+		$data['judul']	 	= 'Halaman Edit Portfolio';
+		$data['portfolio']	= $this->M_portfolio->get(['md5(id_portfolio)' => $id])->row();
+		$this->mylibrary->templateadmin('portfolio/update', $data);
+	}
+	public function delete_portfolio($id)
+	{
+		if ($this->M_portfolio->delete($id)) {
+			$this->session->set_flashadata('message', 'Data portfolio berhasil di hapus');
+		}else{
+			$this->session->set_flashdata('failed', 'Data portfolio gagal di hapus');
+		}
+		redirect('admin/portfolio');
+	}
+	// END :: PORTFOLIO
 
 
 

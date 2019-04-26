@@ -90,7 +90,7 @@
   
             <div class="form-group <?= form_error('foto') ? 'has-error' : '' ?>">
               <label for="foto"> Foto</label>
-              <input type="file" name="foto" class="form-control" id="foto" required>
+              <input type="file" name="foto_guru" class="form-control" id="foto" required>
             </div><br>
 
 
