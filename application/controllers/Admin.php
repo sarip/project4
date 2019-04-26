@@ -34,9 +34,9 @@ class Admin extends CI_Controller {
 	// START :: KELAS 
 	public function kelas()
 	{
-		$data['title']  = 'Kelas';
-		$data['judul']  = 'Halaman Data kelas';
-		$data['dataKelas'] = $this->M_kelas->get();	
+		$data['title']  		= 'Kelas';
+		$data['judul']  		= 'Halaman Data kelas';
+		$data['dataKelas']		= $this->M_kelas->get();	
 		$this->mylibrary->templateadmin('kelas/index', $data);
 	}
 	public function insert_kelas()
@@ -67,7 +67,7 @@ class Admin extends CI_Controller {
 		}
 		$data['title'] 		= 'Kelas';
 		$data['judul'] 		= 'Halaman Edit Kelas';
-		$data['kelas'] 	= $this->M_kelas->get(['md5(id_kelas)' => $id])->row();
+		$data['kelas'] 		= $this->M_kelas->get(['md5(id_kelas)' => $id])->row();
 		$this->mylibrary->templateadmin('kelas/update', $data);
 	}
 	public function delete_kelas($id)
