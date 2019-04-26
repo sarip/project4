@@ -17,6 +17,11 @@ class Mylibrary
 	    $this->ci->load->view('admin/'.$content, $data);
 	    $this->ci->load->view('admin/template/footer', $data);
 	}
+    public function templateuser($content, $data=NULL){
+        $this->ci->load->view('user/template/header', $data);
+        $this->ci->load->view('user/'.$content, $data);
+        $this->ci->load->view('user/template/footer', $data);
+    }
     public function date_indo($date)
     {
         if ($date == '0000-00-00') {
