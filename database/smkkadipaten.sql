@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2019 at 05:43 AM
+-- Generation Time: Apr 27, 2019 at 07:20 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -67,7 +67,7 @@ CREATE TABLE `biodata` (
 --
 
 INSERT INTO `biodata` (`id_biodata`, `nama_sekolah`, `visi`, `misi`, `email_sekolah`, `no_telepon_sekolah`, `keterangan`, `logo_sekolah`, `alamat_sekolah`) VALUES
-(1, 'SMK KADIPATEN', '“Berprestasi dilandasi Iman, Taqwa dan Berbudaya Lingkungan serta Berwawasan Global”', '&lt;ol&gt;&lt;li&gt;\r\n\r\nMewujudkan sarana prasarana reprensentatif dan up to date\r\n\r\n&lt;br&gt;&lt;/li&gt;&lt;li&gt;\r\n\r\n&amp;nbsp;Mewujudkan pengelolaan pendidikan yang professional&amp;nbsp;&lt;/li&gt;&lt;li&gt;\r\n\r\nMewujudkan sistim penilaian yang berafiliasi&lt;/li&gt;&lt;li&gt;\r\n\r\nMewujudkan budaya yang berkualifikasi\r\n\r\n&lt;br&gt;&lt;/li&gt;&lt;li&gt;\r\n\r\nMewujudkan Sekolah yang bersih,hijau dan meminimalis hasil sampah yang tidak bermanfaat\r\n\r\n&lt;br&gt;&lt;/li&gt;&lt;/ol&gt;', 'smknkadiaten@gmail.com', '0822345789', '“Berprestasi dilandasi Iman, Taqwa dan Berbudaya Lingkungan serta Berwawasan Global”', 'logo2.png', 'bandung');
+(1, 'SMK KADIPATEN', '“Berprestasi dilandasi Iman, Taqwa dan Berbudaya Lingkungan serta Berwawasan Global”', '&lt;ol&gt;&lt;li&gt;\r\n\r\nMewujudkan sarana prasarana reprensentatif dan up to date\r\n\r\n&lt;br&gt;&lt;/li&gt;&lt;li&gt;\r\n\r\n&amp;nbsp;Mewujudkan pengelolaan pendidikan yang professional&amp;nbsp;&lt;/li&gt;&lt;li&gt;\r\n\r\nMewujudkan sistim penilaian yang berafiliasi&lt;/li&gt;&lt;li&gt;\r\n\r\nMewujudkan budaya yang berkualifikasi\r\n\r\n&lt;br&gt;&lt;/li&gt;&lt;li&gt;\r\n\r\nMewujudkan Sekolah yang bersih,hijau dan meminimalis hasil sampah yang tidak bermanfaat&amp;nbsp;&lt;/li&gt;&lt;/ol&gt;', 'smknkadipaten@gmail.com', '082 234 578 912', '“Berprestasi dilandasi Iman, Taqwa dan Berbudaya Lingkungan serta Berwawasan Global”', 'logo1.png', 'Jl Batugede 25 26 Tasikmalaya');
 
 -- --------------------------------------------------------
 
@@ -92,9 +92,10 @@ CREATE TABLE `guru` (
 --
 
 INSERT INTO `guru` (`id_guru`, `nip`, `nama_guru`, `alamat`, `tempat_lahir`, `tanggal_lahir`, `agama`, `jenis_kelamin`, `foto`) VALUES
-(15, '12345789', 'faiz saidu suhada', 'tasik', 'tasik', '2019-04-17', 'islam', 'laki-laki', 'lamuncoding1.jpg'),
-(17, '234567890', 'Acep Wahyudianto', 'cisayong', 'tasikmalaya', '2019-04-04', 'islam', 'laki-laki', 'PHP-Tag-HD-Wallpaper.jpg'),
-(19, '64949', 'Asep husen', 'Kp.bojong', 'Tasikmalaya', '2019-04-25', 'islam', 'laki-laki', 'images_(3).jpeg');
+(20, '21345543213', 'Chairil Anwar', 'mangkubumi', 'tasikmalaya', '2019-04-12', 'islam', 'laki-laki', 'team3.jpg'),
+(21, '123456785', 'Acep Wahyudianto', 'cisayong', 'tasikmalaya', '2019-04-11', 'islam', 'laki-laki', 'team1.jpg'),
+(22, '234554321', 'Ai Aryani', 'cileuleus', 'tasikmalaya', '2019-04-25', 'islam', 'laki-laki', 'team4.jpg'),
+(24, '123123123123', 'Dedy Kuswandi', 'cigorowong', 'tasikmalaya', '2019-04-12', 'islam', 'laki-laki', 'team5.jpg');
 
 -- --------------------------------------------------------
 
@@ -157,14 +158,18 @@ CREATE TABLE `mengajar` (
 --
 
 INSERT INTO `mengajar` (`id_megajar`, `id_guru`, `id_kelas`, `id_jurusan`, `id_pelajaran`) VALUES
-(47, 15, 1, 3, 1),
-(48, 15, 2, 3, 4),
-(53, 17, 1, 3, 1),
-(54, 17, 1, 3, 4),
-(55, 17, 2, 4, 7),
-(56, 17, 2, 4, 8),
-(58, 19, 1, 3, 1),
-(59, 19, 1, 3, 3);
+(68, 20, 1, 3, 1),
+(69, 20, 1, 3, 3),
+(70, 20, 3, 3, 3),
+(71, 20, 3, 3, 5),
+(72, 21, 1, 3, 7),
+(73, 21, 1, 3, 8),
+(74, 22, 1, 3, 3),
+(75, 22, 2, 3, 3),
+(76, 22, 3, 3, 3),
+(79, 24, 1, 3, 1),
+(80, 24, 1, 3, 3),
+(81, 24, 2, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -195,36 +200,36 @@ CREATE TABLE `nilai` (
 --
 
 INSERT INTO `nilai` (`id_nilai`, `id_siswa`, `id_pelajaran`, `ap_1`, `ap_2`, `ap_3`, `ap_4`, `ap_5`, `ap_6`, `ak_1`, `ak_2`, `ak_3`, `ak_4`, `ak_5`, `ak_6`) VALUES
-(29, 21, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(30, 21, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(31, 21, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(32, 21, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(33, 21, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(34, 21, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(35, 22, 1, 80, 0, 0, 0, 0, 0, 85, 0, 0, 0, 0, 0),
-(36, 22, 3, 83, 0, 0, 0, 0, 0, 85, 0, 0, 0, 0, 0),
-(37, 22, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(38, 22, 5, 80, 0, 0, 0, 0, 0, 82, 0, 0, 0, 0, 0),
-(39, 22, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(40, 22, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(41, 23, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(42, 23, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(43, 23, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(44, 23, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(45, 23, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(46, 23, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(47, 24, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(48, 24, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(49, 24, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(50, 24, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(51, 24, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(52, 24, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(53, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(54, 25, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(55, 25, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(56, 25, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(57, 25, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(58, 25, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+(110, 33, 1, 80, 0, 0, 0, 0, 0, 75, 0, 0, 0, 0, 0),
+(111, 33, 3, 78, 0, 0, 0, 0, 0, 73, 0, 0, 0, 0, 0),
+(112, 33, 4, 87, 0, 0, 0, 0, 0, 70, 0, 0, 0, 0, 0),
+(113, 33, 5, 89, 0, 0, 0, 0, 0, 70, 0, 0, 0, 0, 0),
+(114, 33, 7, 90, 0, 0, 0, 0, 0, 73, 0, 0, 0, 0, 0),
+(115, 33, 8, 95, 0, 0, 0, 0, 0, 75, 0, 0, 0, 0, 0),
+(116, 34, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(117, 34, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(118, 34, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(119, 34, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(120, 34, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(121, 34, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(122, 35, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(123, 35, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(124, 35, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(125, 35, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(126, 35, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(127, 35, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(128, 36, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(129, 36, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(130, 36, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(131, 36, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(132, 36, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(133, 36, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(134, 37, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(135, 37, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(136, 37, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(137, 37, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(138, 37, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(139, 37, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -256,10 +261,19 @@ INSERT INTO `pelajaran` (`id_pelajaran`, `nama_pelajaran`) VALUES
 --
 
 CREATE TABLE `portfolio` (
-  `id_porfolio` int(11) NOT NULL,
+  `id_portfolio` int(11) NOT NULL,
   `foto` varchar(225) NOT NULL,
   `title` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `portfolio`
+--
+
+INSERT INTO `portfolio` (`id_portfolio`, `foto`, `title`) VALUES
+(3, 'event1.jpg', 'portfolio satu'),
+(4, 'event2.jpg', 'portfolio dua'),
+(5, 'event3.jpg', 'portfolio tiga');
 
 -- --------------------------------------------------------
 
@@ -325,9 +339,11 @@ CREATE TABLE `siswa` (
 --
 
 INSERT INTO `siswa` (`id_siswa`, `id_kelas`, `id_jurusan`, `nis`, `nama_siswa`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `warga_negara`, `agama`, `alamat_siswa`, `nama_orang_tua`, `pekerjaan`, `alamat_orang_tua`, `nama_wali`, `alamat_wali`, `pekerjaan_wali`, `tanggal_masuk`, `asal_sekolah`, `alamat_sekolah`, `nomor_sttb`, `tanggal_sttb`, `tanggal_meninggalkan_sekolah`, `alasan_meninggalkan_sekolah`, `tamat_nomor_sttb`, `tamat_tanggal_sttb`, `keterangan_lain`, `foto_siswa`, `s_1`, `s_2`, `s_3`, `s_4`, `s_5`, `s_6`, `i_1`, `i_2`, `i_3`, `i_4`, `i_5`, `i_6`, `a_1`, `a_2`, `a_3`, `a_4`, `a_5`, `a_6`, `th_1`, `th_2`, `th_3`, `catatan`) VALUES
-(22, 2, 6, 1718120, 'Sarip Hidayat', 'laki-laki', 'tasikmalaya', '2001-10-22', 'WNI', 'islam', 'jantake', '', '', '', '', '', '', '2019-04-04', '', '', '', '0000-00-00', '0000-00-00', 'Sarip Hidayat', '', '0000-00-00', '', 'front-end.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2018-2019', '', '', 'Nilai Sudah cukup baik dan lebih ditingkatkan lagi!!!'),
-(23, 1, 3, 2147483647, 'Asep Husen', 'laki-laki', 'tasikmalaya', '2019-04-02', 'WNI', 'islam', 'Kp.jantake', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', '0000-00-00', '', '', '0000-00-00', '', 'PHP-Tag-HD-Wallpaper.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', ''),
-(24, 3, 6, 9437649, 'Husen', 'laki-laki', 'Tasikmalaya', '2019-04-04', 'WNI', 'islam', 'Kp.jantake', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', '0000-00-00', '', '', '0000-00-00', '', 'wallpaper-2921923.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '');
+(33, 2, 6, 1718120, 'Sarip Hidayat', 'laki-laki', 'tasikmalaya', '2019-04-04', 'WNI', 'kristen', 'jantake', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', '0000-00-00', '', '', '0000-00-00', '', 'testimonial1.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', ''),
+(34, 2, 6, 1718130, 'Asep Husen', 'laki-laki', 'tasikmalaya', '2019-04-18', 'WNI', 'islam', 'cisayong', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', '0000-00-00', '', '', '0000-00-00', '', 'testimonial2.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', ''),
+(35, 2, 6, 17181150, 'Faiz Syaidu Suhada', 'laki-laki', 'tasikmalaya', '2019-04-04', 'WNI', 'islam', 'ciawi', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', '0000-00-00', '', '', '0000-00-00', '', 'testimonial3.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', ''),
+(36, 3, 8, 1245678743, 'Dea Herlana', 'laki-laki', 'tasikmalaya', '2019-04-04', 'WNI', 'islam', 'ciloa', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', '0000-00-00', '', '', '0000-00-00', '', 'testimonial4.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', ''),
+(37, 2, 5, 1718150, 'Sri Mulyani', 'laki-laki', 'tasikmalaya', '2019-04-03', 'WNI', 'islam', 'cinusa', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', '0000-00-00', '', '', '0000-00-00', '', 'team-detail.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -347,7 +363,9 @@ CREATE TABLE `wali_kelas` (
 --
 
 INSERT INTO `wali_kelas` (`id_wali_kelas`, `id_guru`, `id_kelas`, `id_jurusan`) VALUES
-(3, 15, 1, 4);
+(3, 15, 1, 4),
+(4, 23, 3, 6),
+(5, 20, 2, 4);
 
 --
 -- Indexes for dumped tables
@@ -405,7 +423,7 @@ ALTER TABLE `pelajaran`
 -- Indexes for table `portfolio`
 --
 ALTER TABLE `portfolio`
-  ADD PRIMARY KEY (`id_porfolio`);
+  ADD PRIMARY KEY (`id_portfolio`);
 
 --
 -- Indexes for table `siswa`
@@ -439,7 +457,7 @@ ALTER TABLE `biodata`
 -- AUTO_INCREMENT for table `guru`
 --
 ALTER TABLE `guru`
-  MODIFY `id_guru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_guru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `jurusan`
@@ -457,13 +475,13 @@ ALTER TABLE `kelas`
 -- AUTO_INCREMENT for table `mengajar`
 --
 ALTER TABLE `mengajar`
-  MODIFY `id_megajar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id_megajar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `nilai`
 --
 ALTER TABLE `nilai`
-  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
 
 --
 -- AUTO_INCREMENT for table `pelajaran`
@@ -475,19 +493,19 @@ ALTER TABLE `pelajaran`
 -- AUTO_INCREMENT for table `portfolio`
 --
 ALTER TABLE `portfolio`
-  MODIFY `id_porfolio` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_portfolio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `wali_kelas`
 --
 ALTER TABLE `wali_kelas`
-  MODIFY `id_wali_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_wali_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

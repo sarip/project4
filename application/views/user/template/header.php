@@ -41,8 +41,8 @@
 		
 		<!-- Learedu Color -->
 		<link rel="stylesheet" href="<?= base_url('assets/frontend/') ?>css/color/color1.css">
-		<!--<link rel="stylesheet" href="<?= base_url('assets/frontend/') ?>css/color/color2.css">-->
-		<!--<link rel="stylesheet" href="<?= base_url('assets/frontend/') ?>css/color/color3.css">-->
+		<!-- <link rel="stylesheet" href="<?= base_url('assets/frontend/') ?>css/color/color2.css"> -->
+		<!-- <link rel="stylesheet" href="<?= base_url('assets/frontend/') ?>css/color/color3.css"> -->
 		<!--<link rel="stylesheet" href="<?= base_url('assets/frontend/') ?>css/color/color4.css">-->
 		<!--<link rel="stylesheet" href="<?= base_url('assets/frontend/') ?>css/color/color5.css">-->
 		<!--<link rel="stylesheet" href="<?= base_url('assets/frontend/') ?>css/color/color6.css">-->
@@ -85,7 +85,7 @@
 					<div class="row">
 						<div class="col-lg-3 col-md-3 col-12">
 							<div class="logo">
-								<a href="index.html"><img src="<?= base_url('assets/frontend/') ?>images/logo.png" alt="#"></a>
+								<a href="index.html"><img src="<?= base_url('assets/biodata/') ?><?= $biodata->logo_sekolah; ?>" alt="#"></a>
 							</div>
 							<div class="mobile-menu"></div>
 						</div>
@@ -94,15 +94,15 @@
 							<div class="header-widget">
 								<div class="single-widget">
 									<i class="fa fa-phone"></i>
-									<h4>Call Now<span>(+121) 1800 567 980</span></h4>
+									<h4>Call Now<span><?= $biodata->no_telepon_sekolah ?></span></h4>
 								</div>
 								<div class="single-widget">
 									<i class="fa fa-envelope-o"></i>
-									<h4>Send Message<a href="mailto:mailus@mail.com"><span>support@education.com</span></a></h4>
+									<h4>Send Message<a href="<?= $biodata->email_sekolah ?>"><span><?= $biodata->email_sekolah; ?></span></a></h4>
 								</div>
 								<div class="single-widget">
 									<i class="fa fa-map-marker"></i>
-									<h4>Our Location<span>211 Ronad, California, Us</span></h4>
+									<h4>Our Location<span><?= $biodata->alamat_sekolah ?></span></h4>
 								</div>
 							</div>
 							<!--/ End Header Widget -->
@@ -120,12 +120,7 @@
 								<div class="navbar-collapse">
 									<!-- Main Menu -->
 									<ul id="nav" class="nav menu navbar-nav">
-										<li class="active"><a href="index.html">Home<i class="fa fa-angle-down"></i></a>
-											<ul class="dropdown">
-												<li><a href="index.html">Homepage Default</a></li>
-												<li><a href="index2.html">Homepage Animation</a></li>
-											</ul>
-										</li>
+										<li class="active"><a href="<?= base_url('user') ?>">Home</a></li>
 										<li><a href="#">Pages<i class="fa fa-angle-down"></i></a>
 											<ul class="dropdown">
 											<li><a href="about.html">About Us</a></li>
@@ -164,13 +159,9 @@
 											</ul>
 										</li>
 										<li><a href="contact.html">Contact</a></li>
+										<li><a href="<?= base_url('auth') ?>">Login</a></li>
 									</ul>
 									<!-- End Main Menu -->
-									<!-- button -->
-									<div class="button">
-										<a href="contact.html" class="btn"><i class="fa fa-pencil"></i>Apply Now</a>
-									</div>
-									<!--/ End Button -->
 								</div> 
 							</nav>
 						</div>

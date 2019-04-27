@@ -18,6 +18,7 @@ class Mylibrary
 	    $this->ci->load->view('admin/template/footer', $data);
 	}
     public function templateuser($content, $data=NULL){
+        $data['biodata'] = $this->ci->db->get('biodata')->row();
         $this->ci->load->view('user/template/header', $data);
         $this->ci->load->view('user/'.$content, $data);
         $this->ci->load->view('user/template/footer', $data);

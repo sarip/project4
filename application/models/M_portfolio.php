@@ -43,10 +43,9 @@ class M_portfolio extends CI_Model {
 		
 		if ( ! $this->upload->do_upload('foto_portfolio')){
 			return $this->db->update('portfolio', ['title' => htmlspecialchars($this->input->post('title'))], ['md5(id_portfolio)' => $id]);
-		}
-		else{
+		}else{
 			$data = $this->upload->data();
-			$result = $this->get(['md5(id_portfollio)' => $id])->row();
+			$result = $this->get(['md5(id_portfolio)' => $id])->row();
 			unlink('./assets/portfolio/'.$result->foto);
 			return $this->db->update('portfolio', ['foto' => $data['file_name'], 'title' => htmlspecialchars($this->input->post('title'))], ['md5(id_portfolio)' => $id]);
 		}

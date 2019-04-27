@@ -73,7 +73,7 @@ class Admin extends CI_Controller {
 			if ($this->M_portfolio->insert()) {
 				$this->session->set_flashdata('message', 'Data portfolio berhasil di tambahkan');
 			}else{
-				$this->session->set_flashdata('failed', 'Data portfolio berhasil di tambahkan');
+				$this->session->set_flashdata('failed', 'Data portfolio gagal di tambahkan');
 			}
 			redirect('admin/portfolio');
 		}
@@ -88,7 +88,7 @@ class Admin extends CI_Controller {
 			if ($this->M_portfolio->update($id)) {
 				$this->session->set_flashdata('message', 'Data portfolio berhasil di edit');
 			}else{
-				$this->session->set_flashdata('failed', 'Data portfolio berhasil di edit');
+				$this->session->set_flashdata('failed', 'Data portfolio gagal di edit');
 			}
 			redirect('admin/portfolio');
 		}
@@ -100,7 +100,7 @@ class Admin extends CI_Controller {
 	public function delete_portfolio($id)
 	{
 		if ($this->M_portfolio->delete($id)) {
-			$this->session->set_flashadata('message', 'Data portfolio berhasil di hapus');
+			$this->session->set_flashdata('message', 'Data portfolio berhasil di hapus');
 		}else{
 			$this->session->set_flashdata('failed', 'Data portfolio gagal di hapus');
 		}
@@ -488,6 +488,7 @@ class Admin extends CI_Controller {
 	public function delete_siswa($id){
 		if ($this->M_siswa->delete($id)) {
 			$this->session->set_flashdata('message', 'Siswa Berhasil Di Hapus');
+			$this->db->delete('nilai', ['md5(id_siswa)' => $id]);
 			redirect('admin/siswa');
 		}else{
 			$this->session->set_flashdata('message', 'Siswa Gagal Di Hapus');

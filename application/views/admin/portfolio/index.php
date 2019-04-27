@@ -31,8 +31,9 @@
                         <tr>
                           <td><?= $i++; ?></td>
                           <td>
-                            <img src="<?= base_url('assets/portfolio/').$key->foto ?>" alt="" class="img img-responsive img-thumbnail">
+                            <img src="<?= base_url('assets/portfolio/').$key->foto ?>" alt="" class="img img-responsive img-thumbnail" style="width: 200px; height: 150px;">
                           </td>
+                          <td><?= $key->title; ?></td>
                           <td>
                             <a href="<?= base_url('admin/update_portfolio/'). md5($key->id_portfolio) ?>" class="btn btn-info"> <i class="fa fa-edit"></i> Edit</a>
                             <a href="<?= base_url('admin/delete_portfolio/'). md5($key->id_portfolio) ?>" class="btn btn-danger" onclick="return confirm('Yakin mau menghapus data <?= ucfirst($key->title) ?> ? ')"> <i class="fa fa-trash-o"></i> Delete</a>
