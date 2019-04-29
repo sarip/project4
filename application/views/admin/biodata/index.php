@@ -60,7 +60,7 @@
 
              <div class="form-group <?= form_error('keterangan') ? 'has-error' : '' ?>">
               <label for="keterangan"><i class="fa fa-pencil"></i> keterangan Sekolah</label>
-              <textarea name="keterangan" class="form-control"  placeholder="keterangan Sekolah"><?= $biodata->visi ?></textarea>
+              <textarea name="keterangan" class="form-control"  placeholder="keterangan Sekolah"><?= $biodata->keterangan ?></textarea>
               <?= form_error('keterangan', '<small><i class="text-danger">', '</i></small>') ?>
             </div><br>
 

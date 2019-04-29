@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2019 at 07:20 AM
+-- Generation Time: Apr 29, 2019 at 06:00 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -67,7 +67,7 @@ CREATE TABLE `biodata` (
 --
 
 INSERT INTO `biodata` (`id_biodata`, `nama_sekolah`, `visi`, `misi`, `email_sekolah`, `no_telepon_sekolah`, `keterangan`, `logo_sekolah`, `alamat_sekolah`) VALUES
-(1, 'SMK KADIPATEN', '“Berprestasi dilandasi Iman, Taqwa dan Berbudaya Lingkungan serta Berwawasan Global”', '&lt;ol&gt;&lt;li&gt;\r\n\r\nMewujudkan sarana prasarana reprensentatif dan up to date\r\n\r\n&lt;br&gt;&lt;/li&gt;&lt;li&gt;\r\n\r\n&amp;nbsp;Mewujudkan pengelolaan pendidikan yang professional&amp;nbsp;&lt;/li&gt;&lt;li&gt;\r\n\r\nMewujudkan sistim penilaian yang berafiliasi&lt;/li&gt;&lt;li&gt;\r\n\r\nMewujudkan budaya yang berkualifikasi\r\n\r\n&lt;br&gt;&lt;/li&gt;&lt;li&gt;\r\n\r\nMewujudkan Sekolah yang bersih,hijau dan meminimalis hasil sampah yang tidak bermanfaat&amp;nbsp;&lt;/li&gt;&lt;/ol&gt;', 'smknkadipaten@gmail.com', '082 234 578 912', '“Berprestasi dilandasi Iman, Taqwa dan Berbudaya Lingkungan serta Berwawasan Global”', 'logo1.png', 'Jl Batugede 25 26 Tasikmalaya');
+(1, 'SMK KADIPATEN', '<p><b></b></p><blockquote><b>“Berprestasi dilandasi Iman, Taqwa dan Berbudaya Lingkungan serta Berwawasan Global”</b></blockquote><p></p>', '<p></p><ol><li><small>Mewujudkan sarana prasarana reprensentatif dan up to date\r\n\r\n</small></li><li><small>\r\n\r\n&nbsp;Mewujudkan pengelolaan pendidikan yang professional&nbsp;</small></li><li><small>\r\n\r\nMewujudkan sistim penilaian yang berafiliasi</small></li><li><small>\r\n\r\nMewujudkan budaya yang berkualifikasi</small></li><li><small>Mewujudkan Sekolah yang bersih,hijau dan meminimalis hasil sampah yang tidak bermanfaat&nbsp;</small></li></ol><p></p><p><b></b></p>', 'smk@gmail.com', '082 234 578 912', 'keterangan sekolah', 'logo1.png', 'Jl Batugede 25 26 Tasikmalaya');
 
 -- --------------------------------------------------------
 
@@ -95,7 +95,7 @@ INSERT INTO `guru` (`id_guru`, `nip`, `nama_guru`, `alamat`, `tempat_lahir`, `ta
 (20, '21345543213', 'Chairil Anwar', 'mangkubumi', 'tasikmalaya', '2019-04-12', 'islam', 'laki-laki', 'team3.jpg'),
 (21, '123456785', 'Acep Wahyudianto', 'cisayong', 'tasikmalaya', '2019-04-11', 'islam', 'laki-laki', 'team1.jpg'),
 (22, '234554321', 'Ai Aryani', 'cileuleus', 'tasikmalaya', '2019-04-25', 'islam', 'laki-laki', 'team4.jpg'),
-(24, '123123123123', 'Dedy Kuswandi', 'cigorowong', 'tasikmalaya', '2019-04-12', 'islam', 'laki-laki', 'team5.jpg');
+(24, '123123123123', 'Dedy Kuswandi', 'cigorowong', 'tasikmalaya', '2019-04-12', 'islam', 'laki-laki', 'lamuncoding.jpg');
 
 -- --------------------------------------------------------
 
@@ -105,19 +105,21 @@ INSERT INTO `guru` (`id_guru`, `nip`, `nama_guru`, `alamat`, `tempat_lahir`, `ta
 
 CREATE TABLE `jurusan` (
   `id_jurusan` int(11) NOT NULL,
-  `nama_jurusan` varchar(50) NOT NULL
+  `nama_jurusan` varchar(50) NOT NULL,
+  `foto_jurusan` varchar(100) NOT NULL,
+  `keterangan_jurusan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jurusan`
 --
 
-INSERT INTO `jurusan` (`id_jurusan`, `nama_jurusan`) VALUES
-(3, 'Geologi Pertambangan'),
-(4, 'Agribisnis Tanaman Pangan Dan Hortikultura'),
-(5, 'Otomatisasi Tata Kelola Perkantoran'),
-(6, 'Teknik Dan Bisnis Sepeda Motor'),
-(8, 'Teknik Kendaraan Ringan Dan Otomotif');
+INSERT INTO `jurusan` (`id_jurusan`, `nama_jurusan`, `foto_jurusan`, `keterangan_jurusan`) VALUES
+(3, 'Geologi Pertambangan', 'error-bg.jpg', 'Ini keteranagan'),
+(4, 'Agribisnis Tanaman Pangan Dan Hortikultura', 'front-end2.jpg', 'Nama Nama '),
+(5, 'Otomatisasi Tata Kelola Perkantoran', 'wallhaven-342160.jpg', 'Harus kah saya nakal'),
+(6, 'Teknik Dan Bisnis Sepeda Motor', 'logo2.png', 'di sini bisnis motor and montir'),
+(8, 'Teknik Kendaraan Ringan Dan Otomotif', 'portfolio.PNG', 'keterangan ini');
 
 -- --------------------------------------------------------
 
@@ -167,9 +169,9 @@ INSERT INTO `mengajar` (`id_megajar`, `id_guru`, `id_kelas`, `id_jurusan`, `id_p
 (74, 22, 1, 3, 3),
 (75, 22, 2, 3, 3),
 (76, 22, 3, 3, 3),
-(79, 24, 1, 3, 1),
-(80, 24, 1, 3, 3),
-(81, 24, 2, 3, 3);
+(82, 24, 1, 3, 1),
+(83, 24, 1, 3, 3),
+(84, 24, 2, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -192,44 +194,46 @@ CREATE TABLE `nilai` (
   `ak_3` int(11) NOT NULL,
   `ak_4` int(11) NOT NULL,
   `ak_5` int(11) NOT NULL,
-  `ak_6` int(11) NOT NULL
+  `ak_6` int(11) NOT NULL,
+  `nilai_ijazah` int(11) NOT NULL,
+  `nilai_skhun` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `nilai`
 --
 
-INSERT INTO `nilai` (`id_nilai`, `id_siswa`, `id_pelajaran`, `ap_1`, `ap_2`, `ap_3`, `ap_4`, `ap_5`, `ap_6`, `ak_1`, `ak_2`, `ak_3`, `ak_4`, `ak_5`, `ak_6`) VALUES
-(110, 33, 1, 80, 0, 0, 0, 0, 0, 75, 0, 0, 0, 0, 0),
-(111, 33, 3, 78, 0, 0, 0, 0, 0, 73, 0, 0, 0, 0, 0),
-(112, 33, 4, 87, 0, 0, 0, 0, 0, 70, 0, 0, 0, 0, 0),
-(113, 33, 5, 89, 0, 0, 0, 0, 0, 70, 0, 0, 0, 0, 0),
-(114, 33, 7, 90, 0, 0, 0, 0, 0, 73, 0, 0, 0, 0, 0),
-(115, 33, 8, 95, 0, 0, 0, 0, 0, 75, 0, 0, 0, 0, 0),
-(116, 34, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(117, 34, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(118, 34, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(119, 34, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(120, 34, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(121, 34, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(122, 35, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(123, 35, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(124, 35, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(125, 35, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(126, 35, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(127, 35, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(128, 36, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(129, 36, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(130, 36, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(131, 36, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(132, 36, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(133, 36, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(134, 37, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(135, 37, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(136, 37, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(137, 37, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(138, 37, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(139, 37, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `nilai` (`id_nilai`, `id_siswa`, `id_pelajaran`, `ap_1`, `ap_2`, `ap_3`, `ap_4`, `ap_5`, `ap_6`, `ak_1`, `ak_2`, `ak_3`, `ak_4`, `ak_5`, `ak_6`, `nilai_ijazah`, `nilai_skhun`) VALUES
+(110, 33, 1, 80, 85, 0, 0, 0, 0, 75, 75, 0, 0, 0, 0, 10, 20),
+(111, 33, 3, 78, 90, 0, 0, 0, 0, 73, 77, 0, 0, 0, 0, 20, 30),
+(112, 33, 4, 87, 87, 0, 0, 0, 0, 70, 75, 0, 0, 0, 0, 0, 0),
+(113, 33, 5, 89, 88, 0, 0, 0, 0, 70, 75, 0, 0, 0, 0, 0, 0),
+(114, 33, 7, 90, 89, 0, 0, 0, 0, 73, 80, 0, 0, 0, 0, 0, 0),
+(115, 33, 8, 95, 95, 0, 0, 0, 0, 75, 90, 0, 0, 0, 0, 0, 0),
+(122, 35, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(123, 35, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(124, 35, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(125, 35, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(126, 35, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(127, 35, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(128, 36, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(129, 36, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(130, 36, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(131, 36, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(132, 36, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(133, 36, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(134, 37, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(135, 37, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(136, 37, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(137, 37, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(138, 37, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(139, 37, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(140, 38, 1, 90, 0, 0, 0, 0, 0, 80, 0, 0, 0, 0, 0, 0, 0),
+(141, 38, 3, 99, 0, 0, 0, 0, 0, 96, 0, 0, 0, 0, 0, 0, 0),
+(142, 38, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(143, 38, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(144, 38, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(145, 38, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0);
 
 -- --------------------------------------------------------
 
@@ -339,11 +343,11 @@ CREATE TABLE `siswa` (
 --
 
 INSERT INTO `siswa` (`id_siswa`, `id_kelas`, `id_jurusan`, `nis`, `nama_siswa`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `warga_negara`, `agama`, `alamat_siswa`, `nama_orang_tua`, `pekerjaan`, `alamat_orang_tua`, `nama_wali`, `alamat_wali`, `pekerjaan_wali`, `tanggal_masuk`, `asal_sekolah`, `alamat_sekolah`, `nomor_sttb`, `tanggal_sttb`, `tanggal_meninggalkan_sekolah`, `alasan_meninggalkan_sekolah`, `tamat_nomor_sttb`, `tamat_tanggal_sttb`, `keterangan_lain`, `foto_siswa`, `s_1`, `s_2`, `s_3`, `s_4`, `s_5`, `s_6`, `i_1`, `i_2`, `i_3`, `i_4`, `i_5`, `i_6`, `a_1`, `a_2`, `a_3`, `a_4`, `a_5`, `a_6`, `th_1`, `th_2`, `th_3`, `catatan`) VALUES
-(33, 2, 6, 1718120, 'Sarip Hidayat', 'laki-laki', 'tasikmalaya', '2019-04-04', 'WNI', 'kristen', 'jantake', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', '0000-00-00', '', '', '0000-00-00', '', 'testimonial1.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', ''),
-(34, 2, 6, 1718130, 'Asep Husen', 'laki-laki', 'tasikmalaya', '2019-04-18', 'WNI', 'islam', 'cisayong', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', '0000-00-00', '', '', '0000-00-00', '', 'testimonial2.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', ''),
+(33, 2, 6, 1718120, 'Sarip Hidayat', 'laki-laki', 'tasikmalaya', '2019-04-04', 'WNI', 'kristen', 'jantake', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', '0000-00-00', '', '', '0000-00-00', '', 'testimonial1.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2018-2019', '', '', ''),
 (35, 2, 6, 17181150, 'Faiz Syaidu Suhada', 'laki-laki', 'tasikmalaya', '2019-04-04', 'WNI', 'islam', 'ciawi', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', '0000-00-00', '', '', '0000-00-00', '', 'testimonial3.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', ''),
 (36, 3, 8, 1245678743, 'Dea Herlana', 'laki-laki', 'tasikmalaya', '2019-04-04', 'WNI', 'islam', 'ciloa', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', '0000-00-00', '', '', '0000-00-00', '', 'testimonial4.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', ''),
-(37, 2, 5, 1718150, 'Sri Mulyani', 'laki-laki', 'tasikmalaya', '2019-04-03', 'WNI', 'islam', 'cinusa', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', '0000-00-00', '', '', '0000-00-00', '', 'team-detail.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '');
+(37, 2, 5, 1718150, 'Sri Mulyani', 'laki-laki', 'tasikmalaya', '2019-04-03', 'WNI', 'islam', 'cinusa', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', '0000-00-00', '', '', '0000-00-00', '', 'team-detail.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', ''),
+(38, 1, 4, 12345, 'Asep Husen', 'laki-laki', 'tasikmalaya', '2019-04-20', 'WNI', 'islam', 'Kp.jantake', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', '0000-00-00', 'Asep Husen', '', '0000-00-00', '', 'wallhaven-342160.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2010-2011', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -475,13 +479,13 @@ ALTER TABLE `kelas`
 -- AUTO_INCREMENT for table `mengajar`
 --
 ALTER TABLE `mengajar`
-  MODIFY `id_megajar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id_megajar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- AUTO_INCREMENT for table `nilai`
 --
 ALTER TABLE `nilai`
-  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
+  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
 
 --
 -- AUTO_INCREMENT for table `pelajaran`
@@ -499,7 +503,7 @@ ALTER TABLE `portfolio`
 -- AUTO_INCREMENT for table `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `wali_kelas`

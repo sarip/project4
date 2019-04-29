@@ -7,11 +7,12 @@
 				<div class="row">
 					<div class="col-lg-8 col-md-8 col-12">
 						<div class="slider-text">
-							<h1>Perfect Template for <span>Education</span> & Courses Website</h1>
-							<p>Our mission is to empower clients, colleagues, and communities to achieve aspirations while building lasting, caring relationships.</p>
+							<h1>Visi <span>Sekolah</span></h1>
+							<h3 style="color : white;">
+								<?= $biodata->visi ?>
+							</h3>
 							<div class="button">
-								<a href="courses.html" class="btn primary">Our Courses</a>
-								<a href="about.html" class="btn">About Learnedu</a>
+								
 							</div>
 						</div>
 					</div>
@@ -21,33 +22,14 @@
 		<!--/ End Single Slider -->
 		<!-- Single Slider -->
 		<div class="single-slider overlay" style="background-image:url('<?= base_url('assets/frontend/') ?>images/slider/slider-bg2.jpg')">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-12">
-						<div class="slider-text text-center">
-							<h1>Creative Template for <span>Education</span> & Courses Website</h1>
-							<p>Our mission is to empower clients, colleagues, and communities to achieve aspirations while building lasting, caring relationships.</p>
-							<div class="button">
-								<a href="courses.html" class="btn primary">Our Courses</a>
-								<a href="about.html" class="btn">About Learnedu</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--/ End Single Slider -->
-		<!-- Single Slider -->
-		<div class="single-slider overlay" style="background-image:url('<?= base_url('assets/frontend/') ?>images/slider/slider-bg3.jpg')">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-8 offset-lg-4 col-md-8 offset-md-4 col-12">
-						<div class="slider-text text-right">
-							<h1>Responsive Template for <span>Education</span> & Courses Website</h1>
-							<p>Our mission is to empower clients, colleagues, and communities to achieve aspirations while building lasting, caring relationships.</p>
+						<div class="slider-text container">
+							<h1>Misi <span>Sekolah</span></h1>
+							<h5 style="color: white;"><?= $biodata->misi ?></h5>
 							<div class="button">
-								<a href="courses.html" class="btn primary">Our Courses</a>
-								<a href="about.html" class="btn">About Learnedu</a>
+								
 							</div>
 						</div>
 					</div>
@@ -59,55 +41,45 @@
 </section>
 <!--/ End Slider Area -->
 
-<!-- Features -->
-<section class="our-features section">
+<!-- Blogs -->
+<section class="blog section" id="keahlian">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
 				<div class="section-title">
-					<h2>We Provide <span>Educational</span> Solutions</h2>
-					<p>Mauris at varius orci. Vestibulum interdum felis eu nisl pulvinar, quis ultricies nibh. Sed ultricies ante vitae laoreet sagittis. In pellentesque viverra purus. Sed risus est, molestie nec hendrerit hendreri </p>
+					<h2>Program Keahlian</h2>
 				</div>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg-4 col-md-4 col-12">
-				<!-- Single Feature -->
-				<div class="single-feature">
-					<div class="feature-head">
-						<img src="<?= base_url('assets/frontend/') ?>images/feature1.jpg" alt="#">
+			<div class="col-12">
+				<div class="blog-slider">
+					<?php foreach ($keahlian as $key): ?>
+					<!-- Single Blog -->
+					<div class="single-blog">
+						<div class="blog-head overlay">
+							<img src="<?= base_url('assets/jurusan/' . $key->foto_jurusan) ?>" style="height: 200px;">
+						</div>
+						<div class="blog-content" style="height: 200px;">
+							<h4 class="blog-title"><?= $key->nama_jurusan ?><hr>
+							</h4>
+							<div class="blog-info">
+								
+							</div>
+							<p><?= $key->keterangan_jurusan ?></p>
+							<div class="button">
+								<br>
+							</div>
+						</div>
 					</div>
-					<h2>Online Courses Facilities</h2>
-					<p>Vivamus volutpat eros pulvinar velit laoreet, sit amet egestas erat dignissim</p>	
+					<!-- End Single Blog -->
+				<?php endforeach; ?>
 				</div>
-				<!--/ End Single Feature -->
-			</div>
-			<div class="col-lg-4 col-md-4 col-12">
-				<!-- Single Feature -->
-				<div class="single-feature">
-					<div class="feature-head">
-						<img src="<?= base_url('assets/frontend/') ?>images/feature2.jpg" alt="#">
-					</div>
-					<h2>Student Admin Panel</h2>
-					<p>Vivamus volutpat eros pulvinar velit laoreet, sit amet egestas erat dignissim</p>	
-				</div>
-				<!--/ End Single Feature -->
-			</div>
-			<div class="col-lg-4 col-md-4 col-12">
-				<!-- Single Feature -->
-				<div class="single-feature">
-					<div class="feature-head">
-						<img src="<?= base_url('assets/frontend/') ?>images/feature3.jpg" alt="#">
-					</div>
-					<h2>Perfect Guidelines</h2>
-					<p>Vivamus volutpat eros pulvinar velit laoreet, sit amet egestas erat dignissim</p>	
-				</div>
-				<!--/ End Single Feature -->
 			</div>
 		</div>
 	</div>
 </section>
-<!-- End Features -->
+<!--/ End Blogs -->
 
 <!-- Team -->
 <section class="team section">
@@ -115,21 +87,25 @@
 		<div class="row">
 			<div class="col-12">
 				<div class="section-title">
-					<h2>Our Awesome <span>Teachers</span></h2>
-					<p>Mauris at varius orci. Vestibulum interdum felis eu nisl pulvinar, quis ultricies nibh. Sed ultricies ante vitae laoreet sagittis. In pellentesque viverra purus. Sed risus est, molestie nec hendrerit hendreri </p>
+					<h2>Wali Kelas</h2>
+					
 				</div>
 			</div>
 		</div>
 		<div class="row">
 
-			<?php foreach ($guru as $key): ?>
+			<?php foreach ($wali_kelas as $key): ?>
 			<div class="col-lg-3 col-md-6 col-12">
 				<!-- Single Team -->
 				<div class="single-team">
-					<img src="<?= base_url('assets/guru/').$key->foto ?>">
+					<img src="<?= base_url('assets/guru/').$key->foto ?>" style="height: 380px;">
 					<div class="team-hover">
-						<h4 class="name"><?= $key->nama_guru ?><span><?= $key->alamat ?></span></h4>
-						<p>cumque nihil impedit quo minusid quod maxime placeat facere possimus</p>
+						<h4 class="name"><?= $key->nama_guru ?><span>
+							<?= $key->alamat ?><br>
+							<?= $key->tempat_lahir.', '.$this->mylibrary->date_indo($key->tanggal_lahir) ?><hr>
+							<b><?= $key->nama_kelas ?><br> <?= $key->nama_jurusan ?></b>
+							</span>
+						</h4>
 						<ul class="social">
 							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -151,43 +127,34 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
+				<div class="section-title">
+					<h2>Teacher</h2>
+				</div>
 				<div class="testimonial-slider">
-					<!-- Single Testimonial -->
-					<div class="single-testimonial">
-						<img src="<?= base_url('assets/frontend/') ?>images/testimonial1.jpg" alt="#">
-						<div class="main-content">
-							<h4 class="name">Sanavce Faglane</h4>
-							<p>Nulla cursus a metus vel placerat. Fusce malesuada volutpat pretium. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus velit libero, viverra quis euismod vel pellentesque at tortor. Donec</p>
+					<?php foreach ($guru as $guru): ?>
+						<!-- Single Testimonial -->
+						<div class="single-testimonial" style="min-height: 300px;">
+							<img src="<?= base_url('assets/guru/').$guru->foto ?>" alt="#">
+							<div class="main-content">
+								<h4 class="name"><?= $guru->nama_guru ?></h4><hr>
+								<p>
+									<table>
+									<?php foreach ($mengajar as $mengajar1): ?>
+										<?php if ($guru->id_guru == $mengajar1->id_guru): ?>
+											<tr>
+												<td><?= $mengajar1->nama_kelas ?></td>
+												<td><?= $mengajar1->nama_jurusan ?></td>
+												<td>: <?= $mengajar1->nama_pelajaran ?></td>
+											</tr>
+										<?php endif ?>
+									<?php endforeach ?>
+									</table>
+								</p>
+							</div>
 						</div>
-					</div>
-					<!--/ End Single Testimonial -->
-					<!-- Single Testimonial -->
-					<div class="single-testimonial">
-						<img src="<?= base_url('assets/frontend/') ?>images/testimonial2.jpg" alt="#">
-						<div class="main-content">
-							<h4 class="name">Jansan Kate</h4>
-							<p>Nulla cursus a metus vel placerat. Fusce malesuada volutpat pretium. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus velit libero, viverra quis euismod vel pellentesque at tortor. Donec</p>
-						</div>
-					</div>
-					<!--/ End Single Testimonial -->
-					<!-- Single Testimonial -->
-					<div class="single-testimonial">
-						<img src="<?= base_url('assets/frontend/') ?>images/testimonial3.jpg" alt="#">
-						<div class="main-content">
-							<h4 class="name">Sanavce Faglane</h4>
-							<p>Nulla cursus a metus vel placerat. Fusce malesuada volutpat pretium. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus velit libero, viverra quis euismod vel pellentesque at tortor. Donec</p>
-						</div>
-					</div>
-					<!--/ End Single Testimonial -->
-					<!-- Single Testimonial -->
-					<div class="single-testimonial">
-						<img src="<?= base_url('assets/frontend/') ?>images/testimonial4.jpg" alt="#">
-						<div class="main-content">
-							<h4 class="name">Jansan Kate</h4>
-							<p>Nulla cursus a metus vel placerat. Fusce malesuada volutpat pretium. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus velit libero, viverra quis euismod vel pellentesque at tortor. Donec</p>
-						</div>
-					</div>
-					<!--/ End Single Testimonial -->
+						<!--/ End Single Testimonial -->
+					<?php endforeach ?>
+					
 				</div>
 			</div>
 		</div>
@@ -201,8 +168,7 @@
 		<div class="row">
 			<div class="col-12">
 				<div class="section-title">
-					<h2>Upcoming <span>Events</span></h2>
-					<p>Mauris at varius orci. Vestibulum interdum felis eu nisl pulvinar, quis ultricies nibh. Sed ultricies ante vitae laoreet sagittis. In pellentesque viverra purus. Sed risus est, molestie nec hendrerit hendreri </p>
+					<h2>Ekstrakulikuler</h2>
 				</div>
 			</div>
 		</div>
@@ -275,177 +241,3 @@
 </section>
 <!--/ End Events -->
 
-<!-- Blogs -->
-<section class="blog section">
-	<div class="container">
-		<div class="row">
-			<div class="col-12">
-				<div class="section-title">
-					<h2>Latest <span>News</span></h2>
-					<p>Mauris at varius orci. Vestibulum interdum felis eu nisl pulvinar, quis ultricies nibh. Sed ultricies ante vitae laoreet sagittis. In pellentesque viverra purus. Sed risus est, molestie nec hendrerit hendreri </p>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-12">
-				<div class="blog-slider">
-					<!-- Single Blog -->
-					<div class="single-blog">
-						<div class="blog-head overlay">
-							<div class="date">
-								<h4>10<span>May</span></h4>
-							</div>
-							<img src="<?= base_url('assets/frontend/') ?>images/blog/blog1.jpg" alt="#">
-						</div>
-						<div class="blog-content">
-							<h4 class="blog-title"><a href="blog-single.html">Our Student Have sit amet egestas</a></h4>
-							<div class="blog-info">
-								<a href="#"><i class="fa fa-user"></i>By: Admin</a>
-								<a href="#"><i class="fa fa-list"></i>Learning</a>
-								<a href="#"><i class="fa fa-heart-o"></i>53K</a>
-							</div>
-							<p>Vivamus volutpat eros pulvinar velit laoreet, sit amet egestas erat dignissim. Et harum quidem rerum facilis est et expedita distinctio</p>
-							<div class="button">
-								<a href="blog-single.html" class="btn">Read More<i class="fa fa-angle-double-right"></i></a>
-							</div>
-						</div>
-					</div>
-					<!-- End Single Blog -->
-					<!-- Single Blog -->
-					<div class="single-blog">
-						<div class="blog-head overlay">
-							<div class="date">
-								<h4>05<span>May</span></h4>
-							</div>
-							<img src="<?= base_url('assets/frontend/') ?>images/blog/blog2.jpg" alt="#">
-						</div>
-						<div class="blog-content">
-							<h4 class="blog-title"><a href="blog-single.html">Our teachers egestas erat dignissim</a></h4>
-							<div class="blog-info">
-								<a href="#"><i class="fa fa-user"></i>By: Admin</a>
-								<a href="#"><i class="fa fa-list"></i>Academic</a>
-								<a href="#"><i class="fa fa-heart-o"></i>33K</a>
-							</div>
-							<p>Vivamus volutpat eros pulvinar velit laoreet, sit amet egestas erat dignissim. Et harum quidem rerum facilis est et expedita distinctio</p>
-							<div class="button">
-								<a href="blog-single.html" class="btn">Read More<i class="fa fa-angle-double-right"></i></a>
-							</div>
-						</div>
-					</div>
-					<!-- End Single Blog -->
-					<!-- Single Blog -->
-					<div class="single-blog">
-						<div class="blog-head overlay">
-							<div class="date">
-								<h4>15<span>Mar</span></h4>
-							</div>
-							<img src="<?= base_url('assets/frontend/') ?>images/blog/blog3.jpg" alt="#">
-						</div>
-						<div class="blog-content">
-							<h4 class="blog-title"><a href="blog-single.html">We are Proffesional Have velit Landon</a></h4>
-							<div class="blog-info">
-								<a href="#"><i class="fa fa-user"></i>By: Admin</a>
-								<a href="#"><i class="fa fa-list"></i>Knowledge</a>
-								<a href="#"><i class="fa fa-heart-o"></i>11K</a>
-							</div>
-							<p>Vivamus volutpat eros pulvinar velit laoreet, sit amet egestas erat dignissim. Et harum quidem rerum facilis est et expedita distinctio</p>
-							<div class="button">
-								<a href="blog-single.html" class="btn">Read More<i class="fa fa-angle-double-right"></i></a>
-							</div>
-						</div>
-					</div>
-					<!-- End Single Blog -->
-					<!-- Single Blog -->
-					<div class="single-blog">
-						<div class="blog-head overlay">
-							<div class="date">
-								<h4>10<span>Mar</span></h4>
-							</div>
-							<img src="<?= base_url('assets/frontend/') ?>images/blog/blog4.jpg" alt="#">
-						</div>
-						<div class="blog-content">
-							<h4 class="blog-title"><a href="blog-single.html">Our Student Have sit amet egestas</a></h4>
-							<div class="blog-info">
-								<a href="#"><i class="fa fa-user"></i>By: Admin</a>
-								<a href="#"><i class="fa fa-list"></i>Learning</a>
-								<a href="#"><i class="fa fa-heart-o"></i>53K</a>
-							</div>
-							<p>Vivamus volutpat eros pulvinar velit laoreet, sit amet egestas erat dignissim. Et harum quidem rerum facilis est et expedita distinctio</p>
-							<div class="button">
-								<a href="blog-single.html" class="btn">Read More<i class="fa fa-angle-double-right"></i></a>
-							</div>
-						</div>
-					</div>
-					<!-- End Single Blog -->
-					<!-- Single Blog -->
-					<div class="single-blog">
-						<div class="blog-head overlay">
-							<div class="date">
-								<h4>25<span>Feb</span></h4>
-							</div>
-							<img src="<?= base_url('assets/frontend/') ?>images/blog/blog2.jpg" alt="#">
-						</div>
-						<div class="blog-content">
-							<h4 class="blog-title"><a href="blog-single.html">Our teachers egestas erat dignissim</a></h4>
-							<div class="blog-info">
-								<a href="#"><i class="fa fa-user"></i>By: Admin</a>
-								<a href="#"><i class="fa fa-list"></i>Academic</a>
-								<a href="#"><i class="fa fa-heart-o"></i>33K</a>
-							</div>
-							<p>Vivamus volutpat eros pulvinar velit laoreet, sit amet egestas erat dignissim. Et harum quidem rerum facilis est et expedita distinctio</p>
-							<div class="button">
-								<a href="blog-single.html" class="btn">Read More<i class="fa fa-angle-double-right"></i></a>
-							</div>
-						</div>
-					</div>
-					<!-- End Single Blog -->
-					<!-- Single Blog -->
-					<div class="single-blog">
-						<div class="blog-head overlay">
-							<div class="date">
-								<h4>28<span>Feb</span></h4>
-							</div>
-							<img src="<?= base_url('assets/frontend/') ?>images/blog/blog3.jpg" alt="#">
-						</div>
-						<div class="blog-content">
-							<h4 class="blog-title"><a href="blog-single.html">We are Proffesional Have velit Landon</a></h4>
-							<div class="blog-info">
-								<a href="#"><i class="fa fa-user"></i>By: Admin</a>
-								<a href="#"><i class="fa fa-list"></i>Knowledge</a>
-								<a href="#"><i class="fa fa-heart-o"></i>11K</a>
-							</div>
-							<p>Vivamus volutpat eros pulvinar velit laoreet, sit amet egestas erat dignissim. Et harum quidem rerum facilis est et expedita distinctio</p>
-							<div class="button">
-								<a href="blog-single.html" class="btn">Read More<i class="fa fa-angle-double-right"></i></a>
-							</div>
-						</div>
-					</div>
-					<!-- End Single Blog -->
-					<!-- Single Blog -->
-					<div class="single-blog">
-						<div class="blog-head overlay">
-							<div class="date">
-								<h4>03<span>Jan</span></h4>
-							</div>
-							<img src="<?= base_url('assets/frontend/') ?>images/blog/blog4.jpg" alt="#">
-						</div>
-						<div class="blog-content">
-							<h4 class="blog-title"><a href="blog-single.html">Our Student Have sit amet egestas</a></h4>
-							<div class="blog-info">
-								<a href="#"><i class="fa fa-user"></i>By: Admin</a>
-								<a href="#"><i class="fa fa-list"></i>Learning</a>
-								<a href="#"><i class="fa fa-heart-o"></i>53K</a>
-							</div>
-							<p>Vivamus volutpat eros pulvinar velit laoreet, sit amet egestas erat dignissim. Et harum quidem rerum facilis est et expedita distinctio</p>
-							<div class="button">
-								<a href="blog-single.html" class="btn">Read More<i class="fa fa-angle-double-right"></i></a>
-							</div>
-						</div>
-					</div>
-					<!-- End Single Blog -->
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<!--/ End Blogs -->

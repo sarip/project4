@@ -34,7 +34,6 @@
 <!--/ End Footer -->
 
 <!-- Jquery JS-->
-<script src="<?= base_url('assets/frontend/') ?>js/jquery.min.js"></script>
 <script src="<?= base_url('assets/frontend/') ?>js/jquery-migrate.min.js"></script>
 <!-- Popper JS-->
 <script src="<?= base_url('assets/frontend/') ?>js/popper.min.js"></script>

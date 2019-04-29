@@ -45,9 +45,9 @@
             </div><br>
 
             <div class="form-group <?= form_error('id_jurusan') ? 'has-error' : '' ?>">
-              <label for="id_jurusan"> Jurusan</label>
+              <label for="id_jurusan"> Program Keahlian</label>
                 <select name="id_jurusan" class="form-control">
-                  <option value="">-- Pilih Jurusan --</option>
+                  <option value="">-- Pilih Program Keahlian --</option>
                   <?php foreach ($jurusan  as $key): ?>
                     <option value="<?= $key->id_jurusan ?>" <?= ($key->id_jurusan == $siswa->id_jurusan) ? 'selected' : set_select('id_jurusan', $key->id_jurusan) ?> ><?= $key->nama_jurusan ?></option>
                   <?php endforeach ?>
@@ -173,14 +173,14 @@
                 </div>
               
                   <div class="form-group">
-                  <label for="nomor_sttb"> Nomor Sttb</label>
-                  <input type="text" name="nomor_sttb" class="form-control" id="nomor_sttb" placeholder="Enter Nomor Sttb" value="<?= set_value('nomor_sttb') ? set_value('nomor_sttb') : $siswa->nomor_sttb ?>">
+                  <label for="nomor_sttb"> Nomor Ijazah</label>
+                  <input type="text" name="nomor_sttb" class="form-control" id="nomor_sttb" placeholder="Enter Nomor Ijazah" value="<?= set_value('nomor_sttb') ? set_value('nomor_sttb') : $siswa->nomor_sttb ?>">
                    <?= form_error('nomor_sttb', '<i class="text-danger">', '</i>') ?>
                 </div>
               
                   <div class="form-group">
-                  <label for="tanggal_sttb"> Tanggal Sttb</label>
-                  <input type="text" name="tanggal_sttb" class="form-control datepicker" id="tanggal_sttb" placeholder="Enter Tanggal Sttb" value="<?= set_value('tanggal_sttb') ? set_value('tanggal_sttb') : $siswa->tanggal_sttb ?>" autocomplete="off">
+                  <label for="tanggal_sttb"> Tanggal Ijazah</label>
+                  <input type="text" name="tanggal_sttb" class="form-control datepicker" id="tanggal_sttb" placeholder="Enter Tanggal Ijazah" value="<?= set_value('tanggal_sttb') ? set_value('tanggal_sttb') : $siswa->tanggal_sttb ?>" autocomplete="off">
                    <?= form_error('tanggal_sttb', '<i class="text-danger">', '</i>') ?>
                 </div>
           </div>
@@ -199,14 +199,14 @@
             </div><br>
           <h3><i class="fa fa-arrow-right"></i> Tamat : </h3><br>
               <div class="form-group">
-              <label for="tamat_nomor_sttb"> Tamat Nomor Sttb</label>
-              <input type="text" name="tamat_nomor_sttb" class="form-control" id="tamat_nomor_sttb" placeholder="Enter Nomor Sttb" value="<?= set_value('tamat_nomor_sttb') ? set_value('tamat_nomor_sttb') : $siswa->tamat_nomor_sttb ?>">
+              <label for="tamat_nomor_sttb"> Tamat Nomor Ijazah</label>
+              <input type="text" name="tamat_nomor_sttb" class="form-control" id="tamat_nomor_sttb" placeholder="Enter Nomor Ijazah" value="<?= set_value('tamat_nomor_sttb') ? set_value('tamat_nomor_sttb') : $siswa->tamat_nomor_sttb ?>">
                <?= form_error('tamat_nomor_sttb', '<i class="text-danger">', '</i>') ?>
             </div><br>
           
               <div class="form-group">
-              <label for="tamat_tanggal_sttb"> Tamat Tanggal Sttb</label>
-              <input type="text" name="tamat_tanggal_sttb" class="form-control datepicker" id="tamat_tanggal_sttb" placeholder="Enter Nomor Sttb" value="<?= set_value('tamat_tanggal_sttb') ? set_value('tamat_tanggal_sttb') : $siswa->tamat_tanggal_sttb ?>" autocomplete="off">
+              <label for="tamat_tanggal_sttb"> Tamat Tanggal Ijazah</label>
+              <input type="text" name="tamat_tanggal_sttb" class="form-control datepicker" id="tamat_tanggal_sttb" placeholder="Enter Nomor Ijazah" value="<?= set_value('tamat_tanggal_sttb') ? set_value('tamat_tanggal_sttb') : $siswa->tamat_tanggal_sttb ?>" autocomplete="off">
                <?= form_error('tamat_tanggal_sttb', '<i class="text-danger">', '</i>') ?>
             </div><br>
           </div>

@@ -84,6 +84,7 @@ class M_guru extends CI_Model {
 		$result = $this->get(['md5(id_guru)' => $id])->row();
 		unlink('./assets/guru/'.$result->foto);
 		$this->db->delete('mengajar', ['md5(id_guru)' => $id]);
+		$this->db->delete('wali_kelas', ['md5(id_guru)' => $id]);
 		return $this->db->delete('guru', ['md5(id_guru)' => $id]);
 		
 	}

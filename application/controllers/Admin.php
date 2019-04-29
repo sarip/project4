@@ -25,6 +25,7 @@ class Admin extends CI_Controller {
 		$data['jurusan']		= $this->M_jurusan->get()->num_rows();
 		$data['guru']			= $this->M_guru->get()->num_rows();
 		$data['walikelas']		= $this->M_wali_kelas->get()->num_rows();
+		$data['portfolio']		= $this->M_portfolio->get()->num_rows();
 		$this->mylibrary->templateadmin('dashboard', $data);
 	}
 
@@ -168,48 +169,48 @@ class Admin extends CI_Controller {
 	// START :: JURUSAN 
 	public function jurusan()
 	{
-		$data['title']			= 'Jurusan';
-		$data['judul'] 			= 'Halaman Data Jurusan';
+		$data['title']			= 'Program Keahlian';
+		$data['judul'] 			= 'Halaman Data Program Keahlian';
 		$data['dataJurusan']	= $this->M_jurusan->get()->result();
 		$this->mylibrary->templateadmin('jurusan/index', $data);
 	}
 	function insert_jurusan()
 	{
-		$this->form_validation->set_rules('nama_jurusan', 'Nama Jurusan', 'trim|required|is_unique[jurusan.nama_jurusan]');
+		$this->form_validation->set_rules('nama_jurusan', 'Nama Program Keahlian', 'trim|required|is_unique[jurusan.nama_jurusan]');
 		if($this->form_validation->run() == TRUE){
 			if ($this->M_jurusan->insert()) {
 				$this->session->set_flashdata('message', 'Data Pelajaran berhasil di tambahkan');
 				redirect('admin/jurusan','refresh');
 			}
 		}
-		$data['title']	= 'Jurusan';
-		$data['judul']	= 'Halaman Tambah Jurusan';
+		$data['title']	= ' Program Keahlian';
+		$data['judul']	= 'Halaman Tambah Program Keahlian';
 		$this->mylibrary->templateadmin('jurusan/insert', $data);
 	}
 	public function update_jurusan($id)
 	{
 		if ($this->M_jurusan->get(['nama_jurusan' => $this->input->post('nama_jurusan')])->num_rows() > 0) {
-			$this->form_validation->set_rules('nama_jurusan', 'Nama Jurusan', 'trim|required|is_unique[jurusan.nama_jurusan]', ['is_unique' => 'Nama Jurusan ini sudah di gunakan']);
+			$this->form_validation->set_rules('nama_jurusan', 'Nama Program Keahlian', 'trim|required');
 		}else{
-			$this->form_validation->set_rules('nama_jurusan', 'Nama Jurusan', 'trim|required');
+			$this->form_validation->set_rules('nama_jurusan', 'Nama Program Keahlian', 'trim|required|is_unique[jurusan.nama_jurusan]', ['is_unique' => 'Nama Program Keahlian ini sudah di gunakan']);
 		}
 		if ($this->form_validation->run() == TRUE) {
 			if ($this->M_jurusan->update($id)) {
-				$this->session->set_flashdata('message', 'Data Jurusan berhasil di edit');
+				$this->session->set_flashdata('message', 'Data Program Keahlian berhasil di edit');
 			}
 			redirect('admin/jurusan','refresh');
 		}
-		$data['title'] 		= 'Jurusan';
-		$data['judul'] 		= 'Halaman Edit Jurusan';
+		$data['title'] 		= 'Program Keahlian';
+		$data['judul'] 		= 'Halaman Edit Program Keahlian';
 		$data['jurusan'] 	= $this->M_jurusan->get(['md5(id_jurusan)' => $id])->row();
 		$this->mylibrary->templateadmin('jurusan/update', $data);
 	}
 	public function delete_jurusan($id)
 	{
 		if ($this->M_jurusan->delete($id)) {
-			$this->session->set_flashdata('message', 'Data jurusan berhasil di hapus');
+			$this->session->set_flashdata('message', 'Data Program Keahlian berhasil di hapus');
 		}else{
-			$this->session->set_flashdata('failed', 'Data jurusan gagal di hapus, dikarena kan data jurusan ini masih terpakai');
+			$this->session->set_flashdata('failed', 'Data Program Keahlian gagal di hapus, dikarena kan data jurusan ini masih terpakai');
 		}
 		redirect('admin/jurusan','refresh');
 	}
@@ -566,6 +567,8 @@ class Admin extends CI_Controller {
 				$ak_5 = $this->input->post('ak_5_'.$i);
 				$ap_6 = $this->input->post('ap_6_'.$i);
 				$ak_6 = $this->input->post('ak_6_'.$i);
+				$nilai_ijazah = $this->input->post('nilai_ijazah_'.$i);
+				$nilai_skhun = $this->input->post('nilai_skhun_'.$i);
 				$this->M_nilai->update([
 					'ap_1' => $ap_1,
 					'ak_1' => $ak_1,
@@ -578,7 +581,9 @@ class Admin extends CI_Controller {
 					'ap_5' => $ap_5,
 					'ak_5' => $ak_5,
 					'ap_6' => $ap_6,
-					'ak_6' => $ak_6
+					'ak_6' => $ak_6,
+					'nilai_ijazah' => $nilai_ijazah,
+					'nilai_skhun' => $nilai_skhun
 				], ['id_nilai' => $this->input->post('id_nilai_'.$i)]);
 			$i++;
 			}
@@ -643,6 +648,7 @@ class Admin extends CI_Controller {
 	public function print_nilai($id){
 		$data['siswa'] = $this->M_siswa->get(['md5(siswa.id_siswa)' => $id])->row();
 		$data['dataNilai'] 	= $this->M_nilai->get(['md5(nilai.id_siswa)' => $id]);
+		$data['biodata']	= $this->M_biodata->get()->row();
 		$this->load->view('admin/nilai/print', $data);
 
 	}

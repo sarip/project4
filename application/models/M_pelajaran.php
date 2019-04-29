@@ -33,7 +33,7 @@ class M_pelajaran extends CI_Model {
 
 	public function delete($id)
 	{
-		if ($this->M_nilai->get(['md5(nilai.id_pelajaran)' => $id])->num_rows() > 0) {
+		if ($this->M_nilai->get(['md5(nilai.id_pelajaran)' => $id])->num_rows() > 0 || $this->M_mengajar->get(['md5(mengajar.id_pelajaran)' => $id])->num_rows() > 0) {
 			return false;
 		}else{
 			return $this->db->delete('pelajaran', ['md5(id_pelajaran)' => $id]);

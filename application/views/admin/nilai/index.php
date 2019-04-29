@@ -17,7 +17,7 @@
             </div>
             <!-- /.box-header -->
                 <div class="box-body table-responsive">
-                  <table class="table table-bordered table-hover" id="example">
+                  <table class="table table-bordered table-hover table-striped" id="example">
                     <thead>
                         <tr>
                           <th>No</th>
@@ -26,7 +26,7 @@
                           <th>Jenis Kelamin</th>
                           <th>Tempat, Tanggal Lahir</th>
                           <th>Kelas</th>
-                          <th>Jurusan</th>
+                          <th>Program Keahlian</th>
                           <th>Action</th>
                         </tr>
                     </thead>

@@ -40,7 +40,7 @@
                             <td><?= $siswa->nama_kelas; ?></td>
                           </tr>
                            <tr>
-                            <th>Jurusan </th>
+                            <th>Program Keahlian </th>
                             <th> : </th>
                             <td><?= $siswa->nama_jurusan; ?></td>
                           </tr> 
@@ -133,12 +133,12 @@
                           <td><?= $siswa->alamat_sekolah; ?></td>
                         </tr>
                         <tr>
-                          <th>Nomor Sttb </th>
+                          <th>Nomor Ijazah </th>
                           <th> : </th>
                           <td><?= $siswa->nomor_sttb; ?></td>
                         </tr>
                         <tr>
-                          <th>Tanggal Sttb </th>
+                          <th>Tanggal Ijazah </th>
                           <th> : </th>
                           <td><?= $this->mylibrary->date_indo($siswa->tanggal_sttb); ?></td>
                         </tr>
@@ -160,12 +160,12 @@
                         <td><?= $siswa->alasan_meninggalkan_sekolah; ?></td>
                       </tr>
                       <tr>
-                        <th>Tamat Nomor Sttb </th>
+                        <th>Tamat Nomor Ijazah </th>
                         <th> : </th>
                         <td><?= $siswa->tamat_nomor_sttb; ?></td>
                       </tr>
                       <tr>
-                        <th>Tamat Tanggal Sttb </th>
+                        <th>Tamat Tanggal Ijazah </th>
                         <th> : </th>
                         <td><?= $this->mylibrary->date_indo($siswa->tamat_tanggal_sttb); ?></td>
                       </tr>

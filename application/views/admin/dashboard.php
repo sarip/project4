@@ -81,13 +81,13 @@
         </div>
     </div></a>
   </div>
-   <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-    <a href="<?= base_url('admin/nilai')?>">
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+    <a href="<?= base_url('admin/portfolio')?>">
     <div class="info-box bg-red">
-      <span class="info-box-icon"><i class="fa fa-pencil"></i></span>
+      <span class="info-box-icon"><i class="fa fa-camera"></i></span>
         <div class="info-box-content">
-          <span class="info-box-text">data nilai</span>
-          <span class="info-box-number">10</span>
+          <span class="info-box-text">Portfolio</span>
+          <span class="info-box-number"><?= $portfolio ?></span>
           <div class="progress">
             <div class="progress-bar" style="width: 100%"></div>
           </div>

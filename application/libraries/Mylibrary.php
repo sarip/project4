@@ -12,6 +12,7 @@ class Mylibrary
 	}
 
 	public function templateadmin($content, $data=NULL){
+        $data['biodata'] = $this->ci->db->get('biodata')->row();
 		$this->ci->load->view('admin/template/header', $data);
 	    $this->ci->load->view('admin/template/sidebar', $data);
 	    $this->ci->load->view('admin/'.$content, $data);

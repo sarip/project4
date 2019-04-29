@@ -5,7 +5,7 @@
     <small><?= $judul ?></small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="<?= base_url('admin/jurusan'); ?>"><i class="fa fa-list"></i> Jurusan</a></li>
+    <li><a href="<?= base_url('admin/jurusan'); ?>"><i class="fa fa-list"></i> Program Keahlian</a></li>
     <li class="active"><?= $judul; ?></li>
   </ol>
 </section>
@@ -27,9 +27,40 @@
               <div class="col-lg-6">
                 
             <div class="form-group <?= form_error('nama_jurusan') ? 'has-error' : '' ?>">
-              <label for="nama_jurusan"> Nama Jurusan</label>
-              <input type="text" name="nama_jurusan" class="form-control" id="nama_jurusan" placeholder="Enter Nama Jurusan"  value="<?= set_value('nama_jurusan') ? set_value('nama_jurusan') : $jurusan->nama_jurusan ?>">
+              <label for="nama_jurusan"> Nama Program Keahlian</label>
+              <input type="text" name="nama_jurusan" class="form-control" id="nama_jurusan" placeholder="Enter Nama Program Keahlian"  value="<?= set_value('nama_jurusan') ? set_value('nama_jurusan') : $jurusan->nama_jurusan ?>">
               <?= form_error('nama_jurusan', '<small><i class="text-danger">', '</i></small>') ?>
+            </div><br>
+
+
+             <div class="form-group">
+              <label for="keterangan_jurusan"> Keterangan</label>
+              <textarea name="keterangan_jurusan" class="form-control" id="keterangan_jurusan" placeholder="Enter Keterangan Program Keahlian"><?= set_value('keterangan_jurusan') ? set_value('keterangan_jurusan') : $jurusan->keterangan_jurusan ?></textarea>
+            </div><br>
+
+
+             <div class="form-group">
+              <label for="foto_jurusan"> Foto Program Keahlian</label>
+              <input type="file" name="foto_jurusan" class="form-control" id="foto" required>
+              <img src="<?= base_url('assets/jurusan/').$jurusan->foto_jurusan ?>" id="review" class="img img-thumbnail img-responsive" style="width: 200px; height: 200px;" />
+              <script type="text/javascript">
+
+                function bacaGambar(input) {
+                     if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+                   
+                        reader.onload = function (e) {
+                            $('#review').attr('src', e.target.result);
+                        }
+                   
+                        reader.readAsDataURL(input.files[0]);
+                     }
+                  }
+
+                  $("#foto").change(function(){
+                     bacaGambar(this);
+                  });
+              </script>
             </div><br>
             <!-- /.box-body -->
 

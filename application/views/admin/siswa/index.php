@@ -26,7 +26,7 @@
                           <th>Jenis Kelamin</th>
                           <th>Tempat, Tanggal Lahir</th>
                           <th>Kelas</th>
-                          <th>Jurusan</th>
+                          <th>Program Keahlian</th>
                           <th>Action</th>
                         </tr>
                     </thead>

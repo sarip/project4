@@ -56,8 +56,9 @@
           </div>
         </div>
         <!-- /.col -->
-        <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In <i class="fa fa-sign-in"></i></button>
+        <div class="col-xs-12">
+          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In <i class="fa fa-sign-in"></i></button><br>
+          <a href="<?= base_url() ?>" class="btn btn-warning btn-block pull-left"><i class="fa fa-reply"></i> kembali</a>
         </div>
         <!-- /.col -->
       </div>

@@ -49,6 +49,8 @@
 		<!--<link rel="stylesheet" href="<?= base_url('assets/frontend/') ?>css/color/color7.css">-->
 		<!--<link rel="stylesheet" href="<?= base_url('assets/frontend/') ?>css/color/color8.css">-->
 		<link rel="stylesheet" href="<?= base_url('assets/frontend/') ?>#" id="colors">	
+		<script src="<?= base_url('assets/frontend/') ?>js/jquery.min.js"></script>
+
     </head>
     <body>
 	
@@ -63,7 +65,7 @@
 		<!--/ End Book Preloader -->
 	
 		<!-- Mp Color -->
-		<div class="mp-color">
+		<!-- <div class="mp-color">
 			<div class="icon inOut"><i class="fa fa-cog fa-spin"></i></div>
 			<h4>Choose Color</h4>
 			<span class="color1"></span>
@@ -74,7 +76,7 @@
 			<span class="color6"></span>
 			<span class="color7"></span>
 			<span class="color8"></span>
-		</div>
+		</div> -->
 		<!--/ End Mp Color -->
 	
 		<!-- Header -->
@@ -120,35 +122,11 @@
 								<div class="navbar-collapse">
 									<!-- Main Menu -->
 									<ul id="nav" class="nav menu navbar-nav">
-										<li class="active"><a href="<?= base_url('user') ?>">Home</a></li>
-										<li><a href="#">Pages<i class="fa fa-angle-down"></i></a>
-											<ul class="dropdown">
-											<li><a href="about.html">About Us</a></li>
-												<li><a href="#">Teachers<i class="fa fa-angle-right"></i></a>
-													<ul class="dropdown submenu">
-														<li><a href="teacher.html">Teachers V1</a></li>
-														<li><a href="teacher2.html">Teachers V2</a></li>
-														<li><a href="teacher-single.html">Teacher Single</a></li>
-													</ul>
-												</li>
-												<li><a href="testimonials.html">Testimonials</a></li>
-												<li><a href="faqs.html">Faqs</a></li>
-												<li><a href="404.html">404 Page</a></li>
-											</ul>
-										</li>
-										<li><a href="#">Courses<i class="fa fa-angle-down"></i></a> 
-											<ul class="dropdown">
-												<li><a href="courses.html">Courses</a></li>
-												<li><a href="course-single.html">Course Single</a></li>
-												<li><a href="course-single-video.html">Course Single Video</a></li>
-											</ul>
-										</li>
-										<li><a href="#">Events<i class="fa fa-angle-down"></i></a> 
-											<ul class="dropdown">
-												<li><a href="events.html">Events</a></li>
-												<li><a href="event-single.html">Event Single</a></li>
-											</ul>
-										</li>
+										<li <?= (!$this->uri->segment(2)) ? 'class="active"' : '' ?>><a href="<?= base_url('user') ?>">Home</a></li>
+										<li <?= ($this->uri->segment(2) == 'portfolio') ? 'class="active"' : '' ?>><a href="<?= base_url('user/portfolio') ?>">Portfolio</a></li>
+										<li <?= ($this->uri->segment(2) == 'wali_kelas') ? 'class="active"' : '' ?>><a href="<?= base_url('user/wali_kelas') ?>">Wali Kelas</a></li>
+										<li <?= ($this->uri->segment(2) == 'guru') ? 'class="active"' : '' ?>><a href="<?= base_url('user/guru') ?>">Guru</a></li>
+										<li <?= ($this->uri->segment(2) == 'siswa') ? 'class="active"' : '' ?>><a href="<?= base_url('user/siswa') ?>">Siswa</a></li>
 										<li><a href="#">Blogs<i class="fa fa-angle-down"></i></a>
 											<ul class="dropdown">
 												<li><a href="blogs.html">Blogs Grid Layout</a></li>

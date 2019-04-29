@@ -41,7 +41,7 @@
                           <td><?= ucfirst($siswa->nama_kelas) ?></td>
                         </tr>
                         <tr>
-                          <th>Jurusan</th>
+                          <th>Program Keahlian</th>
                           <td class="text-center">:</td>
                           <td><?= ucfirst($siswa->nama_jurusan) ?></td>
                         </tr>
@@ -65,6 +65,8 @@
                     <div class="panel-body"><div class="table-responsive">
                       <p><b>* AP</b> &nbsp;&nbsp;&nbsp; = Angka Prestasi</p>
                       <p><b>* ARK</b> &nbsp;= Angka Rata-rata Kelas</p>
+                      <p><b>* NI</b> &nbsp;= Nilai Ijazah</p>
+                      <p><b>* NS</b> &nbsp;= Nilai Skhun</p>
                       <table class="table-striped table-hover" border="1px solid black;"cellspacing="0" style="border-collapse: collapse;">
                         <thead>
                           <tr>
@@ -78,6 +80,8 @@
                             </th>
                             <th colspan="4" class="text-center">
                               &nbsp; Tahun : <input type="text" name="th_3" style="background: rgba(0,0,0,0); border: 0px solid white;" placeholder="0000 - 0000" value="<?= $siswa->th_3 ?>">
+                              <th rowspan="3" class="text-center" width="2%">NI</th>
+                              <th rowspan="3" class="text-center" width="2%">NS</th>
                             </th>
                           </tr>
                           <tr>
@@ -104,11 +108,9 @@
                           </tr>
                         </thead> 
                         <tbody>
-                          <?php $i=1; $total_nilai_ap_1=0; $total_nilai_ap_2=0; $total_nilai_ap_3=0; $total_nilai_ap_4=0; $total_nilai_ap_5=0; $total_nilai_ap_6=0; $total_nilai_ak_1=0; $total_nilai_ak_2=0; $total_nilai_ak_3=0; $total_nilai_ak_4=0; $total_nilai_ak_5=0; $total_nilai_ak_6=0; foreach ($dataNilai->result() as $nilai): 
+                          <?php $i=1; $total_nilai_ap_1=0; $total_nilai_ap_2=0; $total_nilai_ap_3=0; $total_nilai_ap_4=0; $total_nilai_ap_5=0; $total_nilai_ap_6=0; $total_nilai_ak_1=0; $total_nilai_ak_2=0; $total_nilai_ak_3=0; $total_nilai_ak_4=0; $total_nilai_ak_5=0; $total_nilai_ak_6=0; $total_nilai_ijazah=0; $total_nilai_skhun=0; foreach ($dataNilai->result() as $nilai): 
                             $total_nilai_ap_1+=$nilai->ap_1; $total_nilai_ap_2+=$nilai->ap_2; $total_nilai_ap_3+=$nilai->ap_3; $total_nilai_ap_4+=$nilai->ap_4; $total_nilai_ap_5+=$nilai->ap_5; $total_nilai_ap_6+=$nilai->ap_6;
-                            $total_nilai_ak_1+=$nilai->ak_1; $total_nilai_ak_2+=$nilai->ak_2; $total_nilai_ak_3+=$nilai->ak_3; $total_nilai_ak_4+=$nilai->ak_4; $total_nilai_ak_5+=$nilai->ak_5; $total_nilai_ak_6+=$nilai->ak_6;
-
-
+                            $total_nilai_ak_1+=$nilai->ak_1; $total_nilai_ak_2+=$nilai->ak_2; $total_nilai_ak_3+=$nilai->ak_3; $total_nilai_ak_4+=$nilai->ak_4; $total_nilai_ak_5+=$nilai->ak_5; $total_nilai_ak_6+=$nilai->ak_6; $total_nilai_ijazah+=$nilai->nilai_ijazah; $total_nilai_skhun+=$nilai->nilai_skhun;
                           ?>
                           <input type="hidden" name="id_nilai_<?= $i ?>" value="<?= $nilai->id_nilai ?>">
                             <tr>
@@ -155,6 +157,16 @@
                               <td>
                                 <input type="number" name="ak_6_<?= $i ?>" style="width: 100%;padding: 5px; background: rgba(0,0,0,0.0); border: 0px solid white;" value="<?= $nilai->ak_6 ?>" required>
                               </td>
+
+
+                               <td>
+                                <input type="number" name="nilai_ijazah_<?= $i ?>" style="width: 100%;padding: 5px; background: rgba(0,0,0,0.0); border: 0px solid white;" value="<?= $nilai->nilai_ijazah ?>" required>
+                              </td>
+                               <td>
+                                <input type="number" name="nilai_skhun_<?= $i ?>" style="width: 100%;padding: 5px; background: rgba(0,0,0,0.0); border: 0px solid white;" value="<?= $nilai->nilai_skhun ?>" required>
+                              </td>
+
+
                             </tr>
                           <?php $i++; endforeach ?>
                           <tr>
@@ -171,16 +183,18 @@
                             <td><b>&nbsp;<?= $total_nilai_ak_5; ?></b></td>
                             <td><b>&nbsp;<?= $total_nilai_ap_6; ?></b></td>
                             <td><b>&nbsp;<?= $total_nilai_ak_6; ?></b></td>
+                            <td><b>&nbsp;<?= $total_nilai_ijazah; ?></b></td>
+                            <td><b>&nbsp;<?= $total_nilai_skhun; ?></b></td>
                           </tr>
                         </tbody>
                         <tfoot>
                           <tr>
-                           <td colspan="13">
+                           <td colspan="15">
                             &nbsp;
                            </td>
                          </tr>
                          <tr>
-                           <td colspan="13" class="text-left"><b>&nbsp;Keterangan &nbsp;&nbsp;: </b> <b>S</b> = Sakit , <b>I</b> = Izin , <b>A</b> = Alpa </td>
+                           <td colspan="15" class="text-left"><b>&nbsp;Keterangan &nbsp;&nbsp;: </b> <b>S</b> = Sakit , <b>I</b> = Izin , <b>A</b> = Alpa </td>
                          </tr>
                         
                           <tr>
@@ -191,6 +205,7 @@
                            <td colspan="2" class="text-center"><input type="number" name="s_4" style="width: 100%;padding: 5px; background: rgba(0,0,0,0.0); border: 0px solid white;" value="<?= $nilai->s_4 ?>" required></td>
                            <td colspan="2" class="text-center"><input type="number" name="s_5" style="width: 100%;padding: 5px; background: rgba(0,0,0,0.0); border: 0px solid white;" value="<?= $nilai->s_5 ?>" required></td>
                            <td colspan="2" class="text-center"><input type="number" name="s_6" style="width: 100%;padding: 5px; background: rgba(0,0,0,0.0); border: 0px solid white;" value="<?= $nilai->s_6 ?>" required></td>
+                          <td colspan="2"></td>
                           </tr>
 
                           <tr>
@@ -201,6 +216,7 @@
                            <td colspan="2" class="text-center"><input type="number" name="i_4" style="width: 100%;padding: 5px; background: rgba(0,0,0,0.0); border: 0px solid white;" value="<?= $nilai->i_4 ?>" required></td>
                            <td colspan="2" class="text-center"><input type="number" name="i_5" style="width: 100%;padding: 5px; background: rgba(0,0,0,0.0); border: 0px solid white;" value="<?= $nilai->i_5 ?>" required></td>
                            <td colspan="2" class="text-center"><input type="number" name="i_6" style="width: 100%;padding: 5px; background: rgba(0,0,0,0.0); border: 0px solid white;" value="<?= $nilai->i_6 ?>" required></td>
+                          <td colspan="2"></td>
                           </tr>
 
                           
@@ -214,10 +230,11 @@
                            <td colspan="2" class="text-center"><input type="number" name="a_4" style="width: 100%;padding: 5px; background: rgba(0,0,0,0.0); border: 0px solid white;" value="<?= $nilai->a_4 ?>" required></td>
                            <td colspan="2" class="text-center"><input type="number" name="a_5" style="width: 100%;padding: 5px; background: rgba(0,0,0,0.0); border: 0px solid white;" value="<?= $nilai->a_5 ?>" required></td>
                            <td colspan="2" class="text-center"><input type="number" name="a_6" style="width: 100%;padding: 5px; background: rgba(0,0,0,0.0); border: 0px solid white;" value="<?= $nilai->a_6 ?>" required></td>
+                          <td colspan="2"></td>
                           </tr>
 
                           <tr>
-                            <td colspan="13" style="padding: 10px;">
+                            <td colspan="15" style="padding: 10px;">
                             <label for="catatan">Catatan :</label><br>
                             <textarea name="catatan" cols="61" rows="5" class="fomr-control"><?= $siswa->catatan ?></textarea>
                             <div class="pull-right">
@@ -227,6 +244,7 @@
                              
                            </div>
                             </td>
+
                           </tr>
                         </tfoot>
                       </table></div>

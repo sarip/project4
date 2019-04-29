@@ -5,7 +5,7 @@
     <small><?= $judul ?></small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="<?= base_url('admin/jurusan'); ?>"><i class="fa fa-list"></i> Jurusan</a></li>
+    <li><a href="<?= base_url('admin/jurusan'); ?>"><i class="fa fa-list"></i> Program Keahlian</a></li>
     <li class="active"><?= $judul; ?></li>
   </ol>
 </section>
@@ -21,15 +21,46 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        <form role="form" action="" method="post">
+        <?= form_open_multipart('') ?>
           <div class="box-body">
             <div class="row">
               <div class="col-lg-6">
                 
             <div class="form-group <?= form_error('nama_jurusan') ? 'has-error' : '' ?>">
-              <label for="nama_jurusan"> Nama Jurusan</label>
-              <input type="text" name="nama_jurusan" class="form-control" id="nama_jurusan" placeholder="Enter Nama Jurusan"  value="<?= set_value('nama_jurusan') ?>" >
+              <label for="nama_jurusan"> Nama Program Keahlian</label>
+              <input type="text" name="nama_jurusan" class="form-control" id="nama_jurusan" placeholder="Enter Nama Program Keahlian"  value="<?= set_value('nama_jurusan') ?>" >
               <?= form_error('nama_jurusan', '<small><i class="text-danger">', '</i></small>') ?>
+            </div><br>
+
+
+             <div class="form-group">
+              <label for="keterangan_jurusan"> Keterangan</label>
+              <textarea name="keterangan_jurusan" class="form-control" id="keterangan_jurusan" placeholder="Enter Keterangan Program Keahlian"><?= set_value('keterangan_jurusan') ?></textarea>
+            </div><br>
+
+
+             <div class="form-group">
+              <label for="foto_jurusan"> Foto Program Keahlian</label>
+              <input type="file" name="foto_jurusan" class="form-control" id="foto" required>
+              <img src="" id="review" class="img img-thumbnail img-responsive" style="width: 200px; height: 200px;" />
+              <script type="text/javascript">
+
+                function bacaGambar(input) {
+                     if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+                   
+                        reader.onload = function (e) {
+                            $('#review').attr('src', e.target.result);
+                        }
+                   
+                        reader.readAsDataURL(input.files[0]);
+                     }
+                  }
+
+                  $("#foto").change(function(){
+                     bacaGambar(this);
+                  });
+              </script>
             </div><br>
             <!-- /.box-body -->
 
@@ -37,7 +68,7 @@
             <a href="<?= base_url('admin/jurusan') ?>" class="btn btn-default"><i class="fa fa-reply"></i> Kembali</a>&nbsp;&nbsp;
             <button type="submit" class="btn btn-primary">Save <i class="fa fa-save"></i></button>
           </div>
-        </form>
+        <?= form_close(); ?>
       </div>
     </div>
   </div>

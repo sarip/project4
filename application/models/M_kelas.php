@@ -23,7 +23,7 @@ class M_kelas extends CI_Model {
 
 	function delete($id)
 	{
-		if ($this->M_siswa->get(['md5(siswa.id_kelas)' => $id])->num_rows() > 0) {
+		if ($this->M_siswa->get(['md5(siswa.id_kelas)' => $id])->num_rows() > 0 || $this->M_wali_kelas->get(['md5(wali_kelas.id_kelas)' => $id])->num_rows() > 0 || $this->M_mengajar->get(['md5(mengajar.id_kelas)' => $id])->num_rows() > 0 ){
 			return false;
 		}else{
 			return $this->db->delete('kelas', ['md5(id_kelas)' => $id]);

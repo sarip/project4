@@ -19,8 +19,8 @@ class M_biodata extends CI_Model {
 		if ( ! $this->upload->do_upload('foto')){
 			return $this->db->update('biodata', [
 				'nama_sekolah'	=> htmlspecialchars($this->input->post('nama_sekolah')),
-				'visi'			=> htmlspecialchars($this->input->post('visi')),
-				'misi'			=> htmlspecialchars($this->input->post('misi')),
+				'visi'			=> $this->input->post('visi'),
+				'misi'			=> $this->input->post('misi'),
 				'email_sekolah'	=> htmlspecialchars($this->input->post('email_sekolah')),
 				'no_telepon_sekolah'	=> htmlspecialchars($this->input->post('no_telepon_sekolah')),
 				'keterangan'	=> htmlspecialchars($this->input->post('keterangan')),
@@ -33,8 +33,8 @@ class M_biodata extends CI_Model {
 			unlink('./assets/biodata/'.$result->logo_sekolah);
 			return $this->db->update('biodata', [
 				'nama_sekolah'	=> htmlspecialchars($this->input->post('nama_sekolah')),
-				'visi'			=> htmlspecialchars($this->input->post('visi')),
-				'misi'			=> htmlspecialchars($this->input->post('misi')),
+				'visi'			=> $this->input->post('visi'),
+				'misi'			=> $this->input->post('misi'),
 				'email_sekolah'	=> htmlspecialchars($this->input->post('email_sekolah')),
 				'no_telepon_sekolah'	=> htmlspecialchars($this->input->post('no_telepon_sekolah')),
 				'keterangan'	=> htmlspecialchars($this->input->post('keterangan')),
