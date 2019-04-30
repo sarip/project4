@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 29, 2019 at 06:00 AM
+-- Generation Time: Apr 30, 2019 at 04:29 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -68,6 +68,31 @@ CREATE TABLE `biodata` (
 
 INSERT INTO `biodata` (`id_biodata`, `nama_sekolah`, `visi`, `misi`, `email_sekolah`, `no_telepon_sekolah`, `keterangan`, `logo_sekolah`, `alamat_sekolah`) VALUES
 (1, 'SMK KADIPATEN', '<p><b></b></p><blockquote><b>“Berprestasi dilandasi Iman, Taqwa dan Berbudaya Lingkungan serta Berwawasan Global”</b></blockquote><p></p>', '<p></p><ol><li><small>Mewujudkan sarana prasarana reprensentatif dan up to date\r\n\r\n</small></li><li><small>\r\n\r\n&nbsp;Mewujudkan pengelolaan pendidikan yang professional&nbsp;</small></li><li><small>\r\n\r\nMewujudkan sistim penilaian yang berafiliasi</small></li><li><small>\r\n\r\nMewujudkan budaya yang berkualifikasi</small></li><li><small>Mewujudkan Sekolah yang bersih,hijau dan meminimalis hasil sampah yang tidak bermanfaat&nbsp;</small></li></ol><p></p><p><b></b></p>', 'smk@gmail.com', '082 234 578 912', 'keterangan sekolah', 'logo1.png', 'Jl Batugede 25 26 Tasikmalaya');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `extra`
+--
+
+CREATE TABLE `extra` (
+  `id_extra` int(11) NOT NULL,
+  `nama_extra` varchar(20) NOT NULL,
+  `hari` varchar(20) NOT NULL,
+  `jam` time NOT NULL,
+  `foto` varchar(225) NOT NULL,
+  `keterangan` text NOT NULL,
+  `nama_pembimbing` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `extra`
+--
+
+INSERT INTO `extra` (`id_extra`, `nama_extra`, `hari`, `jam`, `foto`, `keterangan`, `nama_pembimbing`) VALUES
+(2, 'BKC', 'Senin', '03:30:00', '3cd731fbf06f80d9655390cfc4d5a8ee.jpg', 'Harus membawa nasi and rencang na', 'Pa Satpham'),
+(3, 'Pramuka', 'Jum\'at', '01:20:00', 'Penguins.jpg', 'Kelas x, xi di wajibkan harus hadir', 'Bu Syamrotul fu\'adah'),
+(4, 'Futsal', 'Rabu', '02:30:00', 'Koala.jpg', 'Bagi yang minat saja', 'Pa Hendra');
 
 -- --------------------------------------------------------
 
@@ -388,6 +413,12 @@ ALTER TABLE `biodata`
   ADD PRIMARY KEY (`id_biodata`);
 
 --
+-- Indexes for table `extra`
+--
+ALTER TABLE `extra`
+  ADD PRIMARY KEY (`id_extra`);
+
+--
 -- Indexes for table `guru`
 --
 ALTER TABLE `guru`
@@ -456,6 +487,12 @@ ALTER TABLE `account`
 --
 ALTER TABLE `biodata`
   MODIFY `id_biodata` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `extra`
+--
+ALTER TABLE `extra`
+  MODIFY `id_extra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `guru`
