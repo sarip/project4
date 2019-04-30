@@ -5,8 +5,8 @@
 		<div class="single-slider overlay" style="background-image:url('<?= base_url('assets/frontend/') ?>images/slider/slider-bg1.jpg')">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-8 col-md-8 col-12">
-						<div class="slider-text">
+					<div class="col-lg-12 container">
+						<div class="slider-text container">
 							<h1>Visi <span>Sekolah</span></h1>
 							<h3 style="color : white;">
 								<?= $biodata->visi ?>
@@ -24,12 +24,11 @@
 		<div class="single-slider overlay" style="background-image:url('<?= base_url('assets/frontend/') ?>images/slider/slider-bg2.jpg')">
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-lg-8 offset-lg-4 col-md-8 offset-md-4 col-12">
+					<div class="col-lg-12 container">
 						<div class="slider-text container">
 							<h1>Misi <span>Sekolah</span></h1>
 							<h5 style="color: white;"><?= $biodata->misi ?></h5>
 							<div class="button">
-								
 							</div>
 						</div>
 					</div>
@@ -47,7 +46,7 @@
 		<div class="row">
 			<div class="col-12">
 				<div class="section-title">
-					<h2>Program Keahlian</h2>
+					<h2><i class="fa fa-gear"></i> Program Keahlian</h2>
 				</div>
 			</div>
 		</div>
@@ -87,7 +86,7 @@
 		<div class="row">
 			<div class="col-12">
 				<div class="section-title">
-					<h2>Wali Kelas</h2>
+					<h2><i class="fa fa-user"></i> Wali Kelas</h2>
 					
 				</div>
 			</div>
@@ -106,6 +105,7 @@
 							<b><?= $key->nama_kelas ?><br> <?= $key->nama_jurusan ?></b>
 							</span>
 						</h4>
+						<br><br>
 						<ul class="social">
 							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -128,13 +128,13 @@
 		<div class="row">
 			<div class="col-12">
 				<div class="section-title">
-					<h2>Teacher</h2>
+					<h2><i class="fa fa-users"></i> Guru</h2>
 				</div>
 				<div class="testimonial-slider">
 					<?php foreach ($guru as $guru): ?>
 						<!-- Single Testimonial -->
-						<div class="single-testimonial" style="min-height: 300px;">
-							<img src="<?= base_url('assets/guru/').$guru->foto ?>" alt="#">
+						<div class="single-testimonial" style="min-height: 300px; background: rgba(225, 225, 225, 0.5); color: white; text-shadow: 1px 1px 5px black;">
+							<img src="<?= base_url('assets/guru/').$guru->foto ?>" alt="#" class="img-responsive">
 							<div class="main-content">
 								<h4 class="name"><?= $guru->nama_guru ?></h4><hr>
 								<p>
@@ -142,9 +142,9 @@
 									<?php foreach ($mengajar as $mengajar1): ?>
 										<?php if ($guru->id_guru == $mengajar1->id_guru): ?>
 											<tr>
-												<td><?= $mengajar1->nama_kelas ?></td>
-												<td><?= $mengajar1->nama_jurusan ?></td>
-												<td>: <?= $mengajar1->nama_pelajaran ?></td>
+												<td width="1%"><?= $mengajar1->nama_kelas ?></td>
+												<td width="20%"><?= $mengajar1->nama_jurusan ?></td>
+												<td width="20%"><i class="fa fa-arrow-right"></i> &nbsp;&nbsp;<?= $mengajar1->nama_pelajaran ?></td>
 											</tr>
 										<?php endif ?>
 									<?php endforeach ?>
@@ -163,77 +163,39 @@
 <!--/ End Testimonials -->
 
 <!-- Events -->
-<section class="events section">
+<section class="events section" id="Ekstrakulikuler">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
 				<div class="section-title">
-					<h2>Ekstrakulikuler</h2>
+					<h2><i class="fa fa-child"></i> Ekstrakulikuler</h2>
 				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-12">
 				<div class="event-slider">
+					<?php foreach ($extra as $extra): ?>	
 					<!-- Single Event -->
 					<div class="single-event">
 						<div class="head overlay">
-							<img src="<?= base_url('assets/frontend/') ?>images/events/event1.jpg" alt="#">
-							<a href="images/events/event1.jpg" data-fancybox="photo" class="btn"><i class="fa fa-search"></i></a>
+							<img src="<?= base_url('assets/extra/').$extra->foto ?>" alt="#" style="height: 270px;">
+							<a href="<?= base_url('assets/extra/').$extra->foto ?>" data-fancybox="photo" class="btn"><i class="fa fa-search"></i></a>
 						</div>
 						<div class="event-content">
 							<div class="meta"> 
-								<span><i class="fa fa-calendar"></i>05 June 2018</span>
-								<span><i class="fa fa-clock-o"></i>12.00-5.00PM</span>
+								<span><i class="fa fa-calendar"></i><?= $extra->hari ?></span>
+								<span><i class="fa fa-clock-o"></i><?= strtoupper(date('H:m a', strtotime($extra->jam))) ?></span>
 							</div>
-							<h4><a href="event-single.html">Freshers Day Reception 2018</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipi sicing elit, sed do eiusmod tempor incididunt</p>
+							<h4><a><i class="fa fa-user"></i> <?= strtolower($extra->nama_pembimbing) ?></a></h4>
+							<p><?= ucfirst($extra->keterangan) ?></p>
 							<div class="button">
-								<a href="event-single.html" class="btn">Join Event</a>
+								<!-- <a href="event-single.html" class="btn">Join Event</a> -->
 							</div>
 						</div>
 					</div>
 					<!--/ End Single Event -->
-					<!-- Single Event -->
-					<div class="single-event">
-						<div class="head overlay">
-							<img src="<?= base_url('assets/frontend/') ?>images/events/event2.jpg" alt="#">
-							<a href="images/events/event2.jpg" data-fancybox="photo" class="btn"><i class="fa fa-search"></i></a>
-						</div>
-						<div class="event-content">
-							<div class="meta">
-								<span><i class="fa fa-calendar"></i>03 July 2018</span>
-								<span><i class="fa fa-clock-o"></i>03.20-5.20PM</span>
-							</div>
-							<h4><a href="event-single.html">Best Student Award 2018</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipi sicing elit, sed do eiusmod tempor incididunt</p>
-							<div class="button">
-								<a href="event-single.html" class="btn">Join Event</a>
-							</div>
-						</div>
-					</div>
-					<!--/ End Single Event -->
-					<!-- Single Event -->
-					<div class="single-event">
-						<div class="head overlay">
-							<img src="<?= base_url('assets/frontend/') ?>images/events/event3.jpg" alt="#">
-							<a href="images/events/event3.jpg" data-fancybox="photo" class="btn"><i class="fa fa-search"></i></a>
-						</div>
-						<div class="event-content">
-							<div class="meta">
-								<span><i class="fa fa-calendar"></i>15 Dec 2018</span>
-								<span><i class="fa fa-clock-o"></i>12.30-5.30PM</span>
-							</div>
-							<div class="title">
-								<h4><a href="event-single.html">Student Workshop</a></h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipi sicing elit, sed do eiusmod tempor incididunt</p>
-							</div>
-							<div class="button">
-								<a href="event-single.html" class="btn">Join Event</a>
-							</div>
-						</div>
-					</div>
-					<!--/ End Single Event -->
+					<?php endforeach ?>
 				</div>
 			</div>
 		</div>

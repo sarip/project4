@@ -52,7 +52,7 @@
 		<script src="<?= base_url('assets/frontend/') ?>js/jquery.min.js"></script>
 
     </head>
-    <body>
+    <body class="bg-white">
 	
 		<!-- Book Preloader -->
         <div class="book_preload">
@@ -80,9 +80,9 @@
 		<!--/ End Mp Color -->
 	
 		<!-- Header -->
-		<header class="header">
+		<header class="header" id="contact">
 			<!-- Header Inner -->
-			<div class="header-inner">
+			<div class="header-inner" style="background: white;">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-3 col-md-3 col-12">
@@ -114,7 +114,7 @@
 			</div>
 			<!--/ End Header Inner -->
 			<!-- Header Menu -->
-			<div class="header-menu">
+			<div class="header-menu" style="box-shadow: 1px 2px 30px #bbb;">
 				<div class="container">
 					<div class="row">
 						<div class="col-12">
@@ -131,12 +131,10 @@
 											<ul class="dropdown">
 												<li><a href="blogs.html">Blogs Grid Layout</a></li>
 												<li><a href="blogs-left-sidebar.html">Blogs Left Sidebar</a></li>
-												<li><a href="blogs-right-sidebar.html">Blogs Right Sidebar</a></li>
-												<li><a href="blog-single-left-sidebar.html">Blogs Single - Left Sidebar</a></li>
-												<li><a href="blog-single.html">Blogs Single - Right Sidebar</a></li>
 											</ul>
 										</li>
-										<li><a href="contact.html">Contact</a></li>
+										<li><a href="<?= base_url('user') ?>#contact">Contact</a></li>
+										<li><a href="<?= base_url('user') ?>#Ekstrakulikuler">Ekstrakulikuler</a></li>
 										<li><a href="<?= base_url('auth') ?>">Login</a></li>
 									</ul>
 									<!-- End Main Menu -->

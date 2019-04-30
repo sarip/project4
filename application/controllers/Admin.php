@@ -9,7 +9,7 @@ class Admin extends CI_Controller {
 			$this->session->set_flashdata('message', '<div class="alert alert-danger"><i class="fa fa-warning"></i> Ooppss... Silahkan Login Terlebih Dahulu! </div>');
 			redirect('auth');
 		}
-		$this->load->model(['M_portfolio', 'M_biodata', 'M_siswa', 'M_guru', 'M_wali_kelas', 'M_pelajaran', 'M_mengajar', 'M_nilai', 'M_kelas', 'M_jurusan']);
+		$this->load->model(['M_portfolio', 'M_extra', 'M_biodata', 'M_siswa', 'M_guru', 'M_wali_kelas', 'M_pelajaran', 'M_mengajar', 'M_nilai', 'M_kelas', 'M_jurusan']);
 	}
 
 
@@ -108,6 +108,70 @@ class Admin extends CI_Controller {
 		redirect('admin/portfolio');
 	}
 	// END :: PORTFOLIO
+
+
+
+	// START :: EXTRAKKURIKULER
+	public function extrakurikuler()
+	{
+		$data['title']	= 'Extrakurikuler';
+		$data['judul']	= 'Data Extrakurikuler';
+		$data['extrakurikuler'] = $this->M_extra->get()->result();
+		$this->mylibrary->templateadmin('extra/index', $data);
+	}
+
+	private function _validation_extrakurikuler()
+	{
+		$this->form_validation->set_rules('nama_extra', 'Nama Extrakurikuler', 'trim|required');
+		$this->form_validation->set_rules('hari', 'Hari', 'trim|required');
+		$this->form_validation->set_rules('jam', 'Jam', 'trim|required');
+		// $this->form_validation->set_rules('keterangan', 'Keterangan', 'trim');
+		$this->form_validation->set_rules('nama_pembimbing', 'Nama Pembimbing', 'trim|required');
+	}
+
+	public function insert_extrakurikuler()
+	{
+		$this->_validation_extrakurikuler();
+		if ($this->form_validation->run() == TRUE) {
+			if ($this->M_extra->insert()) {
+				$this->session->set_flashdata('message', 'Data Extrakurikuler berhasil di tambahkan');
+			}else{
+				$this->session->set_flashdata('failed', 'Data Extrakurikuler gagal di tambahkan');				
+			}
+			redirect('admin/extrakurikuler');
+		}
+		$data['title']	= 'Extrakurikuler';
+		$data['judul']	= 'Halaman Tambah Extrakurikuler';
+		$this->mylibrary->templateadmin('extra/insert', $data);
+	}
+
+	public function update_extrakurikuler($id)
+	{
+		$this->_validation_extrakurikuler();
+		if ($this->form_validation->run() == TRUE) {
+			if ($this->M_extra->update($id)) {
+				$this->session->set_flashdata('message', 'Data Extrakurikuler berhasil di edit');
+			}else{
+				$this->session->set_flashdata('failed', 'Data Extrakurikuler gagal di edit');
+			}
+			redirect('admin/extrakurikuler');
+		}
+		$data['title']		= 'Extrakurikuler';
+		$data['judul']		= 'Halaman Edit Extrakurikuler';
+		$data['extra']		= $this->M_extra->get(['md5(id_extra)' => $id])->row();
+		$this->mylibrary->templateadmin('extra/update', $data);
+	}
+
+	public function delete_extrakurikuler($id)
+	{
+		if ($this->M_extra->delete($id)) {
+			$this->session->set_flashdata('message', 'Data Extrakurikuler berhasil di hapus');
+		}else{
+			$this->session->set_flashdata('failed', 'Data Extrakurikuler gagal di hapus');
+		}
+		redirect('admin/extrakurikuler');
+	}
+	// END :: EXTRAKKURIKULER
 
 
 
