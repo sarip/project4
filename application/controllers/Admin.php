@@ -26,6 +26,7 @@ class Admin extends CI_Controller {
 		$data['guru']			= $this->M_guru->get()->num_rows();
 		$data['walikelas']		= $this->M_wali_kelas->get()->num_rows();
 		$data['portfolio']		= $this->M_portfolio->get()->num_rows();
+		$data['extra']			= $this->M_extra->get()->num_rows();
 		$this->mylibrary->templateadmin('dashboard', $data);
 	}
 

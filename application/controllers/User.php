@@ -5,7 +5,7 @@ class User extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
-		$this->load->model(['M_wali_kelas','M_mengajar', 'M_guru', 'M_jurusan', 'M_siswa', 'M_nilai', 'M_portfolio']);
+		$this->load->model(['M_wali_kelas','M_mengajar', 'M_guru', 'M_jurusan', 'M_siswa', 'M_nilai', 'M_portfolio', 'M_extra']);
 	}
 
 	public function index()
@@ -13,6 +13,7 @@ class User extends CI_Controller {
 		$data['title']  	= 'Smkn Kadipaten';
 		$data['judul']  	= 'Selamat Datang Di Smkn Kadipaten';
 		$data['guru']		= $this->M_guru->get()->result();
+		$data['extra']		= $this->M_extra->get()->result();
 		$this->db->limit(4);
 		$data['wali_kelas']	= $this->M_wali_kelas->get()->result();
 		$data['keahlian'] 	= $this->M_jurusan->get()->result();
