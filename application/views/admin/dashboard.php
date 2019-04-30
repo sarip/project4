@@ -95,6 +95,20 @@
         </div>
     </div></a>
   </div>
+  <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+    <a href="<?= base_url('admin/extrakurikuler')?>">
+    <div class="info-box bg-maroon">
+      <span class="info-box-icon"><i class="fa fa-black-tie"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">Ekstrakulikuler</span>
+          <span class="info-box-number"><?= $extra ?></span>
+          <div class="progress">
+            <div class="progress-bar" style="width: 100%"></div>
+          </div>
+          <span class="progress-description"></span>
+        </div>
+    </div></a>
+  </div>
 </div>
 
 

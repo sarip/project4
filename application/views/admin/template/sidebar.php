@@ -19,6 +19,7 @@
         <?php $link = $this->uri->segment(2); ?>
         <li <?= $link == '' ? 'class="active-active"' : '' ?>><a href="<?= base_url('admin') ?>" ><i class="fa fa-home"></i> Home</a></li>
         <li <?= $link == 'biodata' ? 'class="active-active"' : '' ?>><a href="<?= base_url('admin/biodata/') ?>" ><i class="fa fa-eye"></i> Biodata</a></li>
+         <li <?= $link == 'extrakurikuler' || $link == 'insert_extrakurikuler' || $link == 'update_extrakurikuler' ? 'class="active-active"' : '' ?>><a href="<?= base_url('admin/extrakurikuler') ?>" ><i class="fa  fa-black-tie"></i> Ekstrakulikuler</a></li>
         <li <?= $link == 'portfolio' || $link == 'insert_portfolio' || $link == 'update_portfolio'? 'class="active-active"' : '' ?>><a href="<?= base_url('admin/portfolio/') ?>" ><i class="fa fa-camera"></i> Portfolio</a></li>
         <li <?= $link == 'kelas' || $link == 'insert_kelas' || $link == 'update_kelas'? 'class="active-active"' : '' ?>><a href="<?= base_url('admin/kelas') ?>" ><i class="glyphicon glyphicon-stats"></i>  Kelas</a></li>
         <li <?= $link == 'jurusan' || $link == 'insert_jurusan' || $link == 'update_jurusan'? 'class="active-active"' : '' ?>><a href="<?= base_url('admin/jurusan') ?>" ><i class="fa fa-list"></i>  Program Keahlian</a></li>
