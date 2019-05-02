@@ -25,6 +25,13 @@ class Mylibrary
         $this->ci->load->view('user/'.$content, $data);
         $this->ci->load->view('user/template/footer', $data);
     }
+    public function templateguru($content, $data=NULL){
+        $data['biodata'] = $this->ci->db->get('biodata')->row();
+        $this->ci->load->view('guru/template/header', $data);
+        $this->ci->load->view('guru/template/sidebar', $data);
+        $this->ci->load->view('guru/'.$content, $data);
+        $this->ci->load->view('guru/template/footer', $data);
+    }
     public function date_indo($date)
     {
         if ($date == '0000-00-00') {

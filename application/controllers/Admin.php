@@ -5,7 +5,7 @@ class Admin extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		if ($this->session->userdata('login') != TRUE || $this->session->userdata('username') == '') {
+		if ($this->session->userdata('login') != 'admin' || $this->session->userdata('username') == '') {
 			$this->session->set_flashdata('message', '<div class="alert alert-danger"><i class="fa fa-warning"></i> Ooppss... Silahkan Login Terlebih Dahulu! </div>');
 			redirect('auth');
 		}
@@ -347,6 +347,8 @@ class Admin extends CI_Controller {
 	public function insert_guru()
 	{
 		$this->form_validation->set_rules('nip', 'Nip', 'trim|required|is_unique[guru.nip]', ['is_unique' => 'Nip ini sudah terpakai']);
+		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]');
+		$this->form_validation->set_rules('con_password', 'Confirm Password', 'matches[password]');
 		$this->_validation_guru();
 		if ($this->form_validation->run() == TRUE) {
 			$result_result = $this->M_guru->insert();
@@ -399,6 +401,8 @@ class Admin extends CI_Controller {
 			$this->form_validation->set_rules('nip', 'NIP', 'trim|required|is_unique[guru.nip]', ['is_unique' => 'Nip Sudah Digunakan']);
 		}
 		$this->_validation_guru();
+		$this->form_validation->set_rules('password', 'Password', 'trim');
+		$this->form_validation->set_rules('con_password', 'COnfrim Password', 'matches[password]');
 		if ($this->form_validation->run() == TRUE) {
 			$result_result = $this->M_guru->update($id);
 			$this->db->delete('mengajar', ['md5(id_guru)' => $id]);

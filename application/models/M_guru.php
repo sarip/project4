@@ -33,7 +33,8 @@ class M_guru extends CI_Model {
 				'tanggal_lahir'     => htmlspecialchars($this->input->post('tanggal_lahir')),
 				'agama' 			=> htmlspecialchars($this->input->post('agama')),
 				'jenis_kelamin' 	=> htmlspecialchars($this->input->post('jenis_kelamin')),
-				'foto'				=> $foto['file_name']
+				'foto'				=> $foto['file_name'],
+				'password'			=> htmlspecialchars(password_hash($this->input->post('password'), PASSWORD_DEFAULT, ['cost' => 10]))
 			];
 			$this->db->insert('guru', $data);
 			return $this->db->insert_id();
@@ -49,7 +50,9 @@ class M_guru extends CI_Model {
 		$this->load->library('upload', $config);
 
 		$result = $this->get(['md5(id_guru)' => $id])->row();
-		
+		if ($this->input->post('password')) {
+			$this->db->update('guru', ['password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT, ['cost' => 10])], ['md5(id_guru)' => $id]);
+		}
 		if ( ! $this->upload->do_upload('foto_guru')){
 			$data = [
 				'nip' 				=> htmlspecialchars($this->input->post('nip')),
@@ -58,7 +61,7 @@ class M_guru extends CI_Model {
 				'tempat_lahir' 		=> htmlspecialchars($this->input->post('tempat_lahir')),
 				'tanggal_lahir'     => htmlspecialchars($this->input->post('tanggal_lahir')),
 				'agama' 			=> htmlspecialchars($this->input->post('agama')),
-				'jenis_kelamin' 	=> htmlspecialchars($this->input->post('jenis_kelamin')),
+				'jenis_kelamin' 	=> htmlspecialchars($this->input->post('jenis_kelamin'))
 			];
 		}
 		else{

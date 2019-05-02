@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title><?= $biodata->nama_sekolah ?> | Admin | <?= @$title; ?></title>
+  <title><?= $biodata->nama_sekolah ?> | Guru | <?= @$title; ?></title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -70,7 +70,7 @@
   <script src="<?= base_url('assets/') ?>custom/notif.js" type="text/javascript"></script>
    
 </head>
-<body class="hold-transition skin-blue-light" style="background: #aaa;">
+<body class="hold-transition skin-blue-light">
 <!-- Site wrapper -->
 <div class="wrapper">
 
@@ -100,18 +100,18 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?= base_url() ?>assets/img/<?= $this->session->userdata('foto') ?>" class="user-image" alt="User Image">
-              <span class="hidden-xs"><?= $this->session->userdata('fullname') ?></span>
+              <img src="<?= base_url() ?>assets/guru/<?= $this->session->userdata('foto') ?>" class="user-image" alt="User Image">
+              <span class="hidden-xs"><?= $this->session->userdata('nama_guru') ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="<?= base_url() ?>assets/img/<?= $this->session->userdata('foto') ?>" class="img-circle" alt="User Image">
+                <img src="<?= base_url() ?>assets/guru/<?= $this->session->userdata('foto') ?>" class="img-circle" alt="User Image">
 
                 <p>
                   
                   <small>
-                  -- <?= ucfirst($this->session->userdata('fullname')) ?> --
+                  -- <?= ucfirst($this->session->userdata('nama_guru')) ?> --
                   </small>
                 </p>
               </li>

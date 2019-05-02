@@ -96,6 +96,21 @@
             </div><br>
 
 
+            <p class="alert-warning">*abaikan saja password & confirm password jika tidak ingin merubahnya</p>
+            <div class="form-group <?= form_error('password') ? 'has-error' : '' ?>">
+              <label for="password"> Password </label>
+              <input type="password" name="password" class="form-control" id="password" placeholder="Enter Password"  value="<?= set_value('password') ?>" >
+              <?= form_error('password', '<small><i class="text-danger">', '</i></small>') ?>
+            </div><br>
+
+             <div class="form-group <?= form_error('con_password') ? 'has-error' : '' ?>">
+              <label for="con_password"> Confrim Password</label>
+              <input type="password" name="con_password" class="form-control" id="con_password" placeholder="Enter Confirm Password"  value="<?= set_value('con_password') ?>" >
+              <?= form_error('con_password', '<small><i class="text-danger">', '</i></small>') ?>
+            </div><br>
+
+
+
             </div>
 
             <div class="col-lg-6" style="border-left: 1px solid grey;">
