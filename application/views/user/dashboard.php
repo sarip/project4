@@ -187,7 +187,8 @@
 								<span><i class="fa fa-calendar"></i><?= $extra->hari ?></span>
 								<span><i class="fa fa-clock-o"></i><?= strtoupper(date('H:m a', strtotime($extra->jam))) ?></span>
 							</div>
-							<h4><a><i class="fa fa-user"></i> <?= strtolower($extra->nama_pembimbing) ?></a></h4>
+							<h4><?= ucfirst($extra->nama_extra) ?></h4><hr>
+							<h6><a><i class="fa fa-user"></i> <?= strtolower($extra->nama_pembimbing) ?></a></h6>
 							<p><?= ucfirst($extra->keterangan) ?></p>
 							<div class="button">
 								<!-- <a href="event-single.html" class="btn">Join Event</a> -->
