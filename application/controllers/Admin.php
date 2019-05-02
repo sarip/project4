@@ -595,6 +595,13 @@ class Admin extends CI_Controller {
 		}
 
 	}
+
+	public function print_siswa($id){
+		$data['siswa']		= $this->M_siswa->get(['md5(id_siswa)' => $id])->row();
+		$data['sekolah']	= $this->M_biodata->get()->row();
+		$data['dataNilai'] 	= $this->M_nilai->get(['md5(nilai.id_siswa)' => $id]);
+		$this->load->view('admin/siswa/print', $data);
+	}
 	private function _validation_siswa(){
 		$this->form_validation->set_rules('id_kelas', 'Kelas', 'trim|required');
 		$this->form_validation->set_rules('id_jurusan', 'Jurusan', 'trim|required');
@@ -605,7 +612,6 @@ class Admin extends CI_Controller {
 		$this->form_validation->set_rules('warga_negara', 'Warga Negara', 'trim|required');
 		$this->form_validation->set_rules('agama', 'Agama', 'trim|required');
 		$this->form_validation->set_rules('alamat_siswa', 'Alamat SIswa', 'trim|required');
-		
 	}
 	// END :: SISWA
 

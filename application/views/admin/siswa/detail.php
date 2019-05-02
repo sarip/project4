@@ -12,7 +12,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-             
+             <a href="<?= base_url('admin/print_siswa/'). md5($siswa->id_siswa) ?>" class="btn btn-warning pull-right" target="_blank"><i class="fa fa-print"></i> Print</a>
             </div>
             <div class="box-body">
             <div class="panel panel-primary">
@@ -74,7 +74,7 @@
                       </div>
                   </div>
                   <div class="col-lg-6">
-                    <h3><i class="fa fa-arrow-right"></i> Data Oarng Tua/Wali : </h3>
+                    <h3><i class="fa fa-arrow-right"></i> Data Orang Tua/Wali : </h3>
                     <div class="box-body table-responsive">
                       <table class="table table-striped table-hover" id="table">
                         <tr>
