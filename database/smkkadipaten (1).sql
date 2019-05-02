@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2019 at 04:29 AM
+-- Generation Time: May 02, 2019 at 08:52 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -109,18 +109,16 @@ CREATE TABLE `guru` (
   `tanggal_lahir` date NOT NULL,
   `agama` varchar(20) NOT NULL,
   `jenis_kelamin` varchar(20) NOT NULL,
-  `foto` varchar(225) NOT NULL
+  `foto` varchar(225) NOT NULL,
+  `password` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `guru`
 --
 
-INSERT INTO `guru` (`id_guru`, `nip`, `nama_guru`, `alamat`, `tempat_lahir`, `tanggal_lahir`, `agama`, `jenis_kelamin`, `foto`) VALUES
-(20, '21345543213', 'Chairil Anwar', 'mangkubumi', 'tasikmalaya', '2019-04-12', 'islam', 'laki-laki', 'team3.jpg'),
-(21, '123456785', 'Acep Wahyudianto', 'cisayong', 'tasikmalaya', '2019-04-11', 'islam', 'laki-laki', 'team1.jpg'),
-(22, '234554321', 'Ai Aryani', 'cileuleus', 'tasikmalaya', '2019-04-25', 'islam', 'laki-laki', 'team4.jpg'),
-(24, '123123123123', 'Dedy Kuswandi', 'cigorowong', 'tasikmalaya', '2019-04-12', 'islam', 'laki-laki', 'lamuncoding.jpg');
+INSERT INTO `guru` (`id_guru`, `nip`, `nama_guru`, `alamat`, `tempat_lahir`, `tanggal_lahir`, `agama`, `jenis_kelamin`, `foto`, `password`) VALUES
+(27, '1234567890', 'Abdul Ghani', 'Kp.cileuleus', 'Tasikmalaya', '1998-10-20', 'islam', 'laki-laki', 'gambar-wallpaper-laptop-hd-kumpulan-wallpaper-monkey-d-luffy-e-piece-hd-terbaru-2016-of-gambar-wallpaper-laptop-hd.jpg', '$2y$10$t2GVcj/opsVUatYc7k2uLexo7YxOfaf18SEmmPYabFD7sZn6f8fwS');
 
 -- --------------------------------------------------------
 
@@ -185,18 +183,9 @@ CREATE TABLE `mengajar` (
 --
 
 INSERT INTO `mengajar` (`id_megajar`, `id_guru`, `id_kelas`, `id_jurusan`, `id_pelajaran`) VALUES
-(68, 20, 1, 3, 1),
-(69, 20, 1, 3, 3),
-(70, 20, 3, 3, 3),
-(71, 20, 3, 3, 5),
-(72, 21, 1, 3, 7),
-(73, 21, 1, 3, 8),
-(74, 22, 1, 3, 3),
-(75, 22, 2, 3, 3),
-(76, 22, 3, 3, 3),
-(82, 24, 1, 3, 1),
-(83, 24, 1, 3, 3),
-(84, 24, 2, 3, 3);
+(92, 27, 1, 6, 1),
+(93, 27, 2, 6, 1),
+(94, 27, 3, 6, 1);
 
 -- --------------------------------------------------------
 
@@ -229,13 +218,11 @@ CREATE TABLE `nilai` (
 --
 
 INSERT INTO `nilai` (`id_nilai`, `id_siswa`, `id_pelajaran`, `ap_1`, `ap_2`, `ap_3`, `ap_4`, `ap_5`, `ap_6`, `ak_1`, `ak_2`, `ak_3`, `ak_4`, `ak_5`, `ak_6`, `nilai_ijazah`, `nilai_skhun`) VALUES
-(110, 33, 1, 80, 85, 0, 0, 0, 0, 75, 75, 0, 0, 0, 0, 10, 20),
 (111, 33, 3, 78, 90, 0, 0, 0, 0, 73, 77, 0, 0, 0, 0, 20, 30),
 (112, 33, 4, 87, 87, 0, 0, 0, 0, 70, 75, 0, 0, 0, 0, 0, 0),
 (113, 33, 5, 89, 88, 0, 0, 0, 0, 70, 75, 0, 0, 0, 0, 0, 0),
 (114, 33, 7, 90, 89, 0, 0, 0, 0, 73, 80, 0, 0, 0, 0, 0, 0),
 (115, 33, 8, 95, 95, 0, 0, 0, 0, 75, 90, 0, 0, 0, 0, 0, 0),
-(122, 35, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (123, 35, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (124, 35, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (125, 35, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
@@ -258,7 +245,9 @@ INSERT INTO `nilai` (`id_nilai`, `id_siswa`, `id_pelajaran`, `ap_1`, `ap_2`, `ap
 (142, 38, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (143, 38, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (144, 38, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(145, 38, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0);
+(145, 38, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0),
+(181, 33, 1, 30, 20, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0),
+(182, 35, 1, 100, 30, 0, 0, 0, 20, 50, 20, 0, 0, 0, 90, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -392,9 +381,7 @@ CREATE TABLE `wali_kelas` (
 --
 
 INSERT INTO `wali_kelas` (`id_wali_kelas`, `id_guru`, `id_kelas`, `id_jurusan`) VALUES
-(3, 15, 1, 4),
-(4, 23, 3, 6),
-(5, 20, 2, 4);
+(8, 27, 2, 6);
 
 --
 -- Indexes for dumped tables
@@ -498,7 +485,7 @@ ALTER TABLE `extra`
 -- AUTO_INCREMENT for table `guru`
 --
 ALTER TABLE `guru`
-  MODIFY `id_guru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_guru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `jurusan`
@@ -516,13 +503,13 @@ ALTER TABLE `kelas`
 -- AUTO_INCREMENT for table `mengajar`
 --
 ALTER TABLE `mengajar`
-  MODIFY `id_megajar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `id_megajar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT for table `nilai`
 --
 ALTER TABLE `nilai`
-  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
+  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=183;
 
 --
 -- AUTO_INCREMENT for table `pelajaran`
@@ -546,7 +533,7 @@ ALTER TABLE `siswa`
 -- AUTO_INCREMENT for table `wali_kelas`
 --
 ALTER TABLE `wali_kelas`
-  MODIFY `id_wali_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_wali_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
