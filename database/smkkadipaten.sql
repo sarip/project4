@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 02, 2019 at 08:52 AM
+-- Generation Time: May 03, 2019 at 04:40 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -118,7 +118,10 @@ CREATE TABLE `guru` (
 --
 
 INSERT INTO `guru` (`id_guru`, `nip`, `nama_guru`, `alamat`, `tempat_lahir`, `tanggal_lahir`, `agama`, `jenis_kelamin`, `foto`, `password`) VALUES
-(27, '1234567890', 'Abdul Ghani', 'Kp.cileuleus', 'Tasikmalaya', '1998-10-20', 'islam', 'laki-laki', 'gambar-wallpaper-laptop-hd-kumpulan-wallpaper-monkey-d-luffy-e-piece-hd-terbaru-2016-of-gambar-wallpaper-laptop-hd.jpg', '$2y$10$t2GVcj/opsVUatYc7k2uLexo7YxOfaf18SEmmPYabFD7sZn6f8fwS');
+(20, '123123', 'Chairil Anwar', 'mangkubumi', 'tasikmalaya', '2019-04-12', 'islam', 'laki-laki', 'team1.jpg', '$2y$10$8kyG7a9m.Id5s71D4u/wJ.h.tCFAneUX7U/6TOlXqZiEuPBKJ.KEW'),
+(21, '12345678', 'Acep Wahyudianto', 'cisayong', 'tasikmalaya', '2019-04-11', 'islam', 'laki-laki', 'team3.jpg', '$2y$10$MaQwdCi0IHbMazF3yX16yO.IOxDeyAf7iwRdeCqD6JrPU/QOKv9hy'),
+(22, '234554321', 'Ai Aryani', 'cileuleus', 'tasikmalaya', '2019-04-25', 'islam', 'laki-laki', 'team4.jpg', '$2y$10$CbfpEunHPVxc2y4lYFxKwuJ7.uR0orfvicj5KAcIYOH1cXbOKeebC'),
+(24, '123456789', 'Dedy Kuswandi', 'cigorowong', 'tasikmalaya', '2019-04-12', 'islam', 'laki-laki', 'team5.jpg', '$2y$10$n0keaVDWwCjDR8maFwRr8OyFru7tK8Y5Smywrz.GGfWuSxQtG/6bG');
 
 -- --------------------------------------------------------
 
@@ -183,9 +186,20 @@ CREATE TABLE `mengajar` (
 --
 
 INSERT INTO `mengajar` (`id_megajar`, `id_guru`, `id_kelas`, `id_jurusan`, `id_pelajaran`) VALUES
-(92, 27, 1, 6, 1),
-(93, 27, 2, 6, 1),
-(94, 27, 3, 6, 1);
+(113, 21, 1, 3, 7),
+(114, 21, 1, 3, 8),
+(115, 21, 1, 6, 1),
+(116, 21, 2, 6, 1),
+(117, 22, 1, 3, 3),
+(118, 22, 2, 3, 3),
+(119, 22, 3, 3, 3),
+(120, 24, 1, 3, 1),
+(121, 24, 1, 3, 3),
+(122, 24, 2, 3, 3),
+(123, 20, 2, 6, 1),
+(124, 20, 2, 6, 3),
+(125, 20, 3, 6, 1),
+(126, 20, 3, 6, 3);
 
 -- --------------------------------------------------------
 
@@ -218,12 +232,12 @@ CREATE TABLE `nilai` (
 --
 
 INSERT INTO `nilai` (`id_nilai`, `id_siswa`, `id_pelajaran`, `ap_1`, `ap_2`, `ap_3`, `ap_4`, `ap_5`, `ap_6`, `ak_1`, `ak_2`, `ak_3`, `ak_4`, `ak_5`, `ak_6`, `nilai_ijazah`, `nilai_skhun`) VALUES
-(111, 33, 3, 78, 90, 0, 0, 0, 0, 73, 77, 0, 0, 0, 0, 20, 30),
+(110, 33, 1, 80, 85, 0, 0, 0, 0, 75, 75, 0, 0, 0, 0, 10, 20),
 (112, 33, 4, 87, 87, 0, 0, 0, 0, 70, 75, 0, 0, 0, 0, 0, 0),
 (113, 33, 5, 89, 88, 0, 0, 0, 0, 70, 75, 0, 0, 0, 0, 0, 0),
 (114, 33, 7, 90, 89, 0, 0, 0, 0, 73, 80, 0, 0, 0, 0, 0, 0),
 (115, 33, 8, 95, 95, 0, 0, 0, 0, 75, 90, 0, 0, 0, 0, 0, 0),
-(123, 35, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(122, 35, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (124, 35, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (125, 35, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (126, 35, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
@@ -246,8 +260,8 @@ INSERT INTO `nilai` (`id_nilai`, `id_siswa`, `id_pelajaran`, `ap_1`, `ap_2`, `ap
 (143, 38, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (144, 38, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (145, 38, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0),
-(181, 33, 1, 30, 20, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0),
-(182, 35, 1, 100, 30, 0, 0, 0, 20, 50, 20, 0, 0, 0, 90, 0, 0);
+(148, 33, 3, 78, 90, 0, 0, 0, 0, 73, 70, 0, 0, 0, 0, 20, 30),
+(149, 35, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -360,8 +374,8 @@ INSERT INTO `siswa` (`id_siswa`, `id_kelas`, `id_jurusan`, `nis`, `nama_siswa`, 
 (33, 2, 6, 1718120, 'Sarip Hidayat', 'laki-laki', 'tasikmalaya', '2019-04-04', 'WNI', 'kristen', 'jantake', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', '0000-00-00', '', '', '0000-00-00', '', 'testimonial1.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2018-2019', '', '', ''),
 (35, 2, 6, 17181150, 'Faiz Syaidu Suhada', 'laki-laki', 'tasikmalaya', '2019-04-04', 'WNI', 'islam', 'ciawi', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', '0000-00-00', '', '', '0000-00-00', '', 'testimonial3.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', ''),
 (36, 3, 8, 1245678743, 'Dea Herlana', 'laki-laki', 'tasikmalaya', '2019-04-04', 'WNI', 'islam', 'ciloa', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', '0000-00-00', '', '', '0000-00-00', '', 'testimonial4.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', ''),
-(37, 2, 5, 1718150, 'Sri Mulyani', 'laki-laki', 'tasikmalaya', '2019-04-03', 'WNI', 'islam', 'cinusa', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', '0000-00-00', '', '', '0000-00-00', '', 'team-detail.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', ''),
-(38, 1, 4, 12345, 'Asep Husen', 'laki-laki', 'tasikmalaya', '2019-04-20', 'WNI', 'islam', 'Kp.jantake', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', '0000-00-00', 'Asep Husen', '', '0000-00-00', '', 'wallhaven-342160.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2010-2011', '', '', '');
+(37, 2, 4, 1718150, 'Sri Mulyani', 'laki-laki', 'tasikmalaya', '2019-04-03', 'WNI', 'islam', 'cinusa', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', '0000-00-00', 'Sri Mulyani', '', '0000-00-00', '', 'team-detail.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', ''),
+(38, 2, 4, 12345, 'Asep Husen', 'laki-laki', 'tasikmalaya', '2019-04-20', 'WNI', 'islam', 'Kp.jantake', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', '0000-00-00', 'Asep Husen', '', '0000-00-00', '', 'wallhaven-342160.jpg', 3, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, '2015-2016', '2017-2018', '2019-2020', 'Jangan Bolos Mulu');
 
 -- --------------------------------------------------------
 
@@ -381,7 +395,10 @@ CREATE TABLE `wali_kelas` (
 --
 
 INSERT INTO `wali_kelas` (`id_wali_kelas`, `id_guru`, `id_kelas`, `id_jurusan`) VALUES
-(8, 27, 2, 6);
+(3, 15, 1, 4),
+(4, 23, 3, 6),
+(6, 21, 2, 6),
+(7, 20, 2, 6);
 
 --
 -- Indexes for dumped tables
@@ -485,7 +502,7 @@ ALTER TABLE `extra`
 -- AUTO_INCREMENT for table `guru`
 --
 ALTER TABLE `guru`
-  MODIFY `id_guru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_guru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `jurusan`
@@ -503,13 +520,13 @@ ALTER TABLE `kelas`
 -- AUTO_INCREMENT for table `mengajar`
 --
 ALTER TABLE `mengajar`
-  MODIFY `id_megajar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+  MODIFY `id_megajar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
 
 --
 -- AUTO_INCREMENT for table `nilai`
 --
 ALTER TABLE `nilai`
-  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=183;
+  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=150;
 
 --
 -- AUTO_INCREMENT for table `pelajaran`
@@ -533,7 +550,7 @@ ALTER TABLE `siswa`
 -- AUTO_INCREMENT for table `wali_kelas`
 --
 ALTER TABLE `wali_kelas`
-  MODIFY `id_wali_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_wali_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

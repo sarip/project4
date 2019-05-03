@@ -37,7 +37,9 @@
                           <td><?= $key->jenis_kelamin; ?></td>
                     			<td><?= $key->tempat_lahir . ', ' . $this->mylibrary->date_indo($key->tanggal_lahir); ?></td>
                     			<td>
-                    				<a href="<?= base_url('guru/detail_siswa/'). md5($key->id_siswa) ?>" class="btn btn-info"> <i class="fa fa-eye"></i></a>
+                            <a href="<?= base_url('guru/absen_siswa/'). md5($key->id_siswa) ?>" class="btn btn-success"> <i class="fa fa-edit"></i> Absensi</a>
+                    				<a href="<?= base_url('guru/detail_siswa/'). md5($key->id_siswa) ?>" class="btn btn-info"> <i class="fa fa-eye"></i> Detail</a>
+                            <a href="<?= base_url('guru/print_siswa/').md5($key->id_siswa) ?>" target="_blank" class="btn btn-warning"><i class="fa fa-print"></i> Print</a>
                     			</td>
                     		</tr>
                     		

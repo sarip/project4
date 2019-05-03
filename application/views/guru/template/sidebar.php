@@ -17,10 +17,10 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <?php $link = $this->uri->segment(2); ?>
-        <li><a href="<?= base_url('guru') ?>" ><i class="fa fa-home"></i> Home</a></li>
-        <li><a href="<?= base_url('guru/mengajar/').md5($this->session->userdata('id_guru')) ?>"><i class="fa fa-list"></i>  Mengajar</a></li>
+        <li <?= ($link == '') ? 'class="active-active"' : '' ?>><a href="<?= base_url('guru') ?>" ><i class="fa fa-home"></i> Home</a></li>
+        <li <?= ($link == 'mengajar') ? 'class="active-active"' : '' ?>><a href="<?= base_url('guru/mengajar/').md5($this->session->userdata('id_guru')) ?>"><i class="fa fa-list"></i>  Mengajar</a></li>
         <?php if ($this->db->get_where('wali_kelas', ['id_guru' => $this->session->userdata('id_guru')])->num_rows() > 0): ?>
-        <li><a href="<?= base_url('guru/wali_kelas/').md5($this->session->userdata('id_guru')) ?>"><i class="fa fa-user"></i>  Wali Kelas</a></li>
+        <li <?= ($link == 'wali_kelas' || $link == 'detail_siswa' || $link == 'absen_siswa') ? 'class="active-active"' : '' ?>><a href="<?= base_url('guru/wali_kelas/').md5($this->session->userdata('id_guru')) ?>"><i class="fa fa-user"></i>  Wali Kelas</a></li>
         <?php endif ?>
     </section>
     <!-- /.sidebar -->

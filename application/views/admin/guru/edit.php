@@ -104,7 +104,7 @@
             </div><br>
 
              <div class="form-group <?= form_error('con_password') ? 'has-error' : '' ?>">
-              <label for="con_password"> Confrim Password</label>
+              <label for="con_password"> Confirm Password</label>
               <input type="password" name="con_password" class="form-control" id="con_password" placeholder="Enter Confirm Password"  value="<?= set_value('con_password') ?>" >
               <?= form_error('con_password', '<small><i class="text-danger">', '</i></small>') ?>
             </div><br>

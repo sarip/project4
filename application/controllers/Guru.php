@@ -15,6 +15,8 @@ class Guru extends CI_Controller {
 	public function index()
 	{
 		$data['title'] 			= 'Halaman Home';
+		$data['wali_kelas']		= $this->M_wali_kelas->get(['wali_kelas.id_guru' => $this->session->userdata('id_guru')])->row();
+		$data['mengajar']		= $this->M_mengajar->get(['mengajar.id_guru' => $this->session->userdata('id_guru')])->num_rows();
 		$this->mylibrary->templateguru('dashboard', $data);
 	}
 
@@ -149,8 +151,53 @@ class Guru extends CI_Controller {
 	public function detail_siswa($id){
 		$data['title']		= 'Detail Siswa';
 		$data['judul']		= 'Halaman Detail Siswa';
+		$data['dataNilai'] 	= $this->M_nilai->get(['md5(nilai.id_siswa)' => $id]);
 		$data['siswa']		= $this->M_siswa->get(['md5(id_siswa)' => $id])->row();
 		$this->mylibrary->templateguru('wali_kelas/detail', $data);
+	}
+
+	public function absen_siswa($id){
+		$data['title']		= 'Absen Siswa';
+		$data['judul']		= 'Halaman Absen Siswa';
+		$data['nilai']		= $this->M_siswa->get(['md5(id_siswa)' => $id])->row();
+		if (isset($_POST['simpan'])) {
+			$data = [
+					's_1'		=> $this->input->post('s_1'),
+					's_2'		=> $this->input->post('s_2'),
+					's_3'		=> $this->input->post('s_3'),
+					's_4'		=> $this->input->post('s_4'),
+					's_5'		=> $this->input->post('s_5'),
+					's_6'		=> $this->input->post('s_6'),
+					'i_1'		=> $this->input->post('i_1'),
+					'i_2'		=> $this->input->post('i_2'),
+					'i_3'		=> $this->input->post('i_3'),
+					'i_4'		=> $this->input->post('i_4'),
+					'i_5'		=> $this->input->post('i_5'),
+					'i_6'		=> $this->input->post('i_6'),
+					'a_1'		=> $this->input->post('a_1'),
+					'a_2'		=> $this->input->post('a_2'),
+					'a_3'		=> $this->input->post('a_3'),
+					'a_4'		=> $this->input->post('a_4'),
+					'a_5'		=> $this->input->post('a_5'),
+					'a_6'		=> $this->input->post('a_6'),
+					'th_1'		=> $this->input->post('th_1'),
+					'th_2'		=> $this->input->post('th_2'),
+					'th_3'		=> $this->input->post('th_3'),
+					'catatan' 	=> $this->input->post('catatan')
+				];
+			if ($this->db->update('siswa', $data, ['md5(id_siswa)' => $id])) {
+				$this->session->set_flashdata('message', 'Absen Berhasil');
+				redirect('guru/absen_siswa/'.$id, 'refresh');
+			}
+		}
+		$this->mylibrary->templateguru('wali_kelas/absen', $data);
+	}
+
+	public function print_siswa($id){
+		$data['siswa']		= $this->M_siswa->get(['md5(id_siswa)' => $id])->row();
+		$data['sekolah']	= $this->M_biodata->get()->row();
+		$data['dataNilai'] 	= $this->M_nilai->get(['md5(nilai.id_siswa)' => $id]);
+		$this->load->view('guru/wali_kelas/print_siswa', $data);
 	}
 
 }

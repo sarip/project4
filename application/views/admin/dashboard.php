@@ -100,7 +100,7 @@
     <div class="info-box bg-maroon">
       <span class="info-box-icon"><i class="fa fa-black-tie"></i></span>
         <div class="info-box-content">
-          <span class="info-box-text">Ekskul</span>
+          <span class="info-box-text">Ekstrakulikuler</span>
           <span class="info-box-number"><?= $extra ?></span>
           <div class="progress">
             <div class="progress-bar" style="width: 100%"></div>
