@@ -29,7 +29,7 @@
                     	<?php $i=1; foreach ($dataPelajaran->result() as $key): ?>
                     		<tr>
                     			<td><?= $i++; ?></td>
-                    			<td><?= $key->nama_pelajaran ?></td>
+                    			<td><?= xss($key->nama_pelajaran) ?></td>
                     			<td>
                     				<a href="<?= base_url('admin/update_pelajaran/'). md5($key->id_pelajaran) ?>" class="btn btn-info"> <i class="fa fa-edit"></i> Edit</a>
                             <a href="<?= base_url('admin/delete_pelajaran/'). md5($key->id_pelajaran) ?>" class="btn btn-danger" onclick="return confirm('Yakin mau menghapus data <?= ucfirst($key->nama_pelajaran) ?> ? ')"> <i class="fa fa-trash-o"></i> Delete</a>
