@@ -96,19 +96,19 @@
                                   <input type="number" name="id_siswa_<?= $value->id_siswa ?>_ak_2" style="width: 100%;padding: 5px; background: rgba(0,0,0,0.0); border: 0px solid white;" value="<?= $nilai->ak_2 ?>" required>
                                 </td>
                                 <td>
-                                  <input type="number" name="id_siswa_<?= $value->id_siswa ?>_ap_3" style="width: 100%;padding: 5px; background: rgba(0,0,0,0.0); border: 0px solid white;" value="<?= $nilai->ak_3 ?>" required>
+                                  <input type="number" name="id_siswa_<?= $value->id_siswa ?>_ap_3" style="width: 100%;padding: 5px; background: rgba(0,0,0,0.0); border: 0px solid white;" value="<?= $nilai->ap_3 ?>" required>
                                 </td>
                                 <td>
                                   <input type="number" name="id_siswa_<?= $value->id_siswa ?>_ak_3" style="width: 100%;padding: 5px; background: rgba(0,0,0,0.0); border: 0px solid white;" value="<?= $nilai->ak_3 ?>" required>
                                 </td>
                                  <td>
-                                  <input type="number" name="id_siswa_<?= $value->id_siswa ?>_ap_4" style="width: 100%;padding: 5px; background: rgba(0,0,0,0.0); border: 0px solid white;" value="<?= $nilai->ak_4 ?>" required>
+                                  <input type="number" name="id_siswa_<?= $value->id_siswa ?>_ap_4" style="width: 100%;padding: 5px; background: rgba(0,0,0,0.0); border: 0px solid white;" value="<?= $nilai->ap_4 ?>" required>
                                 </td>
                                 <td>
                                   <input type="number" name="id_siswa_<?= $value->id_siswa ?>_ak_4" style="width: 100%;padding: 5px; background: rgba(0,0,0,0.0); border: 0px solid white;" value="<?= $nilai->ak_4 ?>" required>
                                 </td>
                                  <td>
-                                  <input type="number" name="id_siswa_<?= $value->id_siswa ?>_ap_5" style="width: 100%;padding: 5px; background: rgba(0,0,0,0.0); border: 0px solid white;" value="<?= $nilai->ak_5 ?>" required>
+                                  <input type="number" name="id_siswa_<?= $value->id_siswa ?>_ap_5" style="width: 100%;padding: 5px; background: rgba(0,0,0,0.0); border: 0px solid white;" value="<?= $nilai->ap_5 ?>" required>
                                 </td>
                                 <td>
                                   <input type="number" name="id_siswa_<?= $value->id_siswa ?>_ak_5" style="width: 100%;padding: 5px; background: rgba(0,0,0,0.0); border: 0px solid white;" value="<?= $nilai->ak_5 ?>" required>
