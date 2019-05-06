@@ -14,7 +14,7 @@
 		<!-- Title -->
 		<title><?= $title; ?></title>
 		<!-- Favicon -->
-		<link rel="icon" type="image/png" href="<?= base_url('assets/frontend/') ?>images/favicon.png">
+		<link rel="icon" type="image/png" href="<?= base_url('assets/frontend/') ?>images/icon.ico">
 		<!-- Web Font -->
 		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
 
@@ -121,19 +121,13 @@
 							<nav class="navbar navbar-default">
 								<div class="navbar-collapse">
 									<!-- Main Menu -->
+									<?php $link = $this->uri->segment(2); ?>
 									<ul id="nav" class="nav menu navbar-nav">
-										<li <?= (!$this->uri->segment(2)) ? 'class="active"' : '' ?>><a href="<?= base_url('user') ?>">Home</a></li>
-										<li <?= ($this->uri->segment(2) == 'portfolio') ? 'class="active"' : '' ?>><a href="<?= base_url('user/portfolio') ?>">Portfolio</a></li>
-										<li <?= ($this->uri->segment(2) == 'wali_kelas') ? 'class="active"' : '' ?>><a href="<?= base_url('user/wali_kelas') ?>">Wali Kelas</a></li>
-										<li <?= ($this->uri->segment(2) == 'guru') ? 'class="active"' : '' ?>><a href="<?= base_url('user/guru') ?>">Guru</a></li>
-										<li <?= ($this->uri->segment(2) == 'siswa') ? 'class="active"' : '' ?>><a href="<?= base_url('user/siswa') ?>">Siswa</a></li>
-										<li><a href="#">Blogs<i class="fa fa-angle-down"></i></a>
-											<ul class="dropdown">
-												<li><a href="blogs.html">Blogs Grid Layout</a></li>
-												<li><a href="blogs-left-sidebar.html">Blogs Left Sidebar</a></li>
-											</ul>
-										</li>
-										<li><a href="<?= base_url('user') ?>#contact">Contact</a></li>
+										<li <?= ($link == '') ? 'class="active"' : '' ?>><a href="<?= base_url('user') ?>">Home</a></li>
+										<li <?= ($link == 'portfolio') ? 'class="active"' : '' ?>><a href="<?= base_url('user/portfolio') ?>">Portfolio</a></li>
+										<li <?= ($link == 'wali_kelas' || $link == 'detail_wali_kelas') ? 'class="active"' : '' ?>><a href="<?= base_url('user/wali_kelas') ?>">Wali Kelas</a></li>
+										<li <?= ($link == 'guru' || $link == 'detail_guru') ? 'class="active"' : '' ?>><a href="<?= base_url('user/guru') ?>">Guru</a></li>
+										<li <?= ($link == 'siswa') ? 'class="active"' : '' ?>><a href="<?= base_url('user/siswa') ?>">Siswa</a></li>
 										<li><a href="<?= base_url('user') ?>#Ekstrakulikuler">Ekstrakulikuler</a></li>
 										<li><a href="<?= base_url('auth') ?>">Login</a></li>
 									</ul>

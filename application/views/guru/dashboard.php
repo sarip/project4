@@ -31,3 +31,14 @@
     </div>
   </div>
 </section>
+
+<?php if ($this->session->flashdata('message')): ?>
+  <script type="text/javascript">
+  notifikasi('success', '<?= $this->session->flashdata('message'); ?>');
+  </script>
+<?php endif ?>
+<?php if ($this->session->flashdata('failed')): ?>
+  <script type="text/javascript">
+  notifikasi('error', '<?= $this->session->flashdata('failed'); ?>');
+  </script>
+<?php endif ?>

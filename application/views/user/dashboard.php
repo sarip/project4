@@ -40,13 +40,57 @@
 </section>
 <!--/ End Slider Area -->
 
+<!-- kepsek -->
+<section class="team-details section">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="section-title">
+					<h2><i class="fa fa-user-secret"></i> Kepala <span>Sekolah</span></h2>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-5 col-md-5 col-xs-12">
+				<div class="member-detail" style="padding: auto;">
+					<div class="image text-center">
+						<img src="<?= base_url('assets/biodata/') . $kepsek->foto ?>" style="width: 100%; height: 550px;">
+					</div>
+				
+				</div>
+			</div>
+			<div class="col-lg-7 col-md-7 col-xs-12">
+				<div class="detail-content" style="padding: auto;">
+					<h2><?= $kepsek->fullname ?></h2>
+					<p class="title">
+						<div class="contact">
+						<ul class="address">
+							<li><a href="mailto:rachel@websitename.com"><i class="fa fa-envelope"></i><?= $kepsek->email ?></a></li>
+							<li><i class="fa fa-phone"></i><?= $kepsek->no_telepon ?><li>
+							<li><i class="fa fa-home"></i><?= $kepsek->alamat ?></li>
+						</ul>
+					</div>
+					</p>
+					<p><?= $kepsek->kata_sambutan ?></p>
+					<div class="skill-main">
+						
+						<!--/ End Single Skill -->
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- endkepsek -->
+
 <!-- Blogs -->
 <section class="blog section" id="keahlian">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
 				<div class="section-title">
-					<h2><i class="fa fa-gear"></i> Program Keahlian</h2>
+					<h2><i class="fa fa-gear"></i> Program <span>Keahlian</span></h2>
 				</div>
 			</div>
 		</div>
@@ -86,7 +130,7 @@
 		<div class="row">
 			<div class="col-12">
 				<div class="section-title">
-					<h2><i class="fa fa-user"></i> Wali Kelas</h2>
+					<h2><i class="fa fa-user"></i> Wali <span>Kelas</span></h2>
 					
 				</div>
 			</div>
@@ -168,7 +212,7 @@
 		<div class="row">
 			<div class="col-12">
 				<div class="section-title">
-					<h2><i class="fa fa-child"></i> Ekstrakulikuler</h2>
+					<h2><i class="fa fa-child"></i> Ekstra <span>kulikuler</span></h2>
 				</div>
 			</div>
 		</div>

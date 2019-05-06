@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2019 at 04:40 AM
+-- Generation Time: May 06, 2019 at 03:44 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -41,7 +41,7 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`id_account`, `username`, `password`, `fullname`, `foto`) VALUES
-(1, 'admin', '$2y$10$P9peEI/lEzqb2W9/JsKlbuA5dR.oYw7dYnVgymTy3UcE41eSerIUq', 'Admin Smkn', 'default.png'),
+(1, 'admin', '$2y$10$00HAJ/sKcnp0K9GF9m/MdeNPGDFnKf5n8y2wsf3miy7OWgZMCKxBe', 'Admin Smkn', 'avatar5.png'),
 (2, 'guru', '$2y$10$P9peEI/lEzqb2W9/JsKlbuA5dR.oYw7dYnVgymTy3UcE41eSerIUq', 'Guru Skmn', 'default.png');
 
 -- --------------------------------------------------------
@@ -118,7 +118,7 @@ CREATE TABLE `guru` (
 --
 
 INSERT INTO `guru` (`id_guru`, `nip`, `nama_guru`, `alamat`, `tempat_lahir`, `tanggal_lahir`, `agama`, `jenis_kelamin`, `foto`, `password`) VALUES
-(20, '123123', 'Chairil Anwar', 'mangkubumi', 'tasikmalaya', '2019-04-12', 'islam', 'laki-laki', 'team1.jpg', '$2y$10$8kyG7a9m.Id5s71D4u/wJ.h.tCFAneUX7U/6TOlXqZiEuPBKJ.KEW'),
+(20, '123123', 'Chairil Anwar', 'mangkubumi', 'tasikmalaya', '2019-04-01', 'islam', 'laki-laki', 'team1.jpg', '$2y$10$1YftAcTU9P78XtXoxv.7r.U8K.iEY5X1oeDIkGik0ax58FcHpZlQK'),
 (21, '12345678', 'Acep Wahyudianto', 'cisayong', 'tasikmalaya', '2019-04-11', 'islam', 'laki-laki', 'team3.jpg', '$2y$10$MaQwdCi0IHbMazF3yX16yO.IOxDeyAf7iwRdeCqD6JrPU/QOKv9hy'),
 (22, '234554321', 'Ai Aryani', 'cileuleus', 'tasikmalaya', '2019-04-25', 'islam', 'laki-laki', 'team4.jpg', '$2y$10$CbfpEunHPVxc2y4lYFxKwuJ7.uR0orfvicj5KAcIYOH1cXbOKeebC'),
 (24, '123456789', 'Dedy Kuswandi', 'cigorowong', 'tasikmalaya', '2019-04-12', 'islam', 'laki-laki', 'team5.jpg', '$2y$10$n0keaVDWwCjDR8maFwRr8OyFru7tK8Y5Smywrz.GGfWuSxQtG/6bG');
@@ -165,7 +165,35 @@ CREATE TABLE `kelas` (
 INSERT INTO `kelas` (`id_kelas`, `nama_kelas`) VALUES
 (1, 'X'),
 (2, 'XI'),
-(3, 'XII');
+(3, 'XII'),
+(4, 'Alumni');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kepsek`
+--
+
+CREATE TABLE `kepsek` (
+  `id_kepsek` int(11) NOT NULL,
+  `nip` int(11) NOT NULL,
+  `fullname` varchar(125) NOT NULL,
+  `jenis_kelamin` enum('laki-laki','perempuan','','') NOT NULL,
+  `tempat_lahir` varchar(100) NOT NULL,
+  `tanggal_lahir` date NOT NULL,
+  `no_telepon` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `alamat` text NOT NULL,
+  `kata_sambutan` text NOT NULL,
+  `foto` varchar(225) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kepsek`
+--
+
+INSERT INTO `kepsek` (`id_kepsek`, `nip`, `fullname`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `no_telepon`, `email`, `alamat`, `kata_sambutan`, `foto`) VALUES
+(1, 123456789, 'Dr. Hj. Sri Nurhayati, M.SI', 'perempuan', 'tasikmalaya', '2019-05-01', '0877655123', 'yudihidayat@gmail.com', 'Kp, cijuhung desa, sukamukti kecamatan cisayong kabupaten tasikmalaya', '<p>\r\n\r\n</p><p>Assalamualaikum Warahmatullah Wabarakatuh</p><p>Alhamdulillahi robbil alamin kami panjatkan kehadlirat Allah SWT, bahwasannya dengan rahmat dan karunia-Nya lah akhirnya Website sekolah ini dengan alamat <a target=\"_blank\" rel=\"nofollow\" href=\"https://lamuncoding.000webhostapp.com/project4/\">www.smknkadipaten.sch.id</a> dapat kami perbaharui. Kami mengucapkan selamat datang di Website kami Sekolah Menengah Kejuruan Negeri (SMKN) Kadipaten yang saya tujukan untuk seluruh unsur pimpinan, guru, karyawan dan siswa serta khalayak umum guna dapat mengakses seluruh informasi tentang segala profil, aktifitas/kegiatan serta fasilitas sekolah kami.</p><p>Kami selaku pimpinan sekolah mengucapkan terima kasih kepada tim pembuat Website ini yang telah berusaha untuk dapat lebih memperkenalkan segala perihal yang dimiliki oleh sekolah. Dan tentunya Website sekolah kami masih terdapat banyak kekurangan, oleh karena itu kepada seluruh civitas akademika dan masyarakat umum dapat memberikan saran dan kritik yang membangun demi kemajuan Website ini lebih lanjut.</p><p>Saya berharap Website ini dapat dijadikan wahana interaksi yang positif baik antar civitas akademika maupun masyarakat pada umumnya sehingga dapat menjalin silaturahmi yang erat disegala unsur. Mari kita bekerja dan berkarya dengan mengharap ridho sang Kuasa dan keikhlasan yang tulus dijiwa demi anak bangsa.</p><p>Terima kasih semoga Allah ‘Azza Wa Jalla menyertai doa kita semua……amin.</p><p></p>', 'team2.jpg');
 
 -- --------------------------------------------------------
 
@@ -232,7 +260,7 @@ CREATE TABLE `nilai` (
 --
 
 INSERT INTO `nilai` (`id_nilai`, `id_siswa`, `id_pelajaran`, `ap_1`, `ap_2`, `ap_3`, `ap_4`, `ap_5`, `ap_6`, `ak_1`, `ak_2`, `ak_3`, `ak_4`, `ak_5`, `ak_6`, `nilai_ijazah`, `nilai_skhun`) VALUES
-(110, 33, 1, 80, 85, 0, 0, 0, 0, 75, 75, 0, 0, 0, 0, 10, 20),
+(110, 33, 1, 80, 85, 80, 0, 0, 0, 75, 75, 0, 0, 0, 0, 10, 20),
 (112, 33, 4, 87, 87, 0, 0, 0, 0, 70, 75, 0, 0, 0, 0, 0, 0),
 (113, 33, 5, 89, 88, 0, 0, 0, 0, 70, 75, 0, 0, 0, 0, 0, 0),
 (114, 33, 7, 90, 89, 0, 0, 0, 0, 73, 80, 0, 0, 0, 0, 0, 0),
@@ -260,8 +288,8 @@ INSERT INTO `nilai` (`id_nilai`, `id_siswa`, `id_pelajaran`, `ap_1`, `ap_2`, `ap
 (143, 38, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (144, 38, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (145, 38, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0),
-(148, 33, 3, 78, 90, 0, 0, 0, 0, 73, 70, 0, 0, 0, 0, 20, 30),
-(149, 35, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+(150, 33, 3, 78, 90, 70, 0, 0, 0, 73, 70, 0, 0, 0, 0, 20, 30),
+(151, 35, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -371,7 +399,7 @@ CREATE TABLE `siswa` (
 --
 
 INSERT INTO `siswa` (`id_siswa`, `id_kelas`, `id_jurusan`, `nis`, `nama_siswa`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `warga_negara`, `agama`, `alamat_siswa`, `nama_orang_tua`, `pekerjaan`, `alamat_orang_tua`, `nama_wali`, `alamat_wali`, `pekerjaan_wali`, `tanggal_masuk`, `asal_sekolah`, `alamat_sekolah`, `nomor_sttb`, `tanggal_sttb`, `tanggal_meninggalkan_sekolah`, `alasan_meninggalkan_sekolah`, `tamat_nomor_sttb`, `tamat_tanggal_sttb`, `keterangan_lain`, `foto_siswa`, `s_1`, `s_2`, `s_3`, `s_4`, `s_5`, `s_6`, `i_1`, `i_2`, `i_3`, `i_4`, `i_5`, `i_6`, `a_1`, `a_2`, `a_3`, `a_4`, `a_5`, `a_6`, `th_1`, `th_2`, `th_3`, `catatan`) VALUES
-(33, 2, 6, 1718120, 'Sarip Hidayat', 'laki-laki', 'tasikmalaya', '2019-04-04', 'WNI', 'kristen', 'jantake', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', '0000-00-00', '', '', '0000-00-00', '', 'testimonial1.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2018-2019', '', '', ''),
+(33, 2, 6, 1718120, 'Sarip Hidayat', 'laki-laki', 'tasikmalaya', '2019-04-04', 'WNI', 'kristen', 'jantake', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', '0000-00-00', '', '', '0000-00-00', '', 'testimonial1.jpg', 5, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2018-2019', '', '', ''),
 (35, 2, 6, 17181150, 'Faiz Syaidu Suhada', 'laki-laki', 'tasikmalaya', '2019-04-04', 'WNI', 'islam', 'ciawi', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', '0000-00-00', '', '', '0000-00-00', '', 'testimonial3.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', ''),
 (36, 3, 8, 1245678743, 'Dea Herlana', 'laki-laki', 'tasikmalaya', '2019-04-04', 'WNI', 'islam', 'ciloa', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', '0000-00-00', '', '', '0000-00-00', '', 'testimonial4.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', ''),
 (37, 2, 4, 1718150, 'Sri Mulyani', 'laki-laki', 'tasikmalaya', '2019-04-03', 'WNI', 'islam', 'cinusa', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', '0000-00-00', 'Sri Mulyani', '', '0000-00-00', '', 'team-detail.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', ''),
@@ -397,7 +425,7 @@ CREATE TABLE `wali_kelas` (
 INSERT INTO `wali_kelas` (`id_wali_kelas`, `id_guru`, `id_kelas`, `id_jurusan`) VALUES
 (3, 15, 1, 4),
 (4, 23, 3, 6),
-(6, 21, 2, 6),
+(6, 21, 2, 4),
 (7, 20, 2, 6);
 
 --
@@ -439,6 +467,12 @@ ALTER TABLE `jurusan`
 --
 ALTER TABLE `kelas`
   ADD PRIMARY KEY (`id_kelas`);
+
+--
+-- Indexes for table `kepsek`
+--
+ALTER TABLE `kepsek`
+  ADD PRIMARY KEY (`id_kepsek`);
 
 --
 -- Indexes for table `mengajar`
@@ -514,7 +548,13 @@ ALTER TABLE `jurusan`
 -- AUTO_INCREMENT for table `kelas`
 --
 ALTER TABLE `kelas`
-  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `kepsek`
+--
+ALTER TABLE `kepsek`
+  MODIFY `id_kepsek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `mengajar`
@@ -526,7 +566,7 @@ ALTER TABLE `mengajar`
 -- AUTO_INCREMENT for table `nilai`
 --
 ALTER TABLE `nilai`
-  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=150;
+  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
 
 --
 -- AUTO_INCREMENT for table `pelajaran`

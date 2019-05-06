@@ -25,8 +25,7 @@
 						</h4>
 						<ul class="button">
 							<br><br><br>
-								<a href="<?= base_url('user/detail_wali_kelas/').md5($key->id_wali_kelas) ?>" class="btn bg-dark">Read More</a>
-							</div>
+								<a href="<?= base_url('user/detail_wali_kelas/').md5($key->id_guru) ?>" class="btn bg-dark">Read More</a>
 						</ul>
 					</div>
 				</div>

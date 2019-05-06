@@ -28,18 +28,8 @@
         <li <?= $link == 'wali_kelas' || $link == 'insert_wali_kelas' || $link == 'update_wali_kelas'? 'class="active-active"' : '' ?>><a href="<?= base_url('admin/wali_kelas') ?>" ><i class="fa fa-user"></i>  Wali kelas</a></li>
         <li <?= $link == 'siswa' || $link == 'insert_siswa' || $link == 'update_siswa'? 'class="active-active"' : '' ?>><a href="<?= base_url('admin/siswa') ?>" ><i class="fa fa-child"></i>  Siswa</a></li>
         <li <?= $link == 'nilai' || $link == 'insert_nilai' || $link == 'update_nilai'? 'class="active-active"' : '' ?>><a href="<?= base_url('admin/nilai') ?>" ><i class="fa fa-pencil"></i>  Nilai</a></li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Master Data</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="<?= base_url('') ?>"><i class="fa fa-circle-o"></i>Table</a></li>
-          </ul>
-        </li>
-        
+        <li <?= $link == 'kenaikan' ? 'class="active"' : '' ?>><a href="<?= base_url('admin/kenaikan') ?>" ><i class="fa fa-check"></i>  Kenaikan</a></li>
+        <li <?= $link == 'cetak_data' ? 'class="active"' : '' ?>><a href="<?= base_url('admin/cetak_data') ?>" ><i class="fa fa-print"></i> Cetak Data</a></li>
     </section>
     <!-- /.sidebar -->
   </aside>

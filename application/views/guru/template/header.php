@@ -8,6 +8,7 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
+  <link rel="icon" type="image/png" href="<?= base_url('assets/frontend/') ?>images/icon.ico">
   <link rel="stylesheet" href="<?= base_url() ?>assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?= base_url() ?>assets/bower_components/font-awesome/css/font-awesome.min.css">
@@ -97,32 +98,33 @@
           
          
          
-          <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
+
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?= base_url() ?>assets/guru/<?= $this->session->userdata('foto') ?>" class="user-image" alt="User Image">
-              <span class="hidden-xs"><?= $this->session->userdata('nama_guru') ?></span>
+              <img src="<?= base_url('assets/guru/').$this->session->userdata('foto'); ?>" class="user-image"  alt="User Image">
+              <span class="hidden-xs"><?= $this->session->userdata('fullname'); ?></span>
             </a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu"  style="box-shadow:0px 0px 60px black;">
               <!-- User image -->
-              <li class="user-header">
-                <img src="<?= base_url() ?>assets/guru/<?= $this->session->userdata('foto') ?>" class="img-circle" alt="User Image">
+
+              <li class="user-header" style="overflow: hidden;">
+                <img src="<?= base_url('assets/guru/') . $this->session->userdata('foto'); ?>" class="img-circle" alt="User Image">
 
                 <p>
-                  
-                  <small>
-                  -- <?= ucfirst($this->session->userdata('nama_guru')) ?> --
-                  </small>
+                 
+                  <small>  <?= $this->session->userdata('fullname'); ?> <hr></small>
+
                 </p>
               </li>
-          
-              <li class="user-footer">
-                <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
-                </div>
-                <div class="pull-right">
-                  <a href="<?= base_url('auth/logout') ?>" class="btn btn-default btn-flat">Sign out</a>
-                </div>
+
+              <li class="user-body">
+                <a data-target="#update_profil" data-toggle="modal" class="text-info"><i class="fa fa-user"></i> Profil</a><hr style="margin: 5px;">
+                  <a data-target="#update_password" data-toggle="modal" class="text-info"><i class="fa fa-lock"></i> Ganti Password</a><hr style="margin: 5px;">
+                  <a href="<?= base_url('auth/logout') ?>" class="text-info"><i class="fa fa-power-off"></i> Sign Out</a><hr style="margin: 5px;">
+              </li>
+             
+              <li class="user-footer" style="background: grey;">
+                
               </li>
             </ul>
           </li>

@@ -27,6 +27,7 @@ class Mylibrary
     }
     public function templateguru($content, $data=NULL){
         $data['biodata'] = $this->ci->db->get('biodata')->row();
+        $data['biodata_guru'] = $this->ci->db->get_where('guru', ['id_guru' => $this->ci->session->userdata('id_guru')])->row();
         $this->ci->load->view('guru/template/header', $data);
         $this->ci->load->view('guru/template/sidebar', $data);
         $this->ci->load->view('guru/'.$content, $data);

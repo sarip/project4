@@ -9,7 +9,7 @@ class Admin extends CI_Controller {
 			$this->session->set_flashdata('message', '<div class="alert alert-danger"><i class="fa fa-warning"></i> Ooppss... Silahkan Login Terlebih Dahulu! </div>');
 			redirect('auth');
 		}
-		$this->load->model(['M_portfolio', 'M_extra', 'M_biodata', 'M_siswa', 'M_guru', 'M_wali_kelas', 'M_pelajaran', 'M_mengajar', 'M_nilai', 'M_kelas', 'M_jurusan']);
+		$this->load->model(['M_portfolio', 'M_extra', 'M_biodata', 'M_siswa', 'M_guru', 'M_wali_kelas', 'M_pelajaran', 'M_mengajar', 'M_nilai', 'M_kelas', 'M_jurusan', 'M_kepsek']);
 	}
 
 
@@ -27,9 +27,48 @@ class Admin extends CI_Controller {
 		$data['walikelas']		= $this->M_wali_kelas->get()->num_rows();
 		$data['portfolio']		= $this->M_portfolio->get()->num_rows();
 		$data['extra']			= $this->M_extra->get()->num_rows();
+		$data['kepsek']			= $this->M_kepsek->get()->row();
+		if (isset($_POST['save'])) {
+			$this->form_validation->set_rules('nip', 'NIP', 'trim|required');
+			$this->form_validation->set_rules('fullname', 'Nama Lengkap', 'trim|required');
+			$this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'trim|required');
+			$this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'trim|required');
+			$this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'trim|required');
+			$this->form_validation->set_rules('no_telepon', 'Nomor Telepon', 'trim|required');
+			$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+
+			if ($this->form_validation->run() == TRUE) {
+				if ($this->M_kepsek->update()) {
+					$this->session->set_flashdata('message', 'Data kepala sekolah berhasil di perbarui');		
+				}else{
+					$this->session->set_flashdata('failed', 'Data kepala sekolah gagal di perbarui');
+				}
+				redirect('admin');
+			}
+		}
 		$this->mylibrary->templateadmin('dashboard', $data);
 	}
 
+
+	public function update_kenaikan($id_kelas, $id_jurusan){
+		$kelas = $this->input->post('kelas');
+		foreach ($this->M_siswa->get(['md5(siswa.id_kelas)' => $id_kelas, 'md5(siswa.id_jurusan)' => $id_jurusan])->result() as $key) {
+			$check = $this->input->post($key->id_siswa);
+			if ($check) {
+				$this->db->update('siswa', ['id_kelas' => $kelas], ['id_siswa' => $key->id_siswa]);
+			}
+		}
+		$kelas = $this->M_kelas->get(['md5(id_kelas)' => $id_kelas])->row();
+		$jurusan = $this->M_jurusan->get(['md5(id_jurusan)' => $id_jurusan])->row();
+		$this->session->set_flashdata('message', 'Data siswa <br>Kelas &nbsp;&nbsp;&nbsp; : '.$kelas->nama_kelas.'<br>Jurusan : '.$jurusan->nama_jurusan.'<br><br>  berhasil diperbarui');
+		redirect('admin/kenaikan');
+	}
+
+
+	// START :: KEPALA SEKOLAH
+	public function update_kepsek(){
+
+	}
 
 
 
@@ -600,6 +639,7 @@ class Admin extends CI_Controller {
 		$data['siswa']		= $this->M_siswa->get(['md5(id_siswa)' => $id])->row();
 		$data['sekolah']	= $this->M_biodata->get()->row();
 		$data['dataNilai'] 	= $this->M_nilai->get(['md5(nilai.id_siswa)' => $id]);
+		$data['kepsek']		= $this->M_kepsek->get()->row();
 		$this->load->view('admin/siswa/print', $data);
 	}
 	private function _validation_siswa(){
@@ -728,6 +768,170 @@ class Admin extends CI_Controller {
 
 	}
 	// END :: NILAI
+
+
+	// SETTING PROFIL
+	public function edit_profil(){
+		$this->form_validation->set_rules('fullname', 'Full Name', 'trim');
+		$this->form_validation->set_rules('username', 'Username', 'trim');
+		$this->form_validation->set_rules('password', 'Password', 'trim');
+
+		if ($this->form_validation->run() == TRUE) {
+			$password = $this->input->post('password');
+			$result = $this->db->get_where('account', ['id_account' => $this->session->userdata('id')])->row();
+			if (password_verify($password, $result->password)) {
+				$config['upload_path'] = './assets/img/';
+				$config['allowed_types'] = 'gif|jpg|png';
+				$config['max_size']  = '5000';
+				
+				$this->load->library('upload', $config);
+				
+				if ( ! $this->upload->do_upload('foto')){
+					 $check =  $this->db->update('account', [
+						'fullname' => $this->input->post('fullname'),
+						'username' => $this->input->post('username')
+					], ['id_account' => $this->session->userdata('id')]);
+				}
+				else{
+					$foto = $this->upload->data();
+					unlink('./assets/img/'.$result->foto);
+					 $check =  $this->db->update('account', [
+						'fullname'		=> $this->input->post('fullname'),
+						'username'		=> $this->input->post('username'),
+						'foto'			=> $foto['file_name']
+					], ['id_account' => $this->session->userdata('id')]);
+				}
+				if ($check) {
+					$this->session->unset_userdata('id');
+					$this->session->unset_userdata('login');
+					$this->session->unset_userdata('fullname');
+					$this->session->unset_userdata('password');
+					$this->session->unset_userdata('username');
+					$this->session->unset_userdata('foto');
+					$this->session->set_flashdata('message', '<div class="alert alert-info"><i class="fa fa-check-square"></i> Edit Profil Berhasil Anda Akan Kembali Kehalaman login, Silahkan login kembali! </div>');
+					redirect('auth');
+					
+				}else{
+					$this->session->set_flashdata('failed', 'Edit Profil Gagal');
+					redirect('admin');
+				}
+			}else{
+				$this->session->set_flashdata('failed', 'Confirm Password Salah');
+				redirect('admin');
+			}
+		}
+	}
+
+	public function setting_password(){
+		$this->form_validation->set_rules('pw1', 'Password', 'trim');
+		$this->form_validation->set_rules('pw2', 'Password', 'trim');
+		if ($this->form_validation->run() == TRUE) {
+			$pw1 = $this->input->post('pw1');
+			$pw2 = $this->input->post('pw2');
+			$password_lama = $this->input->post('password_lama');
+			if ($pw1 == $pw2) {
+				$result = $this->db->get_where('account', ['id_account' => $this->session->userdata('id')])->row();
+				if (password_verify($password_lama, $result->password)) {
+					if ($this->db->update('account', ['password' => password_hash($pw1, PASSWORD_DEFAULT)], ['id_account' => $this->session->userdata('id')])) {
+						$this->session->unset_userdata('id');
+						$this->session->unset_userdata('login');
+						$this->session->unset_userdata('fullname');
+						$this->session->unset_userdata('password');
+						$this->session->unset_userdata('username');
+						$this->session->unset_userdata('foto');
+						$this->session->set_flashdata('message', '<div class="alert alert-info"><i class="fa fa-check-square"></i> Edit Password Berhasil Anda Akan Kembali Kehalaman login, Silahkan login kembali! </div>');
+						redirect('auth');
+					}else{
+						$this->session->set_flashdata('failed', 'Edit Password Gagal');
+						redirect('admin');	
+					}
+				}else{
+					$this->session->set_flashdata('failed', 'Cofirm Password Lama Tidak Sesuai');
+					redirect('admin');
+				}
+			}else{
+				$this->session->set_flashdata('failed', 'Cofirm Password Tidak Sesuai');
+				redirect('admin');
+			}
+		}
+	}
+
+
+
+
+
+	// START :: KENAIKAN
+	function kenaikan(){
+		$this->form_validation->set_rules('id_kelas', 'Kelas', 'trim|required');
+		$this->form_validation->set_rules('id_jurusan', 'Jurusan', 'trim|required');
+
+		if ($this->form_validation->run() == TRUE) {
+			$kelas = $this->M_kelas->get(['id_kelas' => $this->input->post('id_kelas')])->row();
+			$jurusan = $this->M_jurusan->get(['id_jurusan' => $this->input->post('id_jurusan')])->row();
+			if ($this->M_siswa->get(['siswa.id_kelas' => $kelas->id_kelas, 'siswa.id_jurusan' => $jurusan->id_jurusan])->num_rows() <= 0) {
+				$data['message'] = $kelas->nama_kelas.' '.$jurusan->nama_jurusan;
+			}
+			$data['dataSiswa']	= $this->M_siswa->get(['siswa.id_kelas' => $kelas->id_kelas, 'siswa.id_jurusan' => $jurusan->id_jurusan])->result();
+
+		}
+
+		$data['title']			= 'Kenaikan Kelas';
+		$data['judul']			= 'Proses Kenaikan';
+		$data['dataKelas']		= $this->M_kelas->get()->result();
+		$data['dataJurusan']	= $this->M_jurusan->get()->result();
+		$this->mylibrary->templateadmin('kenaikan/index', $data);
+	}
+
+	
+	// END :: KENAIKAN
+
+
+	// START :: CETAK DATA
+	public function cetak_data(){
+		$data['title']			= 'Cetak data';
+		$data['judul']			= 'Halaman cetak data';
+		$data['dataKelas']		= $this->M_kelas->get()->result();
+		$data['dataJurusan']	= $this->M_jurusan->get()->result();
+		$data['dataNilai']		= $this->M_nilai->get()->result();
+		$data['sekolah']		= $this->M_biodata->get()->row();
+		$data['kepsek']			= $this->M_kepsek->get()->row();
+		if (isset($_POST['cari'])) {
+			$id_kelas  			= $this->input->post('id_kelas');
+			$id_jurusan 		= $this->input->post('id_jurusan');
+
+			if ($id_kelas == 'all' && $id_jurusan == 'all') {
+				if ($this->M_siswa->get()->num_rows() > 0) {
+					$data['dataSiswa']	= $this->M_siswa->get()->result();
+				}
+			}
+			if ($id_kelas == 'all' && $id_jurusan != 'all') {
+				if ($this->M_siswa->get(['siswa.id_jurusan' => $id_jurusan])->num_rows() > 0) {
+					$data['dataSiswa']	= $this->M_siswa->get(['siswa.id_jurusan' => $id_jurusan])->result();
+				}
+			}
+			if ($id_kelas != 'all' && $id_jurusan == 'all') {
+				if ($this->M_siswa->get(['siswa.id_kelas' => $id_kelas])->num_rows() > 0) {
+					$data['dataSiswa']	= $this->M_siswa->get(['siswa.id_kelas' => $id_kelas])->result();
+				}
+			}
+			if ($id_kelas != 'all' && $id_jurusan != 'all') {
+				if ($this->M_siswa->get(['siswa.id_kelas' => $id_kelas, 'siswa.id_jurusan' => $id_jurusan])->num_rows() > 0) {
+					$data['dataSiswa']	= $this->M_siswa->get(['siswa.id_kelas' => $id_kelas, 'siswa.id_jurusan' => $id_jurusan])->result();
+				}
+			}
+			if (!@$data['dataSiswa']) {
+				$data['message'] = "Data Tidak di temukan";
+				$this->mylibrary->templateadmin('cetak_data/index', $data);
+			}else{
+				$this->load->view('admin/cetak_data/print', $data);
+
+			}
+		}else{
+			$this->mylibrary->templateadmin('cetak_data/index', $data);
+
+		}
+	}
+	// END :: CETAK DATA
 
 }
 

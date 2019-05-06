@@ -155,8 +155,8 @@
 
 			
 
-	Dr. Hj. Sri Nurhayati, M.SI <br>________________________ <br>
-	NIP. 19650506 199103 2 005
+	<?= $kepsek->fullname ?> <br>________________________ <br>
+	NIP. <?= $kepsek->nip ?>
 					</td>
 				</tr>
 			</table>

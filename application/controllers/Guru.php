@@ -9,11 +9,12 @@ class Guru extends CI_Controller {
 			$this->session->set_flashdata('message', '<div class="alert alert-danger"><i class="fa fa-warning"></i> Ooppss... Silahkan Login Terlebih Dahulu! </div>');
 			redirect('auth');
 		}
-		$this->load->model(['M_portfolio', 'M_extra', 'M_biodata', 'M_siswa', 'M_guru', 'M_wali_kelas', 'M_pelajaran', 'M_mengajar', 'M_nilai', 'M_kelas', 'M_jurusan']);
+		$this->load->model(['M_portfolio', 'M_extra', 'M_biodata', 'M_siswa', 'M_guru', 'M_wali_kelas', 'M_pelajaran', 'M_mengajar', 'M_nilai', 'M_kelas', 'M_jurusan', 'M_kepsek']);
 	}
 
 	public function index()
 	{
+
 		$data['title'] 			= 'Halaman Home';
 		$data['wali_kelas']		= $this->M_wali_kelas->get(['wali_kelas.id_guru' => $this->session->userdata('id_guru')])->row();
 		$data['mengajar']		= $this->M_mengajar->get(['mengajar.id_guru' => $this->session->userdata('id_guru')])->num_rows();
@@ -197,7 +198,91 @@ class Guru extends CI_Controller {
 		$data['siswa']		= $this->M_siswa->get(['md5(id_siswa)' => $id])->row();
 		$data['sekolah']	= $this->M_biodata->get()->row();
 		$data['dataNilai'] 	= $this->M_nilai->get(['md5(nilai.id_siswa)' => $id]);
+		$data['kepsek']		= $this->M_kepsek->get()->row();
 		$this->load->view('guru/wali_kelas/print_siswa', $data);
+	}
+
+	public function edit_profil(){
+			$password = $this->input->post('password');
+			$result = $this->db->get_where('guru', ['id_guru' => $this->session->userdata('id_guru')])->row();
+			if (password_verify($password, $result->password)) {
+				$config['upload_path'] = './assets/guru/';
+				$config['allowed_types'] = 'gif|jpg|png';
+				$config['max_size']  = '5000';
+				
+				$this->load->library('upload', $config);
+				
+				if ( ! $this->upload->do_upload('foto')){
+					$check = $this->db->update('guru', [
+						'nama_guru' 	=> $this->input->post('nama_guru'),
+						'alamat' 		=> $this->input->post('alamat'),
+						'tempat_lahir'	=> $this->input->post('tempat_lahir'),
+						'tanggal_lahir' => $this->input->post('tanggal_lahir'),
+						'agama'			=> $this->input->post('agama'),
+						'jenis_kelamin'	=> $this->input->post('jenis_kelamin')
+					], ['id_guru' => $this->session->userdata('id_guru')]);
+				}
+				else{
+					$foto = $this->upload->data();
+					unlink('./assets/guru/'.$result->foto);
+					$check = $this->db->update('guru', [
+						'nama_guru' 	=> $this->input->post('nama_guru'),
+						'alamat' 		=> $this->input->post('alamat'),
+						'tempat_lahir'	=> $this->input->post('tempat_lahir'),
+						'tanggal_lahir' => $this->input->post('tanggal_lahir'),
+						'agama'			=> $this->input->post('agama'),
+						'jenis_kelamin'	=> $this->input->post('jenis_kelamin'),
+						'foto'			=> $foto['file_name']
+					], ['id_guru' => $this->session->userdata('id_guru')]);
+				}
+					if ($check) {
+						$this->session->unset_userdata('login');
+						$this->session->unset_userdata('id_guru');
+						$this->session->unset_userdata('nama_guru');
+						$this->session->unset_userdata('foto');
+						$this->session->set_flashdata('message', '<div class="alert alert-info"><i class="fa fa-check-square"></i> Edit Profil Berhasil Anda Akan Kembali Kehalaman login, Silahkan login kembali! </div>');
+						redirect('auth');
+					}else{
+						$this->session->set_flashdata('failed', 'Edit Profil Gagal');
+						redirect('guru');
+					}
+			}else{
+				$this->session->set_flashdata('failed', 'Confirm Password Gagal');
+				redirect('guru');
+			}
+		
+	}
+
+	public function setting_password(){
+		$this->form_validation->set_rules('pw1', 'Password', 'trim');
+		$this->form_validation->set_rules('pw2', 'Password', 'trim');
+		if ($this->form_validation->run() == TRUE) {
+			$pw1 = $this->input->post('pw1');
+			$pw2 = $this->input->post('pw2');
+			$password_lama = $this->input->post('password_lama');
+			if ($pw1 == $pw2) {
+				$result = $this->db->get_where('guru', ['id_guru' => $this->session->userdata('id_guru')])->row();
+				if (password_verify($password_lama, $result->password)) {
+					if ($this->db->update('guru', ['password' => password_hash($pw1, PASSWORD_DEFAULT)], ['id_guru' => $this->session->userdata('id_guru')])) {
+						$this->session->unset_userdata('login');
+						$this->session->unset_userdata('id_guru');
+						$this->session->unset_userdata('nama_guru');
+						$this->session->unset_userdata('foto');
+						$this->session->set_flashdata('message', '<div class="alert alert-info"><i class="fa fa-check-square"></i> Edit Password Berhasil Anda Akan Kembali Kehalaman login, Silahkan login kembali! </div>');
+						redirect('auth');
+					}else{
+						$this->session->set_flashdata('failed', 'Edit Password Gagal');
+						redirect('guru');	
+					}
+				}else{
+					$this->session->set_flashdata('failed', 'Cofirm Password Lama Tidak Sesuai');
+					redirect('guru');
+				}
+			}else{
+				$this->session->set_flashdata('failed', 'Cofirm Password Tidak Sesuai');
+				redirect('guru');
+			}
+		}
 	}
 
 }

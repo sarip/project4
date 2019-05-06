@@ -24,7 +24,8 @@ class Auth extends CI_Controller {
 						'login' 	=> 'admin',
 						'username' 	=> $row->username,
 						'fullname' 	=> $row->fullname,
-						'foto'		=> $row->foto
+						'foto'		=> $row->foto,
+						'id'		=> $row->id_account
 					]);
 					redirect('admin','refresh');
 					exit();
@@ -39,7 +40,6 @@ class Auth extends CI_Controller {
 						'login' 	=> 'guru',
 						'id_guru'	=> $row1->id_guru,
 						'nama_guru' => $row1->nama_guru,
-						'password'	=> $row1->password,	
 						'foto'		=> $row1->foto
 					]);
 					redirect('guru','refresh');
@@ -52,6 +52,7 @@ class Auth extends CI_Controller {
 		}
 	}
 	public function logout(){
+		$this->session->unset_userdata('id');
 		$this->session->unset_userdata('login');
 		$this->session->unset_userdata('fullname');
 		$this->session->unset_userdata('password');

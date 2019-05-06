@@ -1,6 +1,94 @@
 </div>
   <!-- /.content-wrapper -->
 
+
+  <div class="modal fade" id="update_profil">
+     
+      <div class="modal-dialog modal-lg">
+       <div class="modal-content">
+          <div class="modal-header bg-blue text-center"><i class="fa fa-user"></i> Profil</div>
+          <form action="<?= base_url('guru/edit_profil') ?>" method="post" enctype="multipart/form-data">
+          <div class="modal-body">
+            <div class="col-md-6">
+              <label for="nip" class="small">NIP : </label>
+              <input type="text" name="nip" class="form-control" required placeholder="nip" value="<?= $biodata_guru->nip ?>" readonly diabled>
+              <br>
+              <label for="full_name" class="small">Nama Lengkap : </label>
+              <input type="text" name="nama_guru" class="form-control" required placeholder="Nama Lengkap" value="<?= $biodata_guru->nama_guru ?>" >
+              <br>
+               <label for="tempat_lahir" class="small">Tempat Lahir : </label>
+              <input type="text" name="tempat_lahir" class="form-control" required placeholder="tempat_lahir" value="<?= $biodata_guru->tempat_lahir ?>">
+              <br>
+              <label for="tanggal_lahir" class="small">Tanggal Lahir : </label>
+              <input type="text" name="tanggal_lahir" class="form-control datepicker" required placeholder="tempat_lahir" value="<?= $biodata_guru->tanggal_lahir ?>">
+              <br>
+              <label> Jenis Kelamin :&nbsp;&nbsp; 
+                <input type="radio" name="jenis_kelamin" class="flat-red" id="laki-laki" value="laki-laki" <?= ($biodata_guru->jenis_kelamin == 'laki-laki') ? 'checked' : '' ?>> <label for="laki-laki">Laki-Laki</label>&nbsp;&nbsp;
+                <input type="radio" name="jenis_kelamin" class="flat-red" id="perempuan" value="perempuan" <?= ($biodata_guru->jenis_kelamin == 'perempuan') ? 'checked' : '' ?> > <label for="perempuan">Perempuan</label>
+              </label>
+            </div>
+            <div class="col-md-6">
+            
+               <label for="agama">  Agama</label>
+                  <select name="agama" class="form-control">
+                    <option value="">-- Pilih Agama --</option>
+                    <option value="islam" <?= ($biodata_guru->agama == 'islam') ? 'selected' :'' ?>>Islam</option>
+                    <option value="kristen" <?= ($biodata_guru->agama == 'kristen') ? 'selected' :'' ?>>Kristen</option>
+                    <option value="katholik"<?= ($biodata_guru->agama == 'katholik') ? 'selected' :'' ?>>Katholik</option>
+                    <option value="hindu" <?= ($biodata_guru->agama == 'hindu') ? 'selected' :'' ?>>Hindu</option>
+                    <option value="budha" <?= ($biodata_guru->agama == 'budha') ? 'selected' :'' ?>>Budha</option>
+                  </select>
+              <br>
+              <label for="alamat">Alamat </label>
+              <textarea name="alamat" class="form-control"><?= $biodata_guru->alamat ?></textarea>
+              <br>
+               <label class="small">Foto Profil : </label><br>
+              <img src="<?= base_url('assets/guru/'). $this->session->userdata('foto'); ?>" class="img img-responsive img-thumbnail" style="width: 150px; height: 150px;">
+              <input type="file" name="foto" class="form-control">
+              <i class="text-info">*kosongkan Jika Tidak Akan Merubah Foto</i><br><br>
+            </div>
+            <label for="password" class="small">Confirm Password : </label>
+            <input type="password" name="password"  class="form-control" required placeholder="Password">
+            <br><br>
+            <small class="text-info">*Jika ini berhasil akan di minta login kembali !</small>
+
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default pull-left"><i class="fa fa-remove"></i> Cancel</button>
+            <button type="submit" name="edit_biodata"  class="btn btn-success"><i class="fa fa-save"></i> Simpan</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- #modalProfil -->
+    
+    <!-- modalpassword -->
+    <div class="modal fade" id="update_password">
+      <div class="modal-dialog modal-sm">
+       <div class="modal-content">
+          <div class="modal-header bg-blue text-center"><i class="fa fa-lock"></i> Ganti Password</div>
+          <form action="<?= base_url('guru/setting_password') ?>" method="post">
+          <div class="modal-body">
+
+            <input type="password" name="pw1"  class="form-control" required placeholder="Password Baru">
+            <br>
+            <input type="password" name="pw2" class="form-control" required placeholder="Confirm Password Baru">
+            <br>
+            <input type="password" name="password_lama"  class="form-control" required placeholder="Confirm Password Lama">
+            <br><br>
+            <small class="text-info">*Jika ini berhasil akan di minta login kembali !</small>
+
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default pull-left"><i class="fa fa-remove"></i> Cancel</button>
+            <button type="submit" name="update_password" class="btn btn-success"><i class="fa fa-save"></i> Simpan</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0

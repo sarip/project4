@@ -1,6 +1,68 @@
 </div>
   <!-- /.content-wrapper -->
 
+  <!-- Modal Profil -->
+
+    <div class="modal fade" id="update_profil">
+     
+      <div class="modal-dialog modal-sm">
+       <div class="modal-content">
+          <div class="modal-header bg-blue text-center"><i class="fa fa-user"></i> Profil</div>
+          <form action="<?= base_url('admin/edit_profil') ?>" method="post" enctype="multipart/form-data">
+          <div class="modal-body">
+             <label for="username" class="small">Username : </label>
+            <input type="text" name="username" class="form-control" required placeholder="Username" value="<?= $this->session->userdata('username'); ?>" autofocus="on">
+            <br>
+            <label for="full_name" class="small">Nama Lengkap : </label>
+            <input type="text" name="fullname" class="form-control" required placeholder="Nama Lengkap" value="<?= $this->session->userdata('fullname'); ?>" >
+            <br>
+
+             <label class="small">Foto Profil : </label>
+            <img src="<?= base_url('assets/img/'). $this->session->userdata('foto'); ?>" class="img img-responsive img-thumbnail" style="width: 100%;">
+            <input type="file" name="foto" class="form-control">
+            <i class="text-info">*kosongkan Jika Tidak Akan Merubah Foto</i><br><br>
+            <label for="password" class="small">Confirm Password : </label>
+            <input type="password" name="password"  class="form-control" required placeholder="Password">
+            <br><br>
+            <small class="text-info">*Jika ini berhasil akan di minta login kembali !</small>
+
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default pull-left"><i class="fa fa-remove"></i> Cancel</button>
+            <button type="submit"  class="btn btn-success"><i class="fa fa-save"></i> Simpan</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- #modalProfil -->
+    
+    <!-- modalpassword -->
+    <div class="modal fade" id="update_password">
+      <div class="modal-dialog modal-sm">
+       <div class="modal-content">
+          <div class="modal-header bg-blue text-center"><i class="fa fa-lock"></i> Ganti Password</div>
+          <form action="<?= base_url('admin/setting_password') ?>" method="post">
+          <div class="modal-body">
+
+            <input type="password" name="pw1"  class="form-control" required placeholder="Password Baru">
+            <br>
+            <input type="password" name="pw2" class="form-control" required placeholder="Confirm Password Baru">
+            <br>
+            <input type="password" name="password_lama"  class="form-control" required placeholder="Confirm Password Lama">
+            <br><br>
+            <small class="text-info">*Jika ini berhasil akan di minta login kembali !</small>
+
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default pull-left"><i class="fa fa-remove"></i> Cancel</button>
+            <button type="submit" name="update_password" class="btn btn-success"><i class="fa fa-save"></i> Simpan</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
