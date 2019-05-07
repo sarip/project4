@@ -102,7 +102,7 @@
 
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="<?= base_url('assets/guru/').$this->session->userdata('foto'); ?>" class="user-image"  alt="User Image">
-              <span class="hidden-xs"><?= $this->session->userdata('fullname'); ?></span>
+              <span class="hidden-xs"><?= $this->session->userdata('nama_guru'); ?></span>
             </a>
             <ul class="dropdown-menu"  style="box-shadow:0px 0px 60px black;">
               <!-- User image -->
@@ -112,7 +112,7 @@
 
                 <p>
                  
-                  <small>  <?= $this->session->userdata('fullname'); ?> <hr></small>
+                  <small>  <?= $this->session->userdata('nama_guru'); ?> <hr></small>
 
                 </p>
               </li>

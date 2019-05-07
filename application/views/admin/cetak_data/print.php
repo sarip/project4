@@ -5,15 +5,12 @@
 </head>
 
 <link rel="stylesheet" href="<?= base_url('assets') ?>/bower_components/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="<?= base_url() ?>assets/bower_components/font-awesome/css/font-awesome.min.css">
+
 <body>
 	<div style="padding: 60px;">
 
-
-
-
-
-
-
+		<br>
 		<?php foreach ($dataSiswa as $siswa): ?>
 		
 			
@@ -370,8 +367,7 @@
 
 </div>
 <script>
-	print();
-	window.location.href = '<?= base_url("admin/cetak_data") ?>';
+	window.print();
 </script>
 </body>
 </html>
