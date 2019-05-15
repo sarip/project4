@@ -2,7 +2,7 @@
 <section class="home-slider">
 	<div class="slider-active">
 		<!-- Single Slider -->
-		<div class="single-slider overlay" style="background-image:url('<?= base_url('assets/frontend/') ?>images/slider/slider-bg1.jpg')">
+		<div class="single-slider overlay" style="background-image:url('http://foto2.data.kemdikbud.go.id/getImage/40310229/6.jpg')">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12 container">
@@ -21,7 +21,7 @@
 		</div>
 		<!--/ End Single Slider -->
 		<!-- Single Slider -->
-		<div class="single-slider overlay" style="background-image:url('<?= base_url('assets/frontend/') ?>images/slider/slider-bg2.jpg')">
+		<div class="single-slider overlay" style="background-image:url('https://assets-a1.kompasiana.com/items/album/2015/07/26/067777500-1437784164-upacara-bendera2-55b45349f17a61f705c31aff.jpg')">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-12 container">
@@ -103,13 +103,13 @@
 						<div class="blog-head overlay">
 							<img src="<?= base_url('assets/jurusan/' . $key->foto_jurusan) ?>" style="height: 200px;">
 						</div>
-						<div class="blog-content" style="height: 200px;">
-							<h4 class="blog-title"><?= $key->nama_jurusan ?><hr>
+						<div class="blog-content" style="height: 400px;">
+							<h4 class="blog-title"><?= word_limiter($key->nama_jurusan, 4) ?><hr>
 							</h4>
 							<div class="blog-info">
 								
 							</div>
-							<p><?= $key->keterangan_jurusan ?></p>
+							<p><?= word_limiter($key->keterangan_jurusan, 50) ?></p>
 							<div class="button">
 								<br>
 							</div>

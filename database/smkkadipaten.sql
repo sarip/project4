@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 06, 2019 at 03:44 AM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.3.1
+-- Host: localhost:3306
+-- Generation Time: May 15, 2019 at 01:46 AM
+-- Server version: 10.3.14-MariaDB
+-- PHP Version: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `smkkadipaten`
+-- Database: `id9177124_portfolio`
 --
 
 -- --------------------------------------------------------
@@ -41,7 +41,7 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`id_account`, `username`, `password`, `fullname`, `foto`) VALUES
-(1, 'admin', '$2y$10$00HAJ/sKcnp0K9GF9m/MdeNPGDFnKf5n8y2wsf3miy7OWgZMCKxBe', 'Admin Smkn', 'avatar5.png'),
+(1, 'lamuncoding', '$2y$10$.gwPYtkRGQMj7Gwxd.dNseFBYKqIjN4PbtEqL99V0h0Q6A5BMojE6', 'Admin Smkn', 'avatar5.png'),
 (2, 'guru', '$2y$10$P9peEI/lEzqb2W9/JsKlbuA5dR.oYw7dYnVgymTy3UcE41eSerIUq', 'Guru Skmn', 'default.png');
 
 -- --------------------------------------------------------
@@ -90,9 +90,9 @@ CREATE TABLE `extra` (
 --
 
 INSERT INTO `extra` (`id_extra`, `nama_extra`, `hari`, `jam`, `foto`, `keterangan`, `nama_pembimbing`) VALUES
-(2, 'BKC', 'Senin', '03:30:00', '3cd731fbf06f80d9655390cfc4d5a8ee.jpg', 'Harus membawa nasi and rencang na', 'Pa Satpham'),
-(3, 'Pramuka', 'Jum\'at', '01:20:00', 'Penguins.jpg', 'Kelas x, xi di wajibkan harus hadir', 'Bu Syamrotul fu\'adah'),
-(4, 'Futsal', 'Rabu', '02:30:00', 'Koala.jpg', 'Bagi yang minat saja', 'Pa Hendra');
+(2, 'BKC', 'Senin', '03:30:00', '2090968DSC_0509.JPG', 'Harus membawa nasi and rencang na', 'Pa Satpham'),
+(3, 'Pramuka', 'Kamis', '01:20:00', 'IMG_1710-300x200.jpg', 'Kelas x, xi di wajibkan harus hadir', 'Bu Syamrotul fu\'adah'),
+(4, 'Futsal', 'Rabu', '02:30:00', 'IMG_6687.JPG', 'Bagi yang minat saja', 'Pa Hendra');
 
 -- --------------------------------------------------------
 
@@ -141,11 +141,11 @@ CREATE TABLE `jurusan` (
 --
 
 INSERT INTO `jurusan` (`id_jurusan`, `nama_jurusan`, `foto_jurusan`, `keterangan_jurusan`) VALUES
-(3, 'Geologi Pertambangan', 'error-bg.jpg', 'Ini keteranagan'),
-(4, 'Agribisnis Tanaman Pangan Dan Hortikultura', 'front-end2.jpg', 'Nama Nama '),
-(5, 'Otomatisasi Tata Kelola Perkantoran', 'wallhaven-342160.jpg', 'Harus kah saya nakal'),
-(6, 'Teknik Dan Bisnis Sepeda Motor', 'logo2.png', 'di sini bisnis motor and montir'),
-(8, 'Teknik Kendaraan Ringan Dan Otomotif', 'portfolio.PNG', 'keterangan ini');
+(3, 'Geologi Pertambangan', 'geologipertambangan.jpg', 'Program Studi Geologi Pertambangan mengemban tugas dan fungsi dalam upaya mencerdaskan kehidupan bangsa, khususnya dalam bidang Geologi Pertambangan serta mengembangkan potensi siswa-siswi yang berprestasi, profesional dan berwawasan lingkungan. Menyadari potensi dan kekayaan alam di Indonesia memiliki potensi tambang yang sangat melimpah. Lulusan jurusan ini diproyeksikan untuk mengisi tenaga kerja disemua sektor industri pertambangan di Indonesia.'),
+(4, 'Agribisnis Tanaman Pangan Dan Hortikultura', 'Agribisnis_Tanaman_Pangan_Dan_Hortikultura.jpg', 'Agribisnis Tanaman Pangan dan Hortikultura (ATPH) adalah salah satu paket keahlian di SMK Negeri Kadipaten yang semakin menunjukkan jati dirinya sebagai “Jurusan Pertanian” dan sekaligus menjadi tolok ukur atau barometer SMK Negeri Kadipaten sebagaimana dikenal sejak awal berdirinya sebagai SMK Pertanian.  Paket Keahlian ATPH terus menerus dan berkesinambungan melaksanakan pembelajaran teori maupun praktik yang menciptakan suasana belajar yang mengasyikan, digandrungi peserta didik, dinantikan jam demi jam pertemuanya, dan memberi kesan mendalam bagi seluruh peserta didiknya.'),
+(5, 'Otomatisasi Tata Kelola Perkantoran', 'Otomatisasi_Tata_Kelola_Perkantoran.jpg', 'Merupakan Kristalisasi Dari Program Keahlian Yang Harus Dikuasai Oleh Peserta Didik Untuk Dapat Bekerja Sesuai Dengan Standart Kompetensi Kerja Nasional Indonesia (SKKNI) Atau Standart Paket Keahlian : ADMINISTRASI PERKANTORAN.'),
+(6, 'Teknik Dan Bisnis Sepeda Motor', 'Teknik_Dan_Bisnis_Sepeda_Motor.jpg', 'kompetensi keahlian pada Bidang Studi Keahlian Teknologi dan Rekayasa Program Studi Keahlian Teknik Otomotif yang menekankan pada keterampilan pelayanan jasa mekanik kendaraan sepeda motor roda dua. Kompetensi Keahlian Teknik dan Bisnis Sepeda Motor menyiapkan peserta didik untuk bekerja pada bidang pekerjaan yang dikelola oleh badan, instansi atau perusahaan maupun pribadi (wirausaha).'),
+(8, 'Teknik Kendaraan Ringan Dan Otomotif', 'Teknik_Kendaraan_Ringan_Dan_Otomotif.jpeg', 'ilmu yang mempelajari tentang alat-alat transportasi darat yang menggunakan mesin, terutama mobil yang mulai berkembang sebagai cabang ilmu seiring dengan diciptakannya mesin mobil. Dalam perkembangannya, mobil semakin menjadi alat transportasi yang kompleks yang terdiri dari ribuan komponen yang tergolong dalam puluhan system dan subsistem. Oleh karena itu, Teknik Kendaraan Ringan pun berkembang menjadi ilmu yang luas dan mencakup semua system dan subsistem.');
 
 -- --------------------------------------------------------
 
@@ -193,7 +193,7 @@ CREATE TABLE `kepsek` (
 --
 
 INSERT INTO `kepsek` (`id_kepsek`, `nip`, `fullname`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `no_telepon`, `email`, `alamat`, `kata_sambutan`, `foto`) VALUES
-(1, 123456789, 'Dr. Hj. Sri Nurhayati, M.SI', 'perempuan', 'tasikmalaya', '2019-05-01', '0877655123', 'yudihidayat@gmail.com', 'Kp, cijuhung desa, sukamukti kecamatan cisayong kabupaten tasikmalaya', '<p>\r\n\r\n</p><p>Assalamualaikum Warahmatullah Wabarakatuh</p><p>Alhamdulillahi robbil alamin kami panjatkan kehadlirat Allah SWT, bahwasannya dengan rahmat dan karunia-Nya lah akhirnya Website sekolah ini dengan alamat <a target=\"_blank\" rel=\"nofollow\" href=\"https://lamuncoding.000webhostapp.com/project4/\">www.smknkadipaten.sch.id</a> dapat kami perbaharui. Kami mengucapkan selamat datang di Website kami Sekolah Menengah Kejuruan Negeri (SMKN) Kadipaten yang saya tujukan untuk seluruh unsur pimpinan, guru, karyawan dan siswa serta khalayak umum guna dapat mengakses seluruh informasi tentang segala profil, aktifitas/kegiatan serta fasilitas sekolah kami.</p><p>Kami selaku pimpinan sekolah mengucapkan terima kasih kepada tim pembuat Website ini yang telah berusaha untuk dapat lebih memperkenalkan segala perihal yang dimiliki oleh sekolah. Dan tentunya Website sekolah kami masih terdapat banyak kekurangan, oleh karena itu kepada seluruh civitas akademika dan masyarakat umum dapat memberikan saran dan kritik yang membangun demi kemajuan Website ini lebih lanjut.</p><p>Saya berharap Website ini dapat dijadikan wahana interaksi yang positif baik antar civitas akademika maupun masyarakat pada umumnya sehingga dapat menjalin silaturahmi yang erat disegala unsur. Mari kita bekerja dan berkarya dengan mengharap ridho sang Kuasa dan keikhlasan yang tulus dijiwa demi anak bangsa.</p><p>Terima kasih semoga Allah ‘Azza Wa Jalla menyertai doa kita semua……amin.</p><p></p>', 'team2.jpg');
+(1, 123456789, 'Dr. Hj. Sri Nurhayati, M.SI', 'perempuan', 'tasikmalaya', '2019-05-01', '0877655123', 'srinurhayati@gmail.com', 'Kp, cijuhung desa, sukamukti kecamatan cisayong kabupaten tasikmalaya', '<p>\r\n\r\n</p><p>Assalamualaikum Warahmatullah Wabarakatuh</p><p>Alhamdulillahi robbil alamin kami panjatkan kehadlirat Allah SWT, bahwasannya dengan rahmat dan karunia-Nya lah akhirnya Website sekolah ini dengan alamat <a target=\"_blank\" rel=\"nofollow\" href=\"https://lamuncoding.000webhostapp.com/project4/\">www.smknkadipaten.sch.id</a> dapat kami perbaharui. Kami mengucapkan selamat datang di Website kami Sekolah Menengah Kejuruan Negeri (SMKN) Kadipaten yang saya tujukan untuk seluruh unsur pimpinan, guru, karyawan dan siswa serta khalayak umum guna dapat mengakses seluruh informasi tentang segala profil, aktifitas/kegiatan serta fasilitas sekolah kami.</p><p>Kami selaku pimpinan sekolah mengucapkan terima kasih kepada tim pembuat Website ini yang telah berusaha untuk dapat lebih memperkenalkan segala perihal yang dimiliki oleh sekolah. Dan tentunya Website sekolah kami masih terdapat banyak kekurangan, oleh karena itu kepada seluruh civitas akademika dan masyarakat umum dapat memberikan saran dan kritik yang membangun demi kemajuan Website ini lebih lanjut.</p><p>Saya berharap Website ini dapat dijadikan wahana interaksi yang positif baik antar civitas akademika maupun masyarakat pada umumnya sehingga dapat menjalin silaturahmi yang erat disegala unsur. Mari kita bekerja dan berkarya dengan mengharap ridho sang Kuasa dan keikhlasan yang tulus dijiwa demi anak bangsa.</p><p>Terima kasih semoga Allah ‘Azza Wa Jalla menyertai doa kita semua……amin.</p><p></p>', 'team2.jpg');
 
 -- --------------------------------------------------------
 
@@ -357,7 +357,7 @@ CREATE TABLE `siswa` (
   `pekerjaan` varchar(100) NOT NULL,
   `alamat_orang_tua` text NOT NULL,
   `nama_wali` varchar(100) DEFAULT NULL,
-  `alamat_wali` text,
+  `alamat_wali` text DEFAULT NULL,
   `pekerjaan_wali` varchar(100) DEFAULT NULL,
   `tanggal_masuk` date NOT NULL,
   `asal_sekolah` varchar(100) NOT NULL,
@@ -368,7 +368,7 @@ CREATE TABLE `siswa` (
   `alasan_meninggalkan_sekolah` text NOT NULL,
   `tamat_nomor_sttb` varchar(100) NOT NULL,
   `tamat_tanggal_sttb` date NOT NULL,
-  `keterangan_lain` text,
+  `keterangan_lain` text DEFAULT NULL,
   `foto_siswa` varchar(225) NOT NULL,
   `s_1` int(11) NOT NULL,
   `s_2` int(11) NOT NULL,
