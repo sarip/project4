@@ -69,6 +69,14 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   <script src="<?= base_url('assets/') ?>custom/notif.js" type="text/javascript"></script>
+
+  <style>
+      div a[title='Hosted on free web hosting 000webhost.com. Host your own website for FREE.'] {
+        display: none;
+        z-index: -999 !important;;
+        opacity: 0 !important;;
+      }
+    </style>
    
 </head>
 <body class="hold-transition skin-blue-light">

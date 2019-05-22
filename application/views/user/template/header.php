@@ -48,8 +48,20 @@
 		<!--<link rel="stylesheet" href="<?= base_url('assets/frontend/') ?>css/color/color6.css">-->
 		<!--<link rel="stylesheet" href="<?= base_url('assets/frontend/') ?>css/color/color7.css">-->
 		<!--<link rel="stylesheet" href="<?= base_url('assets/frontend/') ?>css/color/color8.css">-->
-		<link rel="stylesheet" href="<?= base_url('assets/frontend/') ?>#" id="colors">	
+		<!-- <link rel="stylesheet" href="<?= base_url('assets/frontend/') ?>#" id="colors">	 -->
 		<script src="<?= base_url('assets/frontend/') ?>js/jquery.min.js"></script>
+		 <!-- toasts -->
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/plugins/toast/jquery.toast.min.css'?>"/>
+		<script type="text/javascript" src="<?php echo base_url().'assets/plugins/toast/jquery.toast.min.js'?>"></script>
+
+
+		<style>
+			div a[title='Hosted on free web hosting 000webhost.com. Host your own website for FREE.'] {
+				display: none;
+				z-index: -999 !important;;
+				opacity: 0 !important;;
+			}
+		</style>
 
     </head>
     <body class="bg-white">
