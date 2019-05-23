@@ -81,7 +81,7 @@
 
              <div class="form-group <?= form_error('tanggal_lahir') ? 'has-error' : '' ?>">
               <label for="tanggal_lahir"> Tanggal Lahir</label>
-              <input type="text" name="tanggal_lahir" class="form-control datepicker" id="tanggal_lahir" placeholder="Enter Tanggal Lahir" value="<?= set_value('tanggal_lahir') ?>" autocomplete="off">
+              <input type="date" name="tanggal_lahir" class="form-control datepicker" id="tanggal_lahir" placeholder="Enter Tanggal Lahir" value="<?= set_value('tanggal_lahir') ?>" autocomplete="off">
                <?= form_error('tanggal_lahir', '<i class="text-danger">', '</i>') ?>
             </div><br> 
           

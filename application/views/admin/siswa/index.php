@@ -27,7 +27,7 @@
                           <th>Tempat, Tanggal Lahir</th>
                           <th>Kelas</th>
                           <th>Program Keahlian</th>
-                          <th>Action</th>
+                          <th width="15%">Action</th>
                         </tr>
                     </thead>
                     <tbody>

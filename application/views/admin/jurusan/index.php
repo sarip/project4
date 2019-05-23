@@ -31,12 +31,12 @@
                     	<?php $i=1; foreach ($dataJurusan as $key): ?>
                     		<tr>
                     			<td><?= $i++; ?></td>
-                          <td><img src="<?= base_url('assets/jurusan/').$key->foto_jurusan ?>" class="img img-responsive img-thumbnail" style="width: 150px; height: 148px;"  ></td>
+                          <td><img src="<?= base_url('assets/jurusan/').$key->foto_jurusan ?>" class="img img-responsive img-thumbnail"></td>
                     			<td><?= $key->nama_jurusan ?></td>
-                          <td><?= $key->keterangan_jurusan ?></td>
-                    			<td>
-                    				<a href="<?= base_url('admin/update_jurusan/'). md5($key->id_jurusan) ?>" class="btn btn-info"> <i class="fa fa-edit"></i> Edit</a>
-                            <a href="<?= base_url('admin/delete_jurusan/'). md5($key->id_jurusan) ?>" class="btn btn-danger" onclick="return confirm('Yakin mau menghapus data <?= ucfirst($key->nama_jurusan) ?> ? ')"> <i class="fa fa-trash-o"></i> Delete</a>
+                          <td width="50%"><?= $key->keterangan_jurusan ?></td>
+                    			<td width="10%">
+                    				<a href="<?= base_url('admin/update_jurusan/'). md5($key->id_jurusan) ?>" class="btn btn-info"> <i class="fa fa-edit"></i></a>
+                            <a href="<?= base_url('admin/delete_jurusan/'). md5($key->id_jurusan) ?>" class="btn btn-danger" onclick="return confirm('Yakin mau menghapus data <?= ucfirst($key->nama_jurusan) ?> ? ')"> <i class="fa fa-trash-o"></i></a>
                     			</td>
                     		</tr>
                     		
