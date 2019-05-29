@@ -181,9 +181,6 @@ class Guru extends CI_Controller {
 					'a_4'		=> $this->input->post('a_4'),
 					'a_5'		=> $this->input->post('a_5'),
 					'a_6'		=> $this->input->post('a_6'),
-					'th_1'		=> $this->input->post('th_1'),
-					'th_2'		=> $this->input->post('th_2'),
-					'th_3'		=> $this->input->post('th_3'),
 					'catatan' 	=> $this->input->post('catatan')
 				];
 			if ($this->db->update('siswa', $data, ['md5(id_siswa)' => $id])) {

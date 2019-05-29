@@ -226,7 +226,7 @@
           <div class="col-lg-6">
              <div class="form-group">
               <label for="foto_siswa"> Foto Siswa</label>
-              <input type="file" name="foto_siswa" class="form-control" id="foto_siswa" required>
+              <input type="file" name="foto_siswa" class="form-control" id="foto_siswa">
             </div>
           </div>
         </div>

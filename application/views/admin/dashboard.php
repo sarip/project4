@@ -106,6 +106,20 @@
     </div></a>
   </div>
   <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+    <a href="<?= base_url('admin/berita')?>">
+    <div class="info-box bg-navy">
+      <span class="info-box-icon"><i class="fa fa-list-alt"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">Berita</span>
+          <span class="info-box-number"><?= $berita ?></span>
+          <div class="progress">
+            <div class="progress-bar" style="width: 100%"></div>
+          </div>
+          <span class="progress-description"></span>
+        </div>
+    </div></a>
+  </div>
+  <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
     <a href="<?= base_url('admin/jurusan') ?>"><div class="info-box bg-orange">
       <span class="info-box-icon"><i class="fa fa-list"></i></span>
         <div class="info-box-content">
@@ -172,6 +186,7 @@
         </div>
     </div></a>
   </div>
+  
 </div>
 
 

@@ -50,7 +50,7 @@
 
    <?= form_open(''); ?>
       <div class="form-group has-feedback <?= form_error('username') ? 'has-error' : '' ?>">
-        <input type="text" class="form-control" placeholder="Username" name="username" autocomplete="off" autofocus>
+        <input type="text" class="form-control" placeholder="Username / NIP" name="username" autocomplete="off" autofocus>
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback <?= form_error('username') ? 'has-error' : '' ?>">

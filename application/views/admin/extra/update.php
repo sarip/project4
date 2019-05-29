@@ -5,8 +5,9 @@
     <small><?= $judul ?></small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="<?= base_url('admin/extrakurikuler'); ?>"><i class="fa fa-black-tie"></i> Extrakurikuler</a></li>
-    <li class="active"><?= $judul; ?></li>
+    <li><i class="fa fa-list"></i> Master</li>
+        <li><a href="<?= base_url('admin/extrakurikuler') ?>"> <?= $title; ?></a></li>
+        <li class="active"><?= $judul; ?></li>
   </ol>
 </section>
 

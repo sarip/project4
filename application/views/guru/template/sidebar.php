@@ -9,7 +9,20 @@
         </div>
         <div class="pull-left info">
           <p><?= $this->session->userdata('nama_guru') ?></p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <script>
+            var myVar;
+            var url = window.location.href;
+            myVar = setInterval(function() {
+                myTimer();
+            }, 1000);
+
+            function myTimer() {
+                var d = new Date();
+                var t = d.toLocaleTimeString();
+                $('.waktu').html('<i class="fa fa-clock-o "></i> ' + t);
+            }
+          </script>
+          <a href="#"><b class="text-primary waktu"></b></a>
         </div>
       </div>
      

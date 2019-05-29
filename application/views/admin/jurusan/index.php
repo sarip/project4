@@ -1,7 +1,8 @@
  <section class="content-header">
       <h1><?= $title; ?> <small><?= $judul; ?></small></h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-list"></i> <?= $title; ?></a></li>
+       <li><i class="fa fa-gear"></i> Setting</li>
+        <li><a href="<?= base_url('admin/jurusan') ?>"> <?= $title; ?></a></li>
         <li class="active"><?= $judul; ?></li>
       </ol>
 </section>

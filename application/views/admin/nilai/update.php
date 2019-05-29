@@ -73,16 +73,16 @@
                             <th rowspan="3" width="5%" class="">&nbsp; Mata Pelajaran</big> <br><br>&nbsp;&nbsp;<a data-target="#insert_pelajaran" data-toggle="modal"  title="tambah mata pelajaran untuk penilaian"><i class="fa fa-plus-circle"></i> Add Pelajaran</a></th>
                         <?= form_open('') ?>
                             <th colspan="4" class="text-center">
-                              &nbsp; Tahun : <input type="text" name="th_1" style="background: rgba(0,0,0,0); border: 0px solid white;" placeholder="0000 - 0000" value="<?= $siswa->th_1 ?>">
+                              X   
                             </th>
                             <th colspan="4" class="text-center">
-                              &nbsp; Tahun : <input type="text" name="th_2" style="background: rgba(0,0,0,0); border: 0px solid white;" placeholder="0000 - 0000" value="<?= $siswa->th_2 ?>">
+                              XI   
                             </th>
                             <th colspan="4" class="text-center">
-                              &nbsp; Tahun : <input type="text" name="th_3" style="background: rgba(0,0,0,0); border: 0px solid white;" placeholder="0000 - 0000" value="<?= $siswa->th_3 ?>">
+                              XII   
+                            </th>
                               <th rowspan="3" class="text-center" width="2%">NI</th>
                               <th rowspan="3" class="text-center" width="2%">NS</th>
-                            </th>
                           </tr>
                           <tr>
                             <th colspan="2" width="10%" class="text-center"> Semester : 1</th>

@@ -8,16 +8,22 @@
 <body>
 <div class="container">
 <div class="row" style="padding-bottom: 50px">
-<center>
-<h4><tt><img src="<?= base_url('/assets/biodata/') .$biodata->logo_sekolah ?>" class="img-responsive" style="width: 200px;height: 100px"><br>Laporan Penilaian Hasil Belajar Siswa <?= ucfirst($biodata->nama_sekolah) ?> <br /></tt>
-
-</h4>
-</center>
-<hr />
-
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" >
+    <img src="<?= base_url('assets/biodata/').$biodata->logo_sekolah ?>" class="img img-responsive pull-left" style="width: 100px; height: 100px;">
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center" >
+    <h4><?= $biodata->nama_sekolah ?></h4>
+    <p><?= $biodata->alamat_sekolah; ?></p>
+    <b>No.telp <?= $biodata->no_telepon_sekolah; ?></b>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" >
+    <img src="<?= base_url('assets/biodata/tasik.png') ?>" style="width: 100px; height: 100px;" class="img img-responsive pull-right">
+  </div><br><br><br><br><br><br>
+<hr style="border: 1px solid black;">
+    <hr style="border: 3px solid black; margin-top: -1%;">
 <table style="height: 73px;" width="384">
 <tbody>
-<tr>
+  <tr>
 <td style="width: 184px;">NIS</td>
 <td style="width: 184px;">: <b><?= $siswa->nis; ?></td>
 </tr>

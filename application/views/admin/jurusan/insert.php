@@ -5,8 +5,9 @@
     <small><?= $judul ?></small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="<?= base_url('admin/jurusan'); ?>"><i class="fa fa-list"></i> Program Keahlian</a></li>
-    <li class="active"><?= $judul; ?></li>
+   <li><i class="fa fa-gear"></i> Setting</li>
+        <li><a href="<?= base_url('admin/jurusan') ?>"> <?= $title; ?></a></li>
+        <li class="active"><?= $judul; ?></li>
   </ol>
 </section>
 

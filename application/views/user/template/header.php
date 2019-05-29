@@ -94,16 +94,22 @@
 		<!-- Header -->
 		<header class="header" id="contact">
 			<!-- Header Inner -->
-			<div class="header-inner" style="background: white;">
+			<div class="header-inner" style="background: white; padding-bottom: 20px;">
 				<div class="container">
-					<div class="row">
-						<div class="col-lg-3 col-md-3 col-12">
+					<div class="row"> 
+						<div class="col-lg-5 col-md-3 col-12">
 							<div class="logo">
-								<a href="index.html"><img src="<?= base_url('assets/biodata/') ?><?= $biodata->logo_sekolah; ?>" alt="#"></a>
+								<a href="#"><img src="<?= base_url('assets/biodata/') ?><?= $biodata->logo_sekolah; ?>" alt="#" style="width: 70px; height: 70px;">
+								</a>
+								<span  style="padding: 20px;">
+									<h3><?= $biodata->nama_sekolah ?> </h3>
+									<?= $biodata->alamat_sekolah ?>
+										
+								</span>
 							</div>
 							<div class="mobile-menu"></div>
 						</div>
-						<div class="col-lg-9 col-md-9 col-12">
+						<div class="col-lg-7 col-md-9 col-12">
 							<!-- Header Widget -->
 							<div class="header-widget">
 								<div class="single-widget">
@@ -112,7 +118,7 @@
 								</div>
 								<div class="single-widget">
 									<i class="fa fa-envelope-o"></i>
-									<h4>Send Message<a href="<?= $biodata->email_sekolah ?>"><span><?= $biodata->email_sekolah; ?></span></a></h4>
+									<h4>Send Message<a href="#"><span><?= $biodata->email_sekolah; ?></span></a></h4>
 								</div>
 								<div class="single-widget">
 									<i class="fa fa-map-marker"></i>
@@ -136,11 +142,12 @@
 									<?php $link = $this->uri->segment(2); ?>
 									<ul id="nav" class="nav menu navbar-nav">
 										<li <?= ($link == '') ? 'class="active"' : '' ?>><a href="<?= base_url('user') ?>">Home</a></li>
+										<li <?= ($link == 'berita' || $link == 'cariBerita') ? 'class="active"' : '' ?>><a href="<?= base_url('user/berita') ?>">Berita</a></li>
 										<li <?= ($link == 'portfolio') ? 'class="active"' : '' ?>><a href="<?= base_url('user/portfolio') ?>">Portfolio</a></li>
 										<li <?= ($link == 'wali_kelas' || $link == 'detail_wali_kelas') ? 'class="active"' : '' ?>><a href="<?= base_url('user/wali_kelas') ?>">Wali Kelas</a></li>
 										<li <?= ($link == 'guru' || $link == 'detail_guru') ? 'class="active"' : '' ?>><a href="<?= base_url('user/guru') ?>">Guru</a></li>
 										<li <?= ($link == 'siswa') ? 'class="active"' : '' ?>><a href="<?= base_url('user/siswa') ?>">Siswa</a></li>
-										<li><a href="<?= base_url('user') ?>#Ekstrakulikuler">Ekstrakulikuler</a></li>
+										<li <?= ($link == 'jurusan' || $link == 'detail_jurusan' ) ? 'class="active"' : '' ?> ><a href="<?= base_url('user/jurusan') ?>">Program Keahlian</a></li>
 										<li><a href="<?= base_url('auth') ?>">Login</a></li>
 									</ul>
 									<!-- End Main Menu -->

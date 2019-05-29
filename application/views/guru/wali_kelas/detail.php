@@ -185,7 +185,11 @@
                   <tr>
                     <th>Foto Siswa </th>
                     <th> : </th>
-                    <td><img src="<?= base_url('assets/siswa/').$siswa->foto_siswa; ?>" class="img img-thumbnail img-responsive" style="width: 100px; height: 100px;"></td>
+                    <td><?php if ($siswa->foto_siswa): ?>
+                      <img src="<?= base_url('assets/siswa/').$siswa->foto_siswa; ?>" class="img img-thumbnail img-responsive" style="width: 100px; height: 100px;">
+                    <?php else: ?>
+                      <img src="<?= base_url('assets/siswa/default.png'); ?>" class="img img-thumbnail img-responsive" style="width: 100px; height: 100px;">
+                    <?php endif; ?>
                   </tr>
               </table>
              </div>

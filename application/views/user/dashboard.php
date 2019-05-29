@@ -2,7 +2,7 @@
 <section class="home-slider">
 	<div class="slider-active">
 		<!-- Single Slider -->
-		<div class="single-slider overlay" style="background-image:url('http://foto2.data.kemdikbud.go.id/getImage/40310229/6.jpg')">
+		<div class="single-slider overlay" style="background-image:url(<?= base_url('assets/biodata/'.$biodata->slider_1) ?>)" style="width: 100%; height: 100%;">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12 container">
@@ -21,7 +21,7 @@
 		</div>
 		<!--/ End Single Slider -->
 		<!-- Single Slider -->
-		<div class="single-slider overlay" style="background-image:url('https://assets-a1.kompasiana.com/items/album/2015/07/26/067777500-1437784164-upacara-bendera2-55b45349f17a61f705c31aff.jpg')">
+		<div class="single-slider overlay" style="background-image:url(<?= base_url('assets/biodata/'.$biodata->slider_2) ?>)" style="width: 100%; height: 100%;">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-12 container">
@@ -99,20 +99,21 @@
 				<div class="blog-slider">
 					<?php foreach ($keahlian as $key): ?>
 					<!-- Single Blog -->
-					<div class="single-blog">
+					<div class="single-blog" style="overflow: hidden;">
 						<div class="blog-head overlay">
 							<img src="<?= base_url('assets/jurusan/' . $key->foto_jurusan) ?>" style="height: 200px;">
 						</div>
-						<div class="blog-content" style="height: 400px;">
+						<div class="blog-content">
 							<h4 class="blog-title"><?= word_limiter($key->nama_jurusan, 4) ?><hr>
 							</h4>
-							<div class="blog-info">
+							<div class="blog-info" style="min-height: 280px;">
 								
+							<p ><?= word_limiter($key->keterangan_jurusan, 30) ?></p>
 							</div>
-							<p><?= word_limiter($key->keterangan_jurusan, 50) ?></p>
-							<div class="button">
-								<br>
+							<div class="button text-center">
+								<a href="<?= base_url('user/detail_jurusan/').md5($key->id_jurusan) ?>" class="btn bg-dark">Read More</a>
 							</div>
+
 						</div>
 					</div>
 					<!-- End Single Blog -->
@@ -149,12 +150,9 @@
 							<b><?= $key->nama_kelas ?><br> <?= $key->nama_jurusan ?></b>
 							</span>
 						</h4>
-						<br><br>
-						<ul class="social">
-							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-							<li><a href="#"><i class="fa fa-youtube"></i></a></li>
+						<ul class="button">
+							<br><br><br>
+								<a href="<?= base_url('user/detail_wali_kelas/').md5($key->id_guru) ?>" class="btn bg-dark">Read More</a>
 						</ul>
 					</div>
 				</div>

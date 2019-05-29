@@ -5,8 +5,9 @@
     <small><?= $judul ?></small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="<?= base_url('admin/portfolio'); ?>"><i class="fa fa-camera"></i> Portfolio</a></li>
-    <li class="active"><?= $judul; ?></li>
+    <li><i class="fa fa-list"></i> Master</li>
+        <li><a href="<?= base_url('admin/portfolio') ?>"> <?= $title; ?></a></li>
+        <li class="active"><?= $judul; ?></li>
   </ol>
 </section>
 

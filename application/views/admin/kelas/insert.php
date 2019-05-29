@@ -5,8 +5,9 @@
     <small><?= $judul ?></small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="<?= base_url('admin/kelas'); ?>"><i class="glyphicon glyphicon-stats"></i> Kelas</a></li>
-    <li class="active"><?= $judul; ?></li>
+    <li><i class="fa fa-gear"></i> Setting</li>
+        <li><a href="<?= base_url('admin/kelas') ?>"> <?= $title; ?></a></li>
+        <li class="active"><?= $judul; ?></li>
   </ol>
 </section>
 
@@ -34,7 +35,7 @@
             <!-- /.box-body -->
 
           <div class="box-footer text-right">
-            <a href="<?= base_url('admin/pelajaran') ?>" class="btn btn-default"><i class="fa fa-reply"></i> Kembali</a>&nbsp;&nbsp;
+            <a href="<?= base_url('admin/kelas') ?>" class="btn btn-default"><i class="fa fa-reply"></i> Kembali</a>&nbsp;&nbsp;
             <button type="submit" class="btn btn-primary">Save <i class="fa fa-save"></i></button>
           </div>
         </form>

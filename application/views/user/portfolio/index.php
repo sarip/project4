@@ -13,7 +13,7 @@
 				<!-- Single Team -->
 				<div class="single-team">
 					<div class="image">
-						<img src="<?= base_url('assets/portfolio/') .$key->foto ?>">
+						<img src="<?= base_url('assets/portfolio/') .$key->foto ?>" style="width: 300px; height: 200px">
 						<a href="<?= base_url('assets/portfolio/') .$key->foto ?>" data-fancybox="photo"><i class="fa fa-search"></i></a>
 					</div>
 					<!--team-content -->

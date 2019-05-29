@@ -5,8 +5,9 @@
     <small><?= $judul ?></small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="<?= base_url('admin/biodata'); ?>"><i class="fa fa-eye"></i> Biodata</a></li>
-    <li class="active"><?= $judul; ?></li>
+   <li><i class="fa fa-gear"></i> Setting</li>
+        <li><a href="<?= base_url('admin/biodata') ?>"> <?= $title; ?></a></li>
+        <li class="active"><?= $judul; ?></li>
   </ol>
 </section>
 
@@ -46,6 +47,21 @@
               <?= form_error('misi', '<small><i class="text-danger">', '</i></small>') ?>
             </div><br>
 
+            <div class="form-group">
+              <label for="logo"><i class="fa fa-pencil"></i> Silder 1</label><br> <br>
+              <img src="<?= base_url('assets/biodata/').$biodata->slider_1 ?>" class="img img-responsive img-thumbnail" style="width: 200px; height: 170px"><br><br>
+              <input type="file" name="slider_1">
+              <i class="text-warning">*abaikan jika tidak akan merubah slider ke-1</i>
+            </div><br>
+
+            <div class="form-group">
+              <label for="logo"><i class="fa fa-pencil"></i> Silder 2</label><br> <br>
+              <img src="<?= base_url('assets/biodata/').$biodata->slider_2 ?>" class="img img-responsive img-thumbnail" style="width: 200px; height: 170px"><br><br>
+              <input type="file" name="slider_2">
+              <i class="text-warning">*abaikan jika tidak akan merubah slider ke-2</i>
+            </div><br>
+
+
             <div class="form-group <?= form_error('email_sekolah') ? 'has-error' : '' ?>">
               <label for="email_sekolah"><i class="fa fa-pencil"></i> Email Sekolah</label>
               <input type="text" name="email_sekolah" class="form-control" id="email_sekolah" placeholder="Enter Nama Sekolah"  value="<?= $biodata->email_sekolah ?>">
@@ -73,13 +89,13 @@
             <div class="form-group">
               <label for="logo"><i class="fa fa-pencil"></i> Logo Sekolah</label><br> <br>
               <img src="<?= base_url('assets/biodata/').$biodata->logo_sekolah ?>" class="img img-responsive img-thumbnail" style="width: 200px; height: 170px"><br><br>
-              <input type="file" name="foto" class="form-control">
+              <input type="file" name="logo_sekolah" class="form-control">
               <i class="text-warning">*abaikan jika tidak akan merubah Logo Sekolah</i>
             </div><br>
             <!-- /.box-body -->
 
           <div class="box-footer text-right">
-            <a href="<?= base_url('admin/jurusan') ?>" class="btn btn-default"><i class="fa fa-reply"></i> Kembali</a>&nbsp;&nbsp;
+            
             <button type="submit" class="btn btn-primary">Save <i class="fa fa-save"></i></button>
           </div>
         <?= form_close() ?>

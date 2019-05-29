@@ -9,7 +9,7 @@ class Admin extends CI_Controller {
 			$this->session->set_flashdata('message', '<div class="alert alert-danger"><i class="fa fa-warning"></i> Ooppss... Silahkan Login Terlebih Dahulu! </div>');
 			redirect('auth');
 		}
-		$this->load->model(['M_portfolio', 'M_extra', 'M_biodata', 'M_siswa', 'M_guru', 'M_wali_kelas', 'M_pelajaran', 'M_mengajar', 'M_nilai', 'M_kelas', 'M_jurusan', 'M_kepsek']);
+		$this->load->model(['M_portfolio', 'M_extra', 'M_biodata', 'M_siswa', 'M_guru', 'M_wali_kelas', 'M_pelajaran', 'M_mengajar', 'M_nilai', 'M_kelas', 'M_jurusan', 'M_kepsek', 'M_berita']);
 	}
 
 
@@ -27,6 +27,7 @@ class Admin extends CI_Controller {
 		$data['walikelas']		= $this->M_wali_kelas->get()->num_rows();
 		$data['portfolio']		= $this->M_portfolio->get()->num_rows();
 		$data['extra']			= $this->M_extra->get()->num_rows();
+		$data['berita']			= $this->M_berita->get()->num_rows();
 		$data['kepsek']			= $this->M_kepsek->get()->row();
 		if (isset($_POST['save'])) {
 			$this->form_validation->set_rules('nip', 'NIP', 'trim|required');
@@ -65,10 +66,67 @@ class Admin extends CI_Controller {
 	}
 
 
-	// START :: KEPALA SEKOLAH
-	public function update_kepsek(){
 
+
+	// START :: BERITA
+	public function berita(){
+		$data['title']		= 'Berita Sekolah';
+		$data['judul']		= 'Halaman Data Berita Sekolah';
+		$data['berita']	= $this->M_berita->get()->result();
+		$this->mylibrary->templateadmin('berita/index', $data);
 	}
+
+	public function insert_berita(){
+		$this->form_validation->set_rules('content', 'Content', 'trim|required|min_length[5]');
+		$this->form_validation->set_rules('slogan', 'Slogan', 'trim|required|min_length[5]');
+		if ($this->form_validation->run() === TRUE) {
+			if ($this->M_berita->insert()) {
+				$this->session->set_flashdata('message', 'Data berita berhasil di tambahkan');
+			}else{
+				$this->session->set_flashdata('failed', 'Data berita gagal di tambahkan');
+			}
+			redirect('admin/berita','refresh');
+		}
+		$data['title']		= 'Berita Sekolah';
+		$data['judul']		= 'Halaman Tambah Berita Sekolah';
+		$this->mylibrary->templateadmin('berita/insert', $data);
+	}
+
+	public function update_berita($id){
+		$this->form_validation->set_rules('content', 'Content', 'trim|required|min_length[5]');
+		$this->form_validation->set_rules('slogan', 'Slogan', 'trim|required|min_length[5]');
+		if ($this->form_validation->run() === TRUE) {
+			if ($this->M_berita->update($id)) {
+				$this->session->set_flashdata('message', 'Data berita berhasil di edit');
+			}else{
+				$htis->session->set_flashdata('failed', 'Data berita gagal di edit');
+			}
+			redirect('admin/berita','refresh');
+		}
+		$data['title']		= 'Berita Sekolah';
+		$data['berita']		= $this->M_berita->get(['md5(id_berita)' => $id])->row();
+		$data['judul']		= 'Halaman Edit Berita Sekolah';
+		$this->mylibrary->templateadmin('berita/update', $data);
+	}
+
+	public function delete_berita($id){
+		if ($this->M_berita->delete($id)) {
+			$this->session->set_flashdata('message', 'Data berita berhasil di hapus');
+		}else{
+			$this->session->set_flashdata('failed', 'Data berita gagal di hapus');
+		}
+		redirect('admin/berita','refresh');
+	}
+	public function detail_berita($id)
+	{
+		$data['title']	= 'Detail Berita';
+		$data['judul']	= 'Halaman Detail Berita';
+		$data['berita']	= $this->M_berita->get(['md5(id_berita)' => $id])->row();
+		$this->mylibrary->templateadmin('berita/detail', $data);
+	}
+	// END :: BERITA
+
+
 
 
 
@@ -721,9 +779,6 @@ class Admin extends CI_Controller {
 				'a_4' 		=> $this->input->post('a_4'),
 				'a_5' 		=> $this->input->post('a_5'),
 				'a_6' 		=> $this->input->post('a_6'),
-				'th_1'		=> $this->input->post('th_1'),
-				'th_2'		=> $this->input->post('th_2'),
-				'th_3'		=> $this->input->post('th_3'),
 				'catatan'	=> $this->input->post('catatan')
 			];
 			if ($this->M_siswa->update_absen($rows, ['md5(id_siswa)' => $id])) {

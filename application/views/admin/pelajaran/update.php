@@ -5,8 +5,9 @@
     <small><?= $judul ?></small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="<?= base_url('admin/siswa'); ?>"><i class="glyphicon glyphicon-list-alt"></i> Siswa</a></li>
-    <li class="active"><?= $judul; ?></li>
+    <li><i class="fa fa-gear"></i> Setting</li>
+        <li><a href="<?= base_url('admin/pelajaran') ?>"> <?= $title; ?></a></li>
+        <li class="active"><?= $judul; ?></li>
   </ol>
 </section>
 

@@ -69,9 +69,9 @@
                        <tbody>
                          <tr>
                            <th rowspan="2" width="20%" class="text-center"><i class="fa fa-pencil"></i></th>
-                           <th colspan="2" class="text-center" style="padding: 5px;"><input type="text" name="th_1" style="width: 100%;padding: 5px; background: rgba(0,0,0,0.0); border: 0px solid white;" value="<?= $nilai->th_1 ?>" placeholder="0000 - 0000"></th>
-                           <th colspan="2" class="text-center" style="padding: 5px;"><input type="text" name="th_2" style="width: 100%;padding: 5px; background: rgba(0,0,0,0.0); border: 0px solid white;" value="<?= $nilai->th_2 ?>" placeholder="0000 - 0000"></th>
-                           <th colspan="2" class="text-center" style="padding: 5px;"><input type="text" name="th_3" style="width: 100%;padding: 5px; background: rgba(0,0,0,0.0); border: 0px solid white;" value="<?= $nilai->th_3 ?>" placeholder="0000 - 0000"></th>
+                           <th colspan="2" class="text-center" style="padding: 5px;">X</th>
+                           <th colspan="2" class="text-center" style="padding: 5px;">XI</th>
+                           <th colspan="2" class="text-center" style="padding: 5px;">XII</th>
                          </tr>
                          <tr>
                           <th class="text-center">Ganjil</th>

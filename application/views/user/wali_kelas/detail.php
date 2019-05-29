@@ -57,6 +57,17 @@
 								<th><?= $jml_siswa ?> - Orang</th>
 							</tr>
 						</table>
+						<hr><br><br><br>
+						<span>* Data mengajar</span><br><br>
+						<table class="table table-striped table-bordered">
+							<?php foreach ($mengajar as $key): ?>
+								<tr>
+									<td><?= $key->nama_kelas ?> <?= $key->nama_jurusan ?></td>
+									<td><i class="fa fa-arrow-right"></i></td>
+									<td><?= $key->nama_pelajaran ?></td>
+								</tr>
+							<?php endforeach ?>
+						</table>
 					</p>
 					<!-- <p><?= $wali_kelas->kata_sambutan ?></p> -->
 					<div class="skill-main">

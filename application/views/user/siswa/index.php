@@ -14,7 +14,7 @@
               				<div class="learnedu-sidebar" style="border: none;">
 	              				<div class="search">
 									<div class="form">
-										<input type="number" name="nis" placeholder="Percarian Siswa Berdasarkan NIS" autofocus value="<?= set_value('nis') ?>">
+										<input type="number" name="nis" placeholder="Percarian Siswa Berdasarkan NIS" autofocus value="<?= set_value('nis') ?>" autocomplete="off">
 										<button class="button"><i class="fa fa-search"></i></button>
 									</div>
 								</div><br>
@@ -31,7 +31,7 @@
 </section>
 <!--/ End Team -->
 <?php if (@$siswa): ?>
-<section class="courses single section">
+<section class="courses single section" style="margin-top: -100px;">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
@@ -114,9 +114,9 @@
 									<thead>
 									  <tr class="text-center">
 									    <th rowspan="3" width="2%" class="text-center">&nbsp;Mata Pelajaran</th>
-									    <th colspan="4"><?= ($siswa->th_1) ? 'Th. '. $siswa->th_1 : 'Th. 0000-0000' ?></th>
-									    <th colspan="4"><?= ($siswa->th_2) ? 'Th. '. $siswa->th_2 : 'Th. 0000-0000' ?></th>
-									    <th colspan="4"><?= ($siswa->th_3) ? 'Th. '. $siswa->th_3 : 'Th. 0000-0000' ?></th>
+									    <th colspan="4" class="text-center">X</th>
+									    <th colspan="4" class="text-center">Xi</th>
+									    <th colspan="4" class="text-center">Xii</th>
 									     <th rowspan="3" class="text-center" width="2%">NI</th>
 									    <th rowspan="3" class="text-center" width="2%">NS</th>
 									  </tr>

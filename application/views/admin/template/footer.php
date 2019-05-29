@@ -65,9 +65,9 @@
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.0
+      <b>Version</b> 1.0.1
     </div>
-    <strong>Copyright &copy; 2018-2010 <a href="https://adminlte.io">Lamun Coding</a>.</strong> All rights
+    <strong>Copyright &copy; <?= date('Y').' - '.date('Y', strtotime('+3 year')) ?> <a href="https://adminlte.io">Lamun Coding</a>.</strong> All rights
     reserved.
   </footer>
 
@@ -306,6 +306,10 @@
 
         audio.play();
   }
+
+  $('.btn').on('click', function(){
+    $(this).html('<i class="fa fa-spin fa-spinner"></i> ..');
+  })
    //iCheck for checkbox and radio inputs
     $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
       checkboxClass: 'icheckbox_minimal-blue',

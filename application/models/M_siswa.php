@@ -24,9 +24,34 @@ class M_siswa extends CI_Model {
 		$this->load->library('upload', $config);
 		
 		if ( ! $this->upload->do_upload('foto_siswa')){
-			$error = array('error' => $this->upload->display_errors());
-			echo $error;
-			return false;
+			$data = [
+				'nis'			 				=> htmlspecialchars($this->input->post('nis')),
+				'id_kelas'						=> htmlspecialchars($this->input->post('id_kelas')),
+				'id_jurusan'					=> htmlspecialchars($this->input->post('id_jurusan')),
+				'nama_siswa' 					=> htmlspecialchars($this->input->post('nama_siswa')),
+				'jenis_kelamin' 				=> htmlspecialchars($this->input->post('jenis_kelamin')),
+				'tempat_lahir' 					=> htmlspecialchars($this->input->post('tempat_lahir')),
+				'tanggal_lahir' 				=> htmlspecialchars($this->input->post('tanggal_lahir')),
+				'warga_negara' 					=> htmlspecialchars($this->input->post('warga_negara')),
+				'agama' 						=> htmlspecialchars($this->input->post('agama')),
+				'alamat_siswa' 					=> htmlspecialchars($this->input->post('alamat_siswa')),
+				'nama_orang_tua' 				=> htmlspecialchars($this->input->post('nama_orang_tua')),
+				'pekerjaan' 					=> htmlspecialchars($this->input->post('pekerjaan')),
+				'alamat_orang_tua' 				=> htmlspecialchars($this->input->post('alamat_orang_tua')),
+				'nama_wali' 					=> htmlspecialchars($this->input->post('nama_wali')),
+				'pekerjaan_wali' 				=> htmlspecialchars($this->input->post('pekerjaan_wali')),
+				'alamat_wali' 					=> htmlspecialchars($this->input->post('alamat_wali')),
+				'tanggal_masuk' 				=> htmlspecialchars($this->input->post('tanggal_masuk')),
+				'asal_sekolah' 					=> htmlspecialchars($this->input->post('asal_sekolah')),
+				'alamat_sekolah' 				=> htmlspecialchars($this->input->post('alamat_sekolah')),
+				'nomor_sttb' 					=> htmlspecialchars($this->input->post('nomor_sttb')),
+				'tanggal_sttb' 					=> htmlspecialchars($this->input->post('tanggal_sttb')),
+				'tanggal_meninggalkan_sekolah' 	=> htmlspecialchars($this->input->post('tanggal_meninggalkan_sekolah')),
+				'alasan_meninggalkan_sekolah' 	=> htmlspecialchars($this->input->post('alasan_meninggalkan_sekolah')),
+				'tamat_nomor_sttb' 				=> htmlspecialchars($this->input->post('tamat_nomor_sttb')),
+				'tamat_tanggal_sttb' 			=> htmlspecialchars($this->input->post('tamat_tanggal_sttb')),
+				'keterangan_lain' 				=> htmlspecialchars($this->input->post('keterangan_lain'))
+			];
 		}
 		else{
 			$foto = $this->upload->data();
@@ -60,9 +85,9 @@ class M_siswa extends CI_Model {
 				'foto_siswa' 					=> $foto['file_name']
 			];
 			
-			$this->db->insert('siswa', $data);
-			return $this->db->insert_id();
 		}
+		$this->db->insert('siswa', $data);
+		return $this->db->insert_id();
 	}
 
 	function update($id){

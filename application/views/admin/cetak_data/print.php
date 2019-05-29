@@ -8,25 +8,25 @@
 <link rel="stylesheet" href="<?= base_url() ?>assets/bower_components/font-awesome/css/font-awesome.min.css">
 
 <body>
-	<div style="padding: 60px;">
+	<div style="padding:0px 60px;">
 
-		<br>
 		<?php foreach ($dataSiswa as $siswa): ?>
 		
 			
 
-		<div class="row">
-			
-			
-			<table class="table table-striped">
-				<tr>
-					<td>
-					<img src="<?= base_url('assets/biodata/').$sekolah->logo_sekolah ?>" class="img img-responsive" style="width: 100%; height: 130px;"></td>
-
-					<td colspan="2" style="padding-left: 50px;"><h3><?= $sekolah->nama_sekolah ?></h3>
+		<div class="row" style="padding-top: 15px">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" >
+					<img src="<?= base_url('assets/biodata/').$sekolah->logo_sekolah ?>" class="img img-responsive pull-left" style="width: 150px; height: 150px;">
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center" >
+					<h2><?= $sekolah->nama_sekolah ?></h2>
 					<p><?= $sekolah->alamat_sekolah; ?></p>
-					<b><?= $sekolah->no_telepon_sekolah; ?></b></td>
-				</tr>
+					<b>No.telp <?= $sekolah->no_telepon_sekolah; ?></b>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" >
+					<img src="<?= base_url('assets/biodata/tasik.png') ?>" style="width: 150px; height: 150px;" class="img img-responsive pull-right">
+				</div>
+			<table class="table table-striped">
 				<tr>
 					<td colspan="3"><hr style="border: 1px solid black;">
 					<hr style="border: 3px solid black; margin-top: -1%;"></td>
@@ -155,7 +155,13 @@
 						<td><?= $this->mylibrary->date_indo($siswa->tamat_tanggal_sttb); ?></td>
 					</tr>
 				<tr>
-					<td><br><img src="<?= base_url('assets/siswa/').$siswa->foto_siswa ?>" class="img img-responsive img-thumbnail" style="width: 200px; height: 200px; margin-left: 100px"></td>
+					<td><br>
+						<?php if ($siswa->foto_siswa): ?>
+							<img src="<?= base_url('assets/siswa/').$siswa->foto_siswa ?>" class="img img-responsive img-thumbnail" style="width: 200px; height: 200px; margin-left: 100px">
+							<?php else: ?>
+								<img src="<?= base_url('assets/siswa/default.png') ?>" class="img img-responsive img-thumbnail" style="width: 200px; height: 200px; margin-left: 100px">
+						<?php endif ?>
+						</td>
 					<td colspan="2" style="padding-left: 200px;"><br>
 						Kadipaten, <?= $this->mylibrary->date_indo(date('Y-m-d')); ?> <br>
 			Kepala SMK Negeri Kadipaten <br><br><br><br><br><br>
@@ -170,8 +176,8 @@
 
 			<br><br><br><br><br><br><br><br>
 			
-			<div style="min-height: 1530px;">
-				<table style="height: 73px;" width="384">
+			<div style="min-height: 1500px;">
+				<table width="384">
 					<tr>
 						<td style="width: 184px;">NIS</td>
 						<td style="width: 184px;">: <b><?= $siswa->nis; ?></td>
@@ -201,9 +207,9 @@
 				<thead>
 				  <tr>
 				    <th rowspan="3" width="2%" class="text-center">&nbsp;Mata Pelajaran</th>
-				    <th colspan="4">&nbsp; Tahun : <?= $siswa->th_1 ?></th>
-				    <th colspan="4">&nbsp; Tahun : <?= $siswa->th_2 ?></th>
-				    <th colspan="4">&nbsp; Tahun : <?= $siswa->th_3 ?></th>
+				    <th class="text-center" colspan="4"> X </th>
+				    <th class="text-center" colspan="4"> XI </th>
+				    <th class="text-center" colspan="4"> XII </th>
 				     <th rowspan="3" class="text-center" width="2%">NI</th>
 				    <th rowspan="3" class="text-center" width="2%">NS</th>
 				  </tr>
